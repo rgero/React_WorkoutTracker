@@ -8,6 +8,7 @@ import DashboardPage from '../components/DashboardPage';
 import LoginPage from '../components/LoginPage';
 import NotFoundPage from '../components/NotFoundPage';
 import CreateWorkout from '../components/CreateWorkout'
+import CreateExercise from '../components/CreateExercise';
 
 export const history = createHistory();
 
@@ -17,7 +18,8 @@ const AppRouter = () => (
       <Switch>
         <PublicRoute path="/" component={LoginPage} exact={true} />
         <PrivateRoute path="/dashboard" component={DashboardPage} />
-        <PrivateRoute path="/create" component={CreateWorkout} />
+        <PrivateRoute path="/create/workout" component={CreateWorkout} />
+        <PrivateRoute path="/create/exercise" component={CreateExercise} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
