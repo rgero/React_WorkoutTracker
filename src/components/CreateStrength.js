@@ -7,13 +7,33 @@ export class CreateStrength extends React.Component {
     constructor(props){
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
-
+        this.handleAddSet = this.handleAddSet.bind(this);
+        this.handleRemoveSet = this.handleRemoveSet.bind(this);
+        this.handleSetRepsChange = this.handleSetRepsChange.bind(this);
+        this.handleSetWeightChange = this.handleSetWeightChange.bind(this);
 
         this.state= {
             name: props.exercise ? props.exercise.name : '',
             muscleGroup: props.exercise ? props.exercise.muscleGroup : '',
+            sets: props.exercise ? props.exercise.sets : [],
             error: ''
         };
+    }
+
+    handleSetRepsChange = (idx) => (evt) => {
+        //Stub
+    }
+
+    handleSetWeightChange = (idx) => (evt) => {
+        //Stub
+    }
+
+    handleAddSet = () => {
+        this.setState({ sets: this.state.sets.concat([{ reps: '', weight: '' }]) });
+    }
+
+    handleRemoveSet = (idx) => () => {
+        this.setState({ sets: this.state.sets.filter((s, sidx) => idx !== sidx) });
     }
 
     onSubmit(e){
@@ -26,7 +46,7 @@ export class CreateStrength extends React.Component {
             this.setState(()=>({error}))
             this.props.onSubmit({
 
-             })
+            })
         }
     }
 
@@ -60,8 +80,25 @@ export class CreateStrength extends React.Component {
                             onChange={this.onDescriptionChange}
                         />
                         <span className="label">Sets</span>
+                        {this.state.sets.map((set, idx) => (
+                            <div>
+                              <input
+                                type="text"
+                                placeholder="Reps"
+                                value={set.reps}
+                                onChange={this.handleSetRepsChange(idx)}
+                              />
+                              <input
+                                type="text"
+                                placeholder="Weight"
+                                value={set.weight}
+                                onChange={this.handleSetWeightChange(idx)}
+                                />
+                              <button type="button" onClick={this.handleRemoveSet(idx)} className="small">-</button>
+                            </div>
+                          ))}
+                          <button type="button" onClick={this.handleAddSet} className="small">Add Set</button>
                     </form>
-                    <SetList/>
                     <div>
                         <button className="button">Save Exercise</button>
                     </div>
