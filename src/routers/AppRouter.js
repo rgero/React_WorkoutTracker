@@ -7,8 +7,9 @@ import PublicRoute from './PublicRoute';
 import DashboardPage from '../components/DashboardPage';
 import LoginPage from '../components/LoginPage';
 import NotFoundPage from '../components/NotFoundPage';
-import CreateWorkout from '../components/CreateWorkout'
-import CreateExercise from '../components/CreateExercise';
+import CreateWorkout from '../components/CreateWorkout';
+import CreateCardio from '../components/CreateCardio';
+import CreateStrength from '../components/CreateStrength';
 
 export const history = createHistory();
 
@@ -18,8 +19,9 @@ const AppRouter = () => (
       <Switch>
         <PublicRoute path="/" component={LoginPage} exact={true} />
         <PrivateRoute path="/dashboard" component={DashboardPage} />
-        <PrivateRoute path="/create/workout" component={CreateWorkout} />
-        <PrivateRoute path="/create/exercise" component={CreateExercise} />
+        <PrivateRoute path="/create/cardio" component={CreateCardio} />
+        <PrivateRoute path="/create/strength" component={CreateStrength} />
+        <PrivateRoute path="/create" component={CreateWorkout} exact={true}/>
         <Route component={NotFoundPage} />
       </Switch>
     </div>

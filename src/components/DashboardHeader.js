@@ -18,8 +18,6 @@ export const DashboardHeader = (props) => (
 
 const mapStateToProps = (state)=>{
     return {
-        expenses: state.expenses,
-        filters: state.filters
     };
 }
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
+import ExerciseList from './ExerciseList';
 
 export class CreateWorkoutPage extends React.Component {
     constructor(props){
@@ -20,7 +22,15 @@ export class CreateWorkoutPage extends React.Component {
                     </div>
                 </div>
                 <div className="content-container">
-                    Coming Soon.
+                    <div>
+                        <ExerciseList/>
+                    </div>
+                    <div className="addExercise">
+                        <Link className="button" to="/create/cardio">Add Cardio</Link>
+                        <Link className="button" to="/create/strength">Add Strength</Link>
+                    </div>
+
+
                 </div>
             </div>
         )
@@ -32,4 +42,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(undefined, mapDispatchToProps)(CreateWorkoutPage); // Check out the react-redux documentation to understand the connect statement here.
+export default connect(undefined, undefined)(CreateWorkoutPage); // Check out the react-redux documentation to understand the connect statement here.
