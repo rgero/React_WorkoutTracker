@@ -11,6 +11,7 @@ export class CreateStrength extends React.Component {
 
         this.state= {
             name: props.exercise ? props.exercise.name : '',
+            type: props.exercise ? props.exercise.type : 'strength',
             muscleGroup: props.exercise ? props.exercise.muscleGroup : '',
             sets: props.exercise ? props.exercise.sets : [],
             error: ''
