@@ -9,8 +9,7 @@ export class CreateStrength extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.handleAddSet = this.handleAddSet.bind(this);
         this.handleRemoveSet = this.handleRemoveSet.bind(this);
-        this.handleSetRepsChange = this.handleSetRepsChange.bind(this);
-        this.handleSetWeightChange = this.handleSetWeightChange.bind(this);
+        this.handleSetChange = this.handleSetChange.bind(this);
 
         this.state= {
             name: props.exercise ? props.exercise.name : '',
@@ -20,12 +19,19 @@ export class CreateStrength extends React.Component {
         };
     }
 
-    handleSetRepsChange = (idx) => (evt) => {
-        //Stub
-    }
-
-    handleSetWeightChange = (idx) => (evt) => {
-        //Stub
+    handleSetChange = (idx, key) => (evt) => {
+        const sets = this.state.sets;
+        const currentSet = sets[idx];
+        if (key === "reps"){
+            currentSet.reps = evt.target.value;
+        } else if (key === "weight"){
+            currentSet.weight = evt.target.value;
+        }
+        sets[idx] = currentSet;
+        console.log(sets)
+        this.setState({
+            sets
+        })
     }
 
     handleAddSet = () => {
@@ -86,13 +92,13 @@ export class CreateStrength extends React.Component {
                                 type="text"
                                 placeholder="Reps"
                                 value={set.reps}
-                                onChange={this.handleSetRepsChange(idx)}
+                                onChange={this.handleSetChange(idx, 'reps')}
                               />
                               <input
                                 type="text"
                                 placeholder="Weight"
                                 value={set.weight}
-                                onChange={this.handleSetWeightChange(idx)}
+                                onChange={this.handleSetChange(idx,'weight')}
                                 />
                               <button type="button" onClick={this.handleRemoveSet(idx)} className="small">-</button>
                             </div>
