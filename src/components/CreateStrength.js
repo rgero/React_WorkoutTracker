@@ -1,8 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import SetList from './SetList';
-
 export class CreateStrength extends React.Component {
     constructor(props){
         super(props);
@@ -48,10 +46,13 @@ export class CreateStrength extends React.Component {
         if(!this.state.name){
             error = "Please provide a name"
             this.setState(()=>({error}))
+            console.log("called")
         } else {
             this.setState(()=>({error}))
             this.props.onSubmit({
-
+                name: this.state.name,
+                muscleGroup: this.state.muscleGroup,
+                sets: this.state.sets
             })
         }
     }
