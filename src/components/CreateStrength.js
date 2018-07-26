@@ -8,6 +8,7 @@ export class CreateStrength extends React.Component {
         this.handleAddSet = this.handleAddSet.bind(this);
         this.handleRemoveSet = this.handleRemoveSet.bind(this);
         this.handleSetChange = this.handleSetChange.bind(this);
+        this.onTextChange = this.onTextChange.bind(this);
 
         this.state= {
             name: props.exercise ? props.exercise.name : '',
@@ -18,19 +19,37 @@ export class CreateStrength extends React.Component {
         };
     }
 
-    handleSetChange = (idx, key) => (evt) => {
-        const sets = this.state.sets;
-        const currentSet = sets[idx];
-        if (key === "reps"){
-            currentSet.reps = evt.target.value;
-        } else if (key === "weight"){
-            currentSet.weight = evt.target.value;
+    onTextChange = (value) => (evt) => {
+        if (value === "name"){
+            const name = evt.target.value;
+            this.setState({
+                name
+            })
+        } else if (value === "muscleGroup"){
+            const muscleGroup = evt.target.value;
+            this.setState({
+                muscleGroup
+            })
         }
-        sets[idx] = currentSet;
-        console.log(sets)
-        this.setState({
-            sets
-        })
+    }
+
+    handleSetChange = (idx, key) => (evt) => {
+        const amount = evt.target.value;
+        if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
+            const sets = this.state.sets;
+            const currentSet = sets[idx];
+            if (key === "reps"){
+                currentSet.reps = evt.target.value;
+            } else if (key === "weight"){
+                currentSet.weight = evt.target.value;
+            }
+            sets[idx] = currentSet;
+            this.setState({
+                sets
+            })
+        } else {
+
+        }
     }
 
     handleAddSet = () => {
@@ -50,11 +69,15 @@ export class CreateStrength extends React.Component {
             console.log("called")
         } else {
             this.setState(()=>({error}))
-            this.props.onSubmit({
+            const newExercise = {
                 name: this.state.name,
                 muscleGroup: this.state.muscleGroup,
                 sets: this.state.sets
-            })
+            }
+            this.props.history.push({
+                pathname: '/create',
+                state: { newExercise }
+              })
         }
     }
 
@@ -76,7 +99,7 @@ export class CreateStrength extends React.Component {
                             placeholder="Name"
                             autoFocus
                             value={this.state.name}
-                            onChange={this.onDescriptionChange}
+                            onChange={this.onTextChange("name")}
                         />
                         <span className="label">Muscle Group</span>
                         <input
@@ -84,8 +107,8 @@ export class CreateStrength extends React.Component {
                             className="text-input"
                             placeholder="Muscle Group"
                             autoFocus
-                            value={this.state.name}
-                            onChange={this.onDescriptionChange}
+                            value={this.state.muscleGroup}
+                            onChange={this.onTextChange("muscleGroup")}
                         />
                         <span className="label">Sets</span>
                         {this.state.sets.map((set, idx) => (
@@ -108,7 +131,7 @@ export class CreateStrength extends React.Component {
                           <button type="button" onClick={this.handleAddSet} className="small">Add Set</button>
                     </form>
                     <div>
-                        <button className="button">Save Exercise</button>
+                        <button className="button" onClick={this.onSubmit}>Save Exercise</button>
                     </div>
                 </div>
             </div>

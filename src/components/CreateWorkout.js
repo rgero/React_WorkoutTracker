@@ -7,6 +7,7 @@ export class CreateWorkoutPage extends React.Component {
     constructor(props){
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
+        console.log(this.props.location.state.newExercise)
     }
 
     onSubmit(){
