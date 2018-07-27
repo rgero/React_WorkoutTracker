@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import {addExercise} from '../actions/exercise';
+
 export class CreateStrength extends React.Component {
     constructor(props){
         super(props);
@@ -15,6 +17,7 @@ export class CreateStrength extends React.Component {
             type: props.exercise ? props.exercise.type : 'strength',
             muscleGroup: props.exercise ? props.exercise.muscleGroup : '',
             sets: props.exercise ? props.exercise.sets : [],
+            workoutID: props.workoutID ? props.workoutID : '',
             error: ''
         };
     }
@@ -66,18 +69,17 @@ export class CreateStrength extends React.Component {
         if(!this.state.name){
             error = "Please provide a name"
             this.setState(()=>({error}))
-            console.log("called")
         } else {
             this.setState(()=>({error}))
             const newExercise = {
                 name: this.state.name,
+                type: "strength",
                 muscleGroup: this.state.muscleGroup,
-                sets: this.state.sets
+                sets: this.state.sets,
+                workoutID: this.state.workoutID
             }
-            this.props.history.push({
-                pathname: '/create',
-                state: { newExercise }
-              })
+            this.props.onSubmit(newExercise);
+            this.props.history.push(`/create/${newExercise.workoutID}/`)
         }
     }
 
@@ -141,7 +143,14 @@ export class CreateStrength extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        onSubmit: (exercise) => dispatch(addExercise(exercise))
     }
 }
 
-export default connect(undefined, undefined)(CreateStrength); // Check out the react-redux documentation to understand the connect statement here.
+const mapStateToProps = (state, props) => {
+    return {
+        workoutID: props.match.params.workoutID ? props.match.params.workoutID : uuid()
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateStrength); // Check out the react-redux documentation to understand the connect statement here.

@@ -19,8 +19,9 @@ const AppRouter = () => (
       <Switch>
         <PublicRoute path="/" component={LoginPage} exact={true} />
         <PrivateRoute path="/dashboard" component={DashboardPage} />
-        <PrivateRoute path="/create/cardio" component={CreateCardio} />
-        <PrivateRoute path="/create/strength" component={CreateStrength} />
+        <PrivateRoute path="/create/:workoutID/cardio" component={CreateCardio} />
+        <PrivateRoute path="/create/:workoutID/strength" component={CreateStrength} />
+        <PrivateRoute path="/create/:workoutID" component={CreateWorkout} exact={true}/>
         <PrivateRoute path="/create" component={CreateWorkout} exact={true}/>
         <Route component={NotFoundPage} />
       </Switch>
