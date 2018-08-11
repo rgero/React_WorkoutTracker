@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Page Snapshot Test 1`] = `
+<div
+  className="box-layout"
+>
+  <div
+    className="box-layout__box"
+  >
+    <h1
+      className="box-layout__title"
+    >
+      The Workout Tracker
+    </h1>
+    <p>
+      Tracking your workouts.
+    </p>
+    <button
+      className="button"
+      onClick={[Function]}
+    >
+      Login with Google
+    </button>
+  </div>
+</div>
+`;
