@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import TimeField from 'react-simple-timefield';
 
 import {addExercise} from '../actions/exercise';
 
@@ -9,12 +10,13 @@ export class CreateCardio extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.onTextChange = this.onTextChange.bind(this);
         this.handleValueChange = this.handleValueChange.bind(this);
+        this.onTimeChange = this.onTimeChange.bind(this);
 
         this.state= {
             name: props.exercise ? props.exercise.name : '',
             type: props.exercise ? props.exercise.type : 'cardio',
             distance: props.exercise ? props.exercise.distance : '0',
-            time: props.exercise ? props.exercise.distance : '0',
+            time: props.exercise ? props.exercise.distance : '00:10:30',
             workoutID: props.workoutID ? props.workoutID : '',
             error: ''
         };
@@ -43,6 +45,12 @@ export class CreateCardio extends React.Component {
         const name = evt.target.value;
         this.setState({
             name
+        })
+    }
+
+    onTimeChange = (value) => {
+        this.setState({
+            time: value
         })
     }
 
@@ -85,12 +93,17 @@ export class CreateCardio extends React.Component {
                                 onChange={this.onTextChange("name")}
                             />
                             <span className="label">Time</span>
-                            <input
-                                type="text"
-                                placeholder="0"
-                                value={this.state.time}
-                                onChange={this.handleValueChange('time')}
-                            />
+                            <div>
+                                <TimeField
+                                    className="text-input time-input"
+                                    value={this.state.time}
+                                    onChange={this.onTimeChange}
+                                    colon=":"
+                                    showSeconds={true}
+                                    
+                                />
+                                <span className="helpText">(Hour : Minute : Seconds)</span>
+                            </div>
                             <span className="label">Distance</span>
                             <input
                                 type="text"

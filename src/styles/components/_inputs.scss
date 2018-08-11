@@ -14,3 +14,13 @@
   @extend .text-input;
   height: 10rem;
 }
+
+.time-input {
+  min-width: 100px;
+}
+
+.helpText {
+  font-size: $font-size-small;
+  padding-left: $s-size;
+  font-style: italic;
+}
