@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard Header Snapshot Test 1`] = `
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h1
+      className="page-header__title"
+    >
+      Viewing 
+      <span>
+        0
+      </span>
+       workouts
+    </h1>
+    <div
+      className="page-header__action"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/create"
+      >
+        Add Workout
+      </Link>
+    </div>
+  </div>
+</div>
+`;

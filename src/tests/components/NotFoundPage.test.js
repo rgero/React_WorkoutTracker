@@ -2,7 +2,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import NotFoundPage from '../../components/NotFoundPage';
 
-test("Login Page Snapshot Test", ()=>{
+test("Not Found Snapshot Test", ()=>{
     const wrapper = shallow(<NotFoundPage/>)
     expect(wrapper).toMatchSnapshot();
 })

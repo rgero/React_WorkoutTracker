@@ -1,0 +1,21 @@
+Tests to write
+    actions
+        exercise
+        workout
+    components
+        CreateCardio
+        CreateStrength
+        CreateWorkout
+        LoadingPage
+    reducers
+        auth
+        exercise
+        workout
+    routers
+        AppRouter
+        PrivateRoute
+        PublicRoute
+    selectors
+        exercises
+    store
+        configureStore

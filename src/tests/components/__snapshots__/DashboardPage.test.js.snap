@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard Page Snapshot Test 1`] = `
+<div
+  className="content-container"
+>
+  <Connect(DashboardHeader) />
+  Dashboard page content
+</div>
+`;
