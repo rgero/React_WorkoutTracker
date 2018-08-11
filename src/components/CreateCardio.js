@@ -92,7 +92,7 @@ export class CreateCardio extends React.Component {
                                 value={this.state.name}
                                 onChange={this.onTextChange("name")}
                             />
-                            <span className="label">Time</span>
+                            <span className="label">Duration</span>
                             <div>
                                 <TimeField
                                     className="text-input time-input"
