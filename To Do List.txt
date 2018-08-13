@@ -6,7 +6,6 @@ Tests to write
         CreateCardio
         CreateStrength
         CreateWorkout
-        LoadingPage
     reducers
         auth
         exercise

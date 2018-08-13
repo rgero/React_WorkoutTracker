@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create Cardio Snapshot Test 1`] = `
+<div>
+  <div
+    className="page-header"
+  >
+    <div
+      className="content-container"
+    >
+      <h1
+        className="page-header__title"
+      >
+        Create Cardio
+      </h1>
+    </div>
+  </div>
+  <div
+    className="content-container"
+  >
+    <form
+      className="form"
+    >
+      <span
+        className="label"
+      >
+        Name
+      </span>
+      <input
+        autoFocus={true}
+        className="text-input"
+        onChange={[Function]}
+        placeholder="Name"
+        type="text"
+        value=""
+      />
+      <span
+        className="label"
+      >
+        Duration
+      </span>
+      <div>
+        <TimeField
+          className="text-input time-input"
+          colon=":"
+          input={null}
+          onChange={[Function]}
+          showSeconds={true}
+          style={Object {}}
+          value="00:10:30"
+        />
+        <span
+          className="helpText"
+        >
+          (Hour : Minute : Seconds)
+        </span>
+      </div>
+      <span
+        className="label"
+      >
+        Distance
+      </span>
+      <input
+        onChange={[Function]}
+        placeholder="0"
+        type="text"
+        value="0"
+      />
+    </form>
+    <div>
+      <button
+        className="button"
+        onClick={[Function]}
+      >
+        Save Exercise
+      </button>
+    </div>
+  </div>
+</div>
+`;
