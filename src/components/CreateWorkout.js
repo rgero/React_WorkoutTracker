@@ -6,10 +6,9 @@ import uuid from 'uuid';
 
 import {getValidExercises} from '../selectors/exercises';
 
-export class CreateWorkoutPage extends React.Component {
+export class CreateWorkout extends React.Component {
     constructor(props){
         super(props);
-        console.log(this.props.exercises)
         this.onSubmit = this.onSubmit.bind(this);
     }
 
@@ -23,18 +22,17 @@ export class CreateWorkoutPage extends React.Component {
                 <div className="page-header">
                     <div className="content-container">
                         <h1 className="page-header__title">Create Workout</h1>
+                        <button className="button" onClick={this.onSubmit}>Save Workout</button>
                     </div>
                 </div>
                 <div className="content-container">
                     <div>
-                        <ExerciseList/>
+                        <ExerciseList currentExercises={this.props.exercises}/>
                     </div>
                     <div className="addExercise">
                         <Link className="button" to={"/create/" + this.props.workoutID + "/cardio"}>Add Cardio</Link>
                         <Link className="button" to={"/create/" + this.props.workoutID + "/strength"}>Add Strength</Link>
                     </div>
-
-
                 </div>
             </div>
         )
@@ -54,4 +52,4 @@ const mapStateToProps = (state, props) => {
     };
 }
 
-export default connect(mapStateToProps, undefined)(CreateWorkoutPage); // Check out the react-redux documentation to understand the connect statement here.
+export default connect(mapStateToProps, undefined)(CreateWorkout); // Check out the react-redux documentation to understand the connect statement here.

@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create Workout Snapshot Test 1`] = `
+<div>
+  <div
+    className="page-header"
+  >
+    <div
+      className="content-container"
+    >
+      <h1
+        className="page-header__title"
+      >
+        Create Workout
+      </h1>
+      <button
+        className="button"
+        onClick={[Function]}
+      >
+        Save Workout
+      </button>
+    </div>
+  </div>
+  <div
+    className="content-container"
+  >
+    <div>
+      <ExerciseListPage />
+    </div>
+    <div
+      className="addExercise"
+    >
+      <Link
+        className="button"
+        replace={false}
+        to="/create/undefined/cardio"
+      >
+        Add Cardio
+      </Link>
+      <Link
+        className="button"
+        replace={false}
+        to="/create/undefined/strength"
+      >
+        Add Strength
+      </Link>
+    </div>
+  </div>
+</div>
+`;
