@@ -5,7 +5,7 @@ export class ExerciseListPage extends React.Component {
 
     constructor(props){
         super(props)
-        console.log(props.exerciseList)
+        console.log(props.currentExercises)
     }
 
     render() {

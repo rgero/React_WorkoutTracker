@@ -1,19 +1,42 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Link } from 'react-router-dom';
 import ExerciseList from './ExerciseList';
 import uuid from 'uuid';
 
+
+import StrengthForm from './StrengthForm';
 import {getValidExercises} from '../selectors/exercises';
 
 export class CreateWorkout extends React.Component {
     constructor(props){
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
+        this.state = {
+            lastExercise: undefined,
+            workoutID: props.workoutID,
+            exerciseList: props.exerciseList ? props.exerciseList : [],
+        }
+
+        this.addExercise = this.addExercise.bind(this);
     }
 
     onSubmit(){
         this.props.history.push('/')
+    }
+
+    setExercise(exercise){
+        this.setState({
+            lastExercise: exercise
+        })
+    }
+
+    addExercise(exercise){
+        var exerciseList = this.state.exerciseList;
+        exerciseList.push(exercise)
+        this.setState({
+            exerciseList,
+            lastExercise: undefined
+        })
     }
 
     render(){
@@ -27,12 +50,20 @@ export class CreateWorkout extends React.Component {
                 </div>
                 <div className="content-container">
                     <div>
-                        <ExerciseList currentExercises={this.props.exercises}/>
+                        <ExerciseList currentExercises={this.state.exerciseList}/>
                     </div>
                     <div className="addExercise">
-                        <Link className="button" to={"/create/" + this.props.workoutID + "/cardio"}>Add Cardio</Link>
-                        <Link className="button" to={"/create/" + this.props.workoutID + "/strength"}>Add Strength</Link>
+                        <button className="button" onClick={()=> this.setExercise("strength")}>Add Strength</button>
+                        <button className="button" onClick={()=> this.setExercise("cardio")}>Add Cardio</button>
                     </div>
+                    { !this.state.lastExercise ? 
+                        <div/>
+                        :
+                        this.state.lastExercise=="strength" ?
+                            <StrengthForm onSubmit={this.addExercise}/>
+                            :
+                            <h1>Cardio</h1>
+                    }
                 </div>
             </div>
         )
