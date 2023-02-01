@@ -1,9 +1,17 @@
+import { ExerciseForm } from './components/exercise/ExerciseForm';
 import './styles/App.css';
 
 function App() {
+  let exercise = {
+    name: "Test",
+    setList: [],
+    notes: "Testing",
+    muscleGroup: ""
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -15,7 +23,9 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+
+      <ExerciseForm exercise={exercise} onSubmit={null}/>
     </div>
   );
 }
