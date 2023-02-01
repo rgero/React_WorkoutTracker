@@ -17,8 +17,9 @@ export const SetList = ({setList = []})=>
                 <div>
                     <SetListHeader/>
                     {
-                        setList.map((set, index) => (
+                        setList.map((set) => (
                         <SetListItem
+                            key={set.id}
                             id={set.id}
                             reps={set.reps}
                             weight={set.weight}

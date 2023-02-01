@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import '../../styles/components/inputs.css'
 import '../../styles/components/Exercise.css'
+import { SetForm } from '../set/SetForm';
 import { SetList } from '../set/SetList';
 
 export const ExerciseForm = ({exercise = {}, onSubmit})=> 
@@ -14,15 +15,21 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
 
     useEffect(()=> {
         var testSets = [
-            { reps: 10, weight: 200},
-            { reps: 10, weight: 180},
-            { reps: 10, weight: 160},
-            { reps: 10, weight: 140},
-            { reps: 10, weight: 120},
+            { id: 1, reps: 10, weight: 200},
+            { id: 2, reps: 10, weight: 180},
+            { id: 3, reps: 10, weight: 160},
+            { id: 4, reps: 10, weight: 140},
+            { id: 5, reps: 10, weight: 120},
         ]
 
         setSetList(testSets);
-    }, setSetList)
+    }, [setSetList])
+
+    const addSet = (set) => {
+        set.id = setList.length;
+        let newSetList = [...setList, set]
+        setSetList(newSetList);
+    }
 
     return (
         <div>
@@ -69,13 +76,12 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
                         >
                         </textarea>
                     </div>
-
-                    <SetList setList={setList}/>
-
-                    <div>
-                        <button className="button">Save Exercise</button>
-                    </div>
                 </form>
+                <SetForm onSubmit={addSet}/>
+                <SetList setList={setList}/>
+                <div>
+                    <button className="button">Save Exercise</button>
+                </div>
             </div>
         </div>
     )
