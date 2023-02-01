@@ -1,0 +1,9 @@
+.exerciseHeader {
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.content {
+    display:flex;
+    justify-content: center;
+}
