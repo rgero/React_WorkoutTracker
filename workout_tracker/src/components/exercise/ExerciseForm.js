@@ -11,7 +11,6 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
     const [muscleGroup, setMuscleGroup] = useState(exercise.muscleGroup ? exercise.muscleGroup : []);
     const [name, setExerciseName] = useState(exercise.name ? exercise.name : "");
     const [notes, setNotes] = useState(exercise.notes ? exercise.notes : "");
-    const [error, setError] = useState("");
 
     useEffect(()=> {
         var testSets = [
@@ -26,9 +25,15 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
     }, [setSetList])
 
     const addSet = (set) => {
-        set.id = setList.length;
-        let newSetList = [...setList, set]
-        setSetList(newSetList);
+        setSetList([...setList, set]);
+    }
+    
+    const deleteSet = (id) => {
+        setSetList( (prevSetList) => {
+            const index = setList.findIndex((target)=> target.id == id);
+            prevSetList.splice(index,1);
+            return [...prevSetList];
+        })
     }
 
     return (
@@ -37,9 +42,7 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
                 Add an Exercise
             </div>
             <div className="content">
-                <form className="form" onSubmit={onSubmit}>
-                    {error !== '' && <p className="form__error">{error}</p>}
-                    
+                <form className="form" onSubmit={onSubmit}>                    
                     {/* Name */}
                     <div className="input-entry">
                         <label>Exercise Name</label>
@@ -78,7 +81,7 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
                     </div>
                 </form>
                 <SetForm onSubmit={addSet}/>
-                <SetList setList={setList}/>
+                <SetList setList={setList} onDelete={deleteSet}/>
                 <div>
                     <button className="button">Save Exercise</button>
                 </div>

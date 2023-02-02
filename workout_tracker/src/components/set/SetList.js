@@ -4,7 +4,7 @@ import { SetListHeader } from './SetListHeader';
 
 import '../../styles/components/set/SetList.css';
 
-export const SetList = ({setList = []})=> 
+export const SetList = ({setList = [], onDelete})=> 
 {
     return (
         <div className="setList">
@@ -23,6 +23,7 @@ export const SetList = ({setList = []})=>
                             id={set.id}
                             reps={set.reps}
                             weight={set.weight}
+                            onDelete={onDelete}
                         />))
                     }
                 </div>

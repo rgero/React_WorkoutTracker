@@ -1,5 +1,4 @@
 import { ExerciseForm } from './components/exercise/ExerciseForm';
-import { SetForm } from './components/set/SetForm';
 import './styles/App.css';
 
 function App() {
