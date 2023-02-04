@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import '../../styles/components/set/SetList.css';
 
-export const SetListItem = ({id, reps, weight, onDelete})=> 
+export const SetListItem = ({set, onDelete})=> 
 {
     const [color, setColor] = useState({background: "#ffffff"});
 
@@ -18,16 +18,16 @@ export const SetListItem = ({id, reps, weight, onDelete})=>
     }
 
     const itemClicked = (e) => {
-        onDelete(id);
+        onDelete(set.id);
     }
 
     return (
         <div className="setListItem" style={color} onMouseEnter={onMouseOver.bind(this)} onMouseLeave={onMouseOut.bind(this)} onClick={itemClicked}>
             <div>
-                {reps}
+                {set.reps}
             </div>
             <div>
-                {weight}
+                {set.weight}
             </div>
         </div>
     )

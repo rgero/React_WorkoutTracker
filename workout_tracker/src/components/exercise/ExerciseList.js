@@ -1,26 +1,24 @@
 import React from 'react';
-import { SetListItem } from './SetListItem';
-import { SetListHeader } from './SetListHeader';
 
 import '../../styles/components/set/SetList.css';
 
-export const SetList = ({setList = [], onDelete})=> 
+import { ExerciseListItem } from '../exercise/ExerciseListItem';
+
+export const ExerciseList = ({exerciseList = []})=> 
 {
     return (
         <div className="setList">
             {
-                setList.length === 0 ? (
+                exerciseList.length === 0 ? (
                     <div className="list-item list-item--message">
                         <span>No Sets</span>
                     </div>
                 ) : (
                     <div>
-                        <SetListHeader/>
                         {
-                            setList.map((set) => (
-                            <SetListItem
-                                set={set}
-                                onDelete={onDelete}
+                            exerciseList.map((exercise) => (
+                            <ExerciseListItem
+                                exercise={exercise}
                             />))
                         }
                     </div>

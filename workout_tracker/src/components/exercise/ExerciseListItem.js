@@ -1,11 +1,11 @@
 import React from 'react';
-import { SetListItem } from './SetListItem';
-import { SetListHeader } from './SetListHeader';
 
-import '../../styles/components/set/SetList.css';
+import { SetListDisplayItem } from '../set/SetListDisplayItem';
 
-export const SetList = ({setList = [], onDelete})=> 
+export const ExerciseListItem = ({exercise = {}, onDelete})=> 
 {
+    let exerciseName = exercise.name;
+    let setList = exercise.setList;
     return (
         <div className="setList">
             {
@@ -15,12 +15,11 @@ export const SetList = ({setList = [], onDelete})=>
                     </div>
                 ) : (
                     <div>
-                        <SetListHeader/>
+                        {exerciseName}
                         {
                             setList.map((set) => (
-                            <SetListItem
+                            <SetListDisplayItem
                                 set={set}
-                                onDelete={onDelete}
                             />))
                         }
                     </div>
