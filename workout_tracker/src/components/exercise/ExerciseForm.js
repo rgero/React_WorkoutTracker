@@ -16,9 +16,7 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
         var testSets = [
             { id: 1, reps: 10, weight: 200},
             { id: 2, reps: 10, weight: 180},
-            { id: 3, reps: 10, weight: 160},
-            { id: 4, reps: 10, weight: 140},
-            { id: 5, reps: 10, weight: 120},
+            { id: 3, reps: 10, weight: 160}
         ]
 
         setSetList(testSets);
