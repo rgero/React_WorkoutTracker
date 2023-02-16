@@ -5,6 +5,8 @@ import '../../styles/components/Exercise.css'
 import { SetForm } from '../set/SetForm';
 import { SetList } from '../set/SetList';
 
+import Form from 'react-bootstrap/Form';
+
 export const ExerciseForm = ({exercise = {}, onSubmit})=> 
 {
     const [setList, setSetList] = useState(exercise.setList ? exercise.setList : []);
@@ -18,9 +20,14 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
             { id: 2, reps: 10, weight: 180},
             { id: 3, reps: 10, weight: 160}
         ]
-
+        var notes = "This is a long one"
+        var muscleGroup = "Name is this"
+        var name = "Chest Now"
         setSetList(testSets);
-    }, [setSetList])
+        setExerciseName(name);
+        setNotes(notes);
+        setMuscleGroup(muscleGroup)
+    }, [setSetList, setExerciseName, setNotes, setMuscleGroup])
 
     const addSet = (set) => {
         setSetList([...setList, set]);
@@ -36,54 +43,22 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
 
     return (
         <div>
-            <div className='exerciseHeader'>
-                Add an Exercise
-            </div>
-            <div className="content">
-                <form className="form" onSubmit={onSubmit}>                    
-                    {/* Name */}
-                    <div className="input-entry">
-                        <label>Exercise Name</label>
-                        <input
-                            type="text"
-                            className="text-input"
-                            placeholder="Exercise Name"
-                            autoFocus
-                            value={name}
-                            onChange={e => setExerciseName(e.target.value)}
-                        />
-                    </div>
-
-                    {/* Muscle Group */}
-                    <div className="input-entry">
-                        <label>Muscle Group</label>
-                        <input
-                            type="text"
-                            className="text-input"
-                            placeholder="Muscle Group"
-                            value={muscleGroup}
-                            onChange={e => setMuscleGroup(e.target.value)}
-                        />
-                    </div>
-
-                    {/* Notes */}
-                    <div className="input-entry">
-                        <label htmlFor='notesSection'>Notes</label>
-                        <textarea id='notesSection'
-                            placeholder="Add a note about your exercise"
-                            className="text-area"
-                            value={notes}
-                            onChange={e => setNotes(e.target.value)}
-                        >
-                        </textarea>
-                    </div>
-                </form>
-                <SetForm onSubmit={addSet}/>
-                <SetList setList={setList} onDelete={deleteSet}/>
-                <div>
-                    <button className="button">Save Exercise</button>
-                </div>
-            </div>
+            <Form>
+                <Form.Group>
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="text" value={name} onChange={e => setExerciseName(e.target.value)}/>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Muscle Group</Form.Label>
+                    <Form.Control type="text" value={muscleGroup} onChange={e => setMuscleGroup(e.target.value)}/>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Notes</Form.Label>
+                    <Form.Control as="textarea" value={notes} rows={3} onChange={e => setNotes(e.target.value)} />
+                </Form.Group>
+            </Form>
+            <SetForm onSubmit={addSet}/>
+            <SetList setList={setList} onDelete={deleteSet}/>
         </div>
     )
 }

@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 
 import '../../styles/components/inputs.css'
 
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 export const SetForm = ({set = {}, onSubmit})=> 
 {
     const [reps, setReps] = useState(set.reps ? set.reps : "")
@@ -32,37 +35,18 @@ export const SetForm = ({set = {}, onSubmit})=>
     }
 
     return (
-        <form className="form" onSubmit={processNewSet}>
-            {error !== '' && <p className="form__error">{error}</p>}
-
-            {/* Reps */}
-            <div className="input-entry">
-                <label>Reps</label>
-                <input
-                    type="text-input"
-                    className="text-input"
-                    placeholder="Reps"
-                    autoFocus
-                    value={reps}
-                    onChange={e => processChange(e, setReps)}
-                />
-            </div>
-
-            <div className="input-entry">
-                <label>Weight</label>
-                <input
-                    type="text-input"
-                    className="text-input"
-                    placeholder="Weight"
-                    value={weight}
-                    onChange={e => processChange(e, setWeight)}
-                />
-            </div>
-
-            <div>
-                <button className="button">Save Set</button>
-            </div>
-
-        </form>
+        <Form onSubmit={processNewSet}>
+            <Form.Group className="mb-3">
+                <Form.Label>Reps</Form.Label>
+                <Form.Control type="text" value={reps} onChange={e => processChange(e, setReps)}/>
+            </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Label>Weight</Form.Label>
+                <Form.Control type="text" value={weight} onChange={e => processChange(e, setWeight)}/>
+            </Form.Group>
+            <Button variant="primary" type="submit">
+                Submit
+            </Button>
+        </Form>
     )
 }
