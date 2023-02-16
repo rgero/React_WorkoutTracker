@@ -1,6 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import DatePicker from 'react-date-picker';
 
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Container from 'react-bootstrap/Container';
+
 import '../../styles/components/inputs.css'
 import '../../styles/components/WorkoutForm.css';
 
@@ -44,13 +48,29 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
         setExerciseList([...exerciseList, exercise]);
     }
     
-    const deleteExercise = (id) => {
-        setExerciseList( (prevExerciseList) => {
-            const index = exerciseList.findIndex((target)=> target.id == id);
-            prevExerciseList.splice(index,1);
-            return [...prevExerciseList];
-        })
+    const deleteExercise = (index) => {
+        let newExerciseList = exerciseList;
+        newExerciseList.splice(index, 1);
+        setExerciseList( [...newExerciseList] );
     }
+
+    return (
+        <Container fluid="md">
+            <Form>
+                <InputGroup className="mb-3">
+                    <InputGroup.Text sm>Date</InputGroup.Text>
+                    <Form.Control type="date" value={workoutDate} onChange={e => setWorkoutDate(e.target.value)}/>
+                </InputGroup>
+                <InputGroup className="mb-3">
+                    <InputGroup.Text sm>Notes</InputGroup.Text>
+                    <Form.Control as="textarea" value={notes} rows={3} onChange={e => setNotes(e.target.value)} />
+                </InputGroup>
+            </Form>
+            <div className="exerciseList">
+                <ExerciseList exerciseList={exerciseList} onDelete={deleteExercise}/>
+            </div>
+        </Container>
+    )
 
     return (
         <div>

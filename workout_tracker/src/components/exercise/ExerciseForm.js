@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Container from 'react-bootstrap/Container';
@@ -40,8 +41,7 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
 
     return (
         <Container fluid="md">
-            
-            <Form>
+            <Form onSubmit={onSubmit}>
                 <InputGroup className="mb-3">
                     <InputGroup.Text sm>Name</InputGroup.Text>
                     <Form.Control type="text" value={name} onChange={e => setExerciseName(e.target.value)}/>
@@ -57,6 +57,9 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
             </Form>
             <SetForm onSubmit={addSet}/>
             <SetList setList={setList} onDelete={deleteSet}/>
+            <Button variant="outline-secondary" type="submit">
+                    Add Set
+            </Button>
         </Container>
     )
 }
