@@ -1,6 +1,4 @@
-import React, {useState} from 'react';
-
-import '../../styles/components/set/SetList.css';
+import React from 'react';
 
 export const SetListDisplayItem = ({set})=> 
 {

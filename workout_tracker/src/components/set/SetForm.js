@@ -4,6 +4,7 @@ import '../../styles/components/inputs.css'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 export const SetForm = ({set = {}, onSubmit})=> 
 {
@@ -36,17 +37,16 @@ export const SetForm = ({set = {}, onSubmit})=>
 
     return (
         <Form onSubmit={processNewSet}>
-            <Form.Group className="mb-3">
-                <Form.Label>Reps</Form.Label>
+            <InputGroup className="mb-3">
+                <InputGroup.Text>Reps</InputGroup.Text>
                 <Form.Control type="text" value={reps} onChange={e => processChange(e, setReps)}/>
-            </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Label>Weight</Form.Label>
+                <InputGroup.Text>Weight</InputGroup.Text>
                 <Form.Control type="text" value={weight} onChange={e => processChange(e, setWeight)}/>
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
+                <Button variant="outline-secondary" type="submit">
+                    Add Set
+                </Button>
+            </InputGroup>
+
         </Form>
     )
 }

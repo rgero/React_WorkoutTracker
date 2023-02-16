@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Container from 'react-bootstrap/Container';
 
-import '../../styles/components/inputs.css'
-import '../../styles/components/Exercise.css'
 import { SetForm } from '../set/SetForm';
 import { SetList } from '../set/SetList';
-
-import Form from 'react-bootstrap/Form';
 
 export const ExerciseForm = ({exercise = {}, onSubmit})=> 
 {
@@ -33,32 +32,31 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
         setSetList([...setList, set]);
     }
     
-    const deleteSet = (id) => {
-        setSetList( (prevSetList) => {
-            const index = setList.findIndex((target)=> target.id == id);
-            prevSetList.splice(index,1);
-            return [...prevSetList];
-        })
+    const deleteSet = (index) => {
+        let newSetList = setList;
+        newSetList.splice(index, 1);
+        setSetList( [...newSetList] );
     }
 
     return (
-        <div>
+        <Container fluid="md">
+            
             <Form>
-                <Form.Group>
-                    <Form.Label>Name</Form.Label>
+                <InputGroup className="mb-3">
+                    <InputGroup.Text sm>Name</InputGroup.Text>
                     <Form.Control type="text" value={name} onChange={e => setExerciseName(e.target.value)}/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Muscle Group</Form.Label>
+                </InputGroup>
+                <InputGroup className="mb-3">
+                    <InputGroup.Text sm>Muscle Group</InputGroup.Text>
                     <Form.Control type="text" value={muscleGroup} onChange={e => setMuscleGroup(e.target.value)}/>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Notes</Form.Label>
+                </InputGroup>
+                <InputGroup className="mb-3">
+                    <InputGroup.Text sm>Notes</InputGroup.Text>
                     <Form.Control as="textarea" value={notes} rows={3} onChange={e => setNotes(e.target.value)} />
-                </Form.Group>
+                </InputGroup>
             </Form>
             <SetForm onSubmit={addSet}/>
             <SetList setList={setList} onDelete={deleteSet}/>
-        </div>
+        </Container>
     )
 }

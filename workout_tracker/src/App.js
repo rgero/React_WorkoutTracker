@@ -2,6 +2,8 @@ import { ExerciseForm } from './components/exercise/ExerciseForm';
 import { WorkoutForm } from './components/workout/WorkoutForm';
 import './styles/App.css';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
   let exercise = {
     name: "Test",

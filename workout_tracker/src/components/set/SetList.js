@@ -1,8 +1,6 @@
 import React from 'react';
-import { SetListItem } from './SetListItem';
 import { SetListHeader } from './SetListHeader';
-
-import '../../styles/components/set/SetList.css';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 export const SetList = ({setList = [], onDelete})=> 
 {
@@ -15,14 +13,24 @@ export const SetList = ({setList = [], onDelete})=>
                     </div>
                 ) : (
                     <div>
-                        <SetListHeader/>
-                        {
-                            setList.map((set) => (
-                            <SetListItem
-                                set={set}
-                                onDelete={onDelete}
-                            />))
-                        }
+                        <ListGroup>
+                            <ListGroup.Item><SetListHeader/></ListGroup.Item>
+                            {
+                                setList.map((set, index) => (
+                                    <ListGroup.Item action onClick={(e) => onDelete(index)}>
+                                        <div className="setListItem">
+                                            <div>
+                                                {set.reps}
+                                            </div>
+                                            <div>
+                                                {set.weight}
+                                            </div>
+                                        </div>
+                                    </ListGroup.Item>
+                                ))
+                            }
+                        </ListGroup>
+
                     </div>
                 )
             }
