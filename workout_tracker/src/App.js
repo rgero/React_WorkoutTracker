@@ -3,6 +3,7 @@ import { WorkoutForm } from './components/workout/WorkoutForm';
 import './styles/App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { LoginPage } from './components/authentication/LoginPage';
 
 function App() {
   let exercise = {
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <WorkoutForm/>
+      <LoginPage/>
     </div>
   );
 }
