@@ -1,24 +1,24 @@
-import { ExerciseForm } from './components/exercise/ExerciseForm';
-import { WorkoutForm } from './components/workout/WorkoutForm';
-import './styles/App.css';
+import React, {useContext} from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/App.css';
+
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import { Provider as AuthProvider, Context as AuthContext} from '../src/context/AuthContext'
 import { LoginPage } from './components/authentication/LoginPage';
+import { ExerciseForm } from './components/exercise/ExerciseForm';
+import { WorkoutForm } from './components/workout/WorkoutForm';
 
 function App() {
-  let exercise = {
-    name: "Test",
-    setList: [],
-    notes: "Testing",
-    muscleGroup: ""
-  }
-
-  // <ExerciseForm exercise={exercise} onSubmit={null}/>
+  const context = useContext(AuthContext);
 
   return (
-    <div className="App">
-      <LoginPage/>
-    </div>
+    <AuthProvider>
+      <div className="App">
+        <LoginPage/>
+      </div>
+    </AuthProvider>
   );
 }
 

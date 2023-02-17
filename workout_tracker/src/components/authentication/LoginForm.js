@@ -4,25 +4,33 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Container from 'react-bootstrap/Container';
 
-export const LoginForm = (onSubmit)=> 
+export const LoginForm = ({errorMessage, onSubmit})=> 
 {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const trySignIn = async (event) => {
+        event.preventDefault();
+        await onSubmit({email, password});
+    }
+
     return(
         <Container fluid="md">
-            <Form onSubmit={onSubmit}>
+            <Form onSubmit={trySignIn}>
                 <InputGroup className="mb-3">
-                    <InputGroup.Text sm>E-Mail</InputGroup.Text>
+                    <InputGroup.Text>E-Mail</InputGroup.Text>
                     <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)}/>
                 </InputGroup>
                 <InputGroup className="mb-3">
-                    <InputGroup.Text sm>Password</InputGroup.Text>
+                    <InputGroup.Text>Password</InputGroup.Text>
                     <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)}/>
                 </InputGroup>
                 <Button variant="outline-secondary" type="submit">
                     Sign In
                 </Button>
+                {errorMessage ? (
+                    <h4>{errorMessage}</h4>
+                ): null}
             </Form>
         </Container>
     )
