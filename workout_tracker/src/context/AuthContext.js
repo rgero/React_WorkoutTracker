@@ -23,8 +23,9 @@ const tryLocalSignin = dispatch => async () => {
     const token = await AsyncStorage.getItem('token');
     if (token)
     {
-        dispatch({ type: 'signin', payload: token})
+        dispatch({ type: 'storeToken', payload: token})
     } else {
+
     }
 }
 
@@ -55,8 +56,6 @@ const signIn = (dispatch) => {
             // Storing the Token
             await AsyncStorage.setItem('token', response.data.token);
             dispatch({type: "storeToken", payload: response.data.token})
-
-            console.log("Signed In");
         } catch (err) {
             console.log(err.message);
             dispatch({ type: 'addError', payload: "Something went wrong"})
