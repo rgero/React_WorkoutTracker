@@ -6,6 +6,8 @@ const workoutReducer = (state, action) => {
     {
         case 'fetch':
             return action.payload;
+        case "create":
+            return action.payload;
         default:
             return state;
     }
@@ -16,12 +18,10 @@ const fetchWorkouts = dispatch => async () => {
     dispatch({type: 'fetch', payload: response.data})
 };
 
-const createWorkout = dispatch => async (name, locations) => 
+const createWorkout = dispatch => async (workout) => 
 {
-
-
-
-    await trackerAPI.post('/workouts', {name, locations})
+    const response = await trackerAPI.post('/workouts', workout)
+    dispatch({type: "create", payload: response.data});
 };
 
 export const {Provider, Context} = createDataContext(
