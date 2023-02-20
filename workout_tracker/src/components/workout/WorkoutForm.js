@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 
 import '../../styles/components/inputs.css'
 import '../../styles/components/WorkoutForm.css';
@@ -28,9 +29,32 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
         setExerciseList( [...newExerciseList] );
     }
 
+    const submitWorkout = (e) => {
+        e.preventDefault();
+        if (!workoutDate)
+        {
+            setError("Need a workout date");
+        }
+        if (exerciseList.length < 1)
+        {
+            setError("Need at least one exercise");
+        }
+        if (error)
+        {
+            return;
+        }
+        let workout = {
+            ...workoutDate,
+            ...exerciseList,
+            ...notes
+        }
+
+        onSubmit(workout);
+    }
+
     return (
         <Container fluid="md">
-            <Form>
+            <Form id="addWorkout" onSubmit={submitWorkout}>
                 <InputGroup className="mb-3">
                     <InputGroup.Text>Date</InputGroup.Text>
                     <Form.Control type="date" value={workoutDate} onChange={e => setWorkoutDate(e.target.value)}/>
@@ -46,6 +70,10 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
             <div className="exerciseList">
                 <ExerciseList exerciseList={exerciseList} onDelete={deleteExercise}/>
             </div>
+            <Button form="addWorkout" variant="outline-secondary" type="submit">
+                    Submit Workout
+            </Button>
         </Container>
+
     )
 }
