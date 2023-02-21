@@ -12,6 +12,7 @@ import IndexPage from './pages/IndexPage';
 import { LoginPage } from './components/authentication/LoginPage';
 import { SignUpPage } from './components/authentication/SignUpPage';
 import { AddWorkoutPage } from './components/workout/AddWorkoutPage';
+import { ViewWorkoutsPage } from './components/workout/ViewWorkoutsPage';
 
 function App() {
   const context = useContext(AuthContext);
@@ -26,6 +27,7 @@ function App() {
             <Route path="signup" element={<SignUpPage/>} />
             <Route path="dashboard" element={<DashboardPage/>} />
             <Route path="addworkout" element={<AddWorkoutPage/>} />
+            <Route path="viewworkouts" element={<ViewWorkoutsPage/>} />
           </Routes>
         </BrowserRouter>
       </WorkoutProvider>

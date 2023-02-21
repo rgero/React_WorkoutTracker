@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Navigate } from "react-router-dom";
+import { ViewWorkoutsPage } from "../components/workout/ViewWorkoutsPage";
 
 const Dashboard = () => { 
     const [authenticated, setAuthenticated] = useState(false);
@@ -25,9 +26,9 @@ const Dashboard = () => {
             return <Navigate replace to="/login" />;
         } else {
             return (
-            <div>
-                    <p>Welcome to your Dashboard</p>
-            </div>
+                <>
+                    <ViewWorkoutsPage/>
+                </>
             );
         }
     } else {
