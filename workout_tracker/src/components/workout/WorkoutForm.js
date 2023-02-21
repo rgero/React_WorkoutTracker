@@ -10,10 +10,11 @@ import '../../styles/components/WorkoutForm.css';
 
 import { ExerciseList } from '../exercise/ExerciseList';
 import { ExerciseForm } from '../exercise/ExerciseForm';
+import DateFormatter from '../../helpers/DateFormatter';
 
 export const WorkoutForm = ({workout = {}, onSubmit})=> 
 {
-    const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? workout.workoutDate : new Date().toISOString().split('T')[0]);
+    const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? workout.workoutDate : DateFormatter(new Date()));
     const [exerciseList, setExerciseList] = useState(workout.exerciseList ? workout.exerciseList : []);
     const [notes, setNotes] = useState(workout.notes ? workout.notes : "");
     const [error, setError] = useState("");
