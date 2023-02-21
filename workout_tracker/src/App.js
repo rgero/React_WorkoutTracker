@@ -11,7 +11,6 @@ import DashboardPage from './pages/DashboardPage';
 import IndexPage from './pages/IndexPage';
 import { LoginPage } from './components/authentication/LoginPage';
 import { SignUpPage } from './components/authentication/SignUpPage';
-import { WorkoutForm } from './components/workout/WorkoutForm';
 import { AddWorkoutPage } from './components/workout/AddWorkoutPage';
 
 function App() {
