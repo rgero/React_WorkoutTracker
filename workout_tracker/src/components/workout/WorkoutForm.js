@@ -13,13 +13,40 @@ import { ExerciseForm } from '../exercise/ExerciseForm';
 
 export const WorkoutForm = ({workout = {}, onSubmit})=> 
 {
-    const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? workout.workoutDate : new Date());
+    const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? workout.workoutDate : new Date().toISOString().split('T')[0]);
     const [exerciseList, setExerciseList] = useState(workout.exerciseList ? workout.exerciseList : []);
     const [notes, setNotes] = useState(workout.notes ? workout.notes : "");
     const [error, setError] = useState("");
 
+    useEffect(()=> {
+        var testSets = [
+            { id: 1, reps: 10, weight: 200},
+            { id: 2, reps: 10, weight: 180},
+            { id: 3, reps: 10, weight: 160},
+            { id: 4, reps: 10, weight: 140},
+            { id: 5, reps: 10, weight: 120},
+        ]
+
+        var testExercises = [
+            {
+                name: "Tricep Ext",
+                notes: "I got it",
+                muscleGroup: "Triceps",
+                setList: testSets
+            },
+            {
+                name: "Bicep shocking",
+                notes: "Electricity is fun",
+                muscleGroup: "Biceps",
+                setList: testSets
+            }
+        ]
+
+        setExerciseList(testExercises);
+        setNotes("Test Note");
+    }, [setExerciseList, setWorkoutDate, setNotes])
+
     const addExercise = (exercise) => {
-        console.log(exercise);
         setExerciseList([...exerciseList, exercise]);
     }
     
@@ -44,9 +71,9 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
             return;
         }
         let workout = {
-            ...workoutDate,
-            ...exerciseList,
-            ...notes
+            workoutDate,
+            exerciseList,
+            notes
         }
 
         onSubmit(workout);
