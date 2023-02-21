@@ -12,7 +12,7 @@ export const AddWorkoutPage = ()=>
             <h1>Create a new workout</h1>
             <WorkoutForm
                 errorMessage={state.errorMessage}
-                onSubmit={({workout})=> createWorkout({workout})}
+                onSubmit={(workout)=> createWorkout(workout)}
             />
         </Container>
     )
