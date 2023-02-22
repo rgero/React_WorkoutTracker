@@ -14,11 +14,14 @@ import { SignUpPage } from './components/authentication/SignUpPage';
 import { AddWorkoutPage } from './components/workout/AddWorkoutPage';
 import { ViewWorkoutsPage } from './components/workout/ViewWorkoutsPage';
 
+import NavigationBar from "./components/Navigation";
+
 function App() {
   const context = useContext(AuthContext);
 
   return (
     <AuthProvider>
+      <NavigationBar/>
       <WorkoutProvider>
         <BrowserRouter>
           <Routes>
@@ -26,7 +29,7 @@ function App() {
             <Route path="login" element={<LoginPage/>} />
             <Route path="signup" element={<SignUpPage/>} />
             <Route path="dashboard" element={<DashboardPage/>} />
-            <Route path="addworkout" element={<AddWorkoutPage/>} />
+            <Route path="createworkout" element={<AddWorkoutPage/>} />
             <Route path="viewworkouts" element={<ViewWorkoutsPage/>} />
           </Routes>
         </BrowserRouter>

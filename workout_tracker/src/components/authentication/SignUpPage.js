@@ -20,7 +20,7 @@ export const SignUpPage = ()=>
     {
         return (
             <Container fluid="md">
-                <h1>Login</h1>
+                <h3>Sign Up for the Workout Tracker</h3>
                 <SignUpForm
                     errorMessage={state.errorMessage}
                     onSubmit={({email, password})=> signUp({email, password})}
