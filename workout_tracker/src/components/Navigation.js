@@ -19,12 +19,17 @@ function NavigationBar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     { state.token ? (
-                        <Nav className="me-auto">
-                            <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-                            <Nav.Link href="/createworkout">Add Workout</Nav.Link>
-                        </Nav>
+                        <>
+                            <Nav className="me-auto">
+                                <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+                                <Nav.Link href="/createworkout">Add Workout</Nav.Link>
+                            </Nav>
+                            <Nav>
+                                <Nav.Link href='/signout'>Sign Out</Nav.Link>
+                            </Nav>
+                        </>
                     ) : (
-                        <Nav className="me-auto">
+                        <Nav className="ms-auto">
                             <Nav.Link href="/login">Login</Nav.Link>
                             <Nav.Link href="/signup">Sign Up</Nav.Link>
                         </Nav>
