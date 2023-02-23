@@ -5,4 +5,4 @@ This is going to be a small application that can be used to track a person's wor
 
 I currently need to explore that React Bootstrap Forms for a little styling help. That will be the next thing that I do for this project.
 
-Also am currently working on the API so that way I can connect both this and the React Native project together.
+Currently the basic API works.
