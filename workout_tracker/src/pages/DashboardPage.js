@@ -1,43 +1,26 @@
-import { useEffect, useState } from "react";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useEffect, useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { ViewWorkoutsPage } from "../components/workout/ViewWorkoutsPage";
+import {Context as AuthContext} from '../context/AuthContext';
 
-const Dashboard = () => { 
-    const [authenticated, setAuthenticated] = useState(false);
-    const [hasLoaded, setLoaded] = useState(false)
+const DashboardPage = () => { 
+    const {state, tryLocalSignin} = useContext(AuthContext);
 
-    useEffect(() => {
-        const checkForLogin = async () => {
-                const token = await AsyncStorage.getItem('token');
-                if (token)
-                {
-                    setAuthenticated(true);
-                    
-                }
-                setLoaded(true);
-        }
-        checkForLogin().catch(console.error);
-    }, []);
+    useEffect(()=> {
+        tryLocalSignin();
+    }, [tryLocalSignin])
 
-    if (hasLoaded)
-    {
-        if (!authenticated) {
-            return <Navigate replace to="/login" />;
-        } else {
-            return (
-                <>
-                    <ViewWorkoutsPage/>
-                </>
-            );
-        }
+
+    if (!state.token) {
+        return <Navigate replace to="/login" />;
     } else {
         return (
-            <div>
-                Loading...
-            </div>
-        )
+            <>
+                <ViewWorkoutsPage/>
+            </>
+        );
     }
+
 };
 
-export default Dashboard;
+export default DashboardPage;
