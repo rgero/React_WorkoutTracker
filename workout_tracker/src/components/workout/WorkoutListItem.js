@@ -5,9 +5,7 @@ import DateFormatter from '../../helpers/DateFormatter';
 
 export const WorkoutListItem = ({workout}) => {
     let {workoutDate, notes, exerciseList} = workout;
-
     workoutDate = new Date(workoutDate);
-    console.log(workoutDate);
 
     return (
         <div>
