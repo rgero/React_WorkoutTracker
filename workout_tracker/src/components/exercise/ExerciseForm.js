@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -13,21 +13,6 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
     const [muscleGroup, setMuscleGroup] = useState(exercise.muscleGroup ? exercise.muscleGroup : []);
     const [name, setExerciseName] = useState(exercise.name ? exercise.name : "");
     const [notes, setNotes] = useState(exercise.notes ? exercise.notes : "");
-
-    // useEffect(()=> {
-    //     var testSets = [
-    //         { id: 1, reps: 10, weight: 200},
-    //         { id: 2, reps: 10, weight: 180},
-    //         { id: 3, reps: 10, weight: 160}
-    //     ]
-    //     var notes = "This is a long one"
-    //     var muscleGroup = "Name is this"
-    //     var name = "Chest Now"
-    //     setSetList(testSets);
-    //     setExerciseName(name);
-    //     setNotes(notes);
-    //     setMuscleGroup(muscleGroup)
-    // }, [setSetList, setExerciseName, setNotes, setMuscleGroup])
 
     const addSet = (set) => {
         setSetList([...setList, set]);
