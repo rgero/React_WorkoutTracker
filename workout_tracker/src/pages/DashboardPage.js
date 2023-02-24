@@ -8,7 +8,7 @@ const DashboardPage = () => {
 
     useEffect(()=> {
         tryLocalSignin();
-    }, [tryLocalSignin])
+    }, [])
 
 
     if (!state.token) {

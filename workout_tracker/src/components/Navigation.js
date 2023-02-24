@@ -10,7 +10,7 @@ function NavigationBar() {
 
     useEffect(()=> {
         tryLocalSignin();
-    }, [tryLocalSignin])
+    }, [])
 
     return (
         <Navbar bg="light" expand="lg">

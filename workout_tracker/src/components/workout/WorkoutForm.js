@@ -45,7 +45,7 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
 
         setExerciseList(testExercises);
         setNotes("Test Note");
-    }, [setExerciseList, setWorkoutDate, setNotes])
+    }, [])
 
     const addExercise = (exercise) => {
         setExerciseList([...exerciseList, exercise]);

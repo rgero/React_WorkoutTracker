@@ -14,7 +14,7 @@ export const LoginPage = ()=>
 
     useEffect(()=> {
         tryLocalSignin();
-    }, [tryLocalSignin])
+    }, [])
 
     if (state.token)
     {
