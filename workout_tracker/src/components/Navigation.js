@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import {Context as AuthContext} from '../context/AuthContext';
 
 function NavigationBar() {
-    const {state, tryLocalSignin} = useContext(AuthContext);
+    const {state, tryLocalSignin, signOut} = useContext(AuthContext);
 
     useEffect(()=> {
         tryLocalSignin();
@@ -25,7 +25,7 @@ function NavigationBar() {
                                 <Nav.Link href="/createworkout">Add Workout</Nav.Link>
                             </Nav>
                             <Nav>
-                                <Nav.Link href='/signout'>Sign Out</Nav.Link>
+                                <Nav.Link onClick={signOut}>Sign Out</Nav.Link>
                             </Nav>
                         </>
                     ) : (
