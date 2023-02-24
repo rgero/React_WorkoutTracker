@@ -13,7 +13,7 @@ export const ViewWorkoutsPage = ()=>
         }
        processWorkouts();
     }, []);
-
+    
     return (
         <Container>
             <div>Workouts</div>

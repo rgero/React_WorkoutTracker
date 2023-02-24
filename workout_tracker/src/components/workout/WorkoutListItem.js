@@ -9,7 +9,7 @@ export const WorkoutListItem = ({workout}) => {
 
     return (
         <div>
-            <Card bordered>
+            <Card bordered="true">
                 <Card.Body>
                     <Card.Title>{DateFormatter(workoutDate)}</Card.Title>
                     <Card.Text>{notes}</Card.Text>

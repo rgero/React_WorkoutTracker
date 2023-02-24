@@ -16,7 +16,7 @@ export const WorkoutList = ({workoutList=[]}) => {
                         <ListGroup className="list-group-flush">
                             {
                                 workoutList.map((workout, index) => (
-                                    <ListGroup.Item action>
+                                    <ListGroup.Item action key={index}>
                                         <WorkoutListItem workout={workout}/>
                                     </ListGroup.Item>
                                 ))

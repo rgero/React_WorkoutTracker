@@ -10,7 +10,6 @@ const DashboardPage = () => {
         tryLocalSignin();
     }, [])
 
-
     if (!state.token) {
         return <Navigate replace to="/login" />;
     } else {

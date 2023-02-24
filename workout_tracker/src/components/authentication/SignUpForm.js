@@ -38,7 +38,7 @@ export const SignUpForm = ({errorMessage, onSubmit})=>
                     <Form.Control type="password" value={passwordSecond} onChange={e => setRetypePassword(e.target.value)}/>
                 </InputGroup>
                 <Button variant="outline-secondary" type="submit">
-                    Sign In
+                    Sign Up
                 </Button>
                 {errMsg ? (
                     <h4>{errMsg}</h4>
