@@ -24,8 +24,6 @@ const tryLocalSignin = dispatch => async () => {
     if (token)
     {
         dispatch({ type: 'storeToken', payload: token})
-    } else {
-
     }
 }
 
