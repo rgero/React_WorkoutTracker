@@ -2,21 +2,26 @@ import React, { useContext, useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import { Navigate } from "react-router-dom";
 import {Context as AuthContext} from '../../context/AuthContext';
-
 import { LoginForm } from './LoginForm';
-
 
 export const LoginPage = ()=> 
 {
     const {state, signIn, clearErrorMessage, tryLocalSignin} = useContext(AuthContext);
 
     useEffect(()=> {
-        tryLocalSignin();
+        const tryToSignIn = async () => {
+            await tryLocalSignin();
+            if (state.token)
+            {
+                clearErrorMessage();
+            }
+        }
+
+        tryToSignIn();
     }, [])
 
     if (state.token)
     {
-        clearErrorMessage();
         return (<Navigate replace to="/dashboard" />);
     } else 
     {
