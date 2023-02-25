@@ -1,32 +1,33 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import ListGroup from 'react-bootstrap/ListGroup';
-import ProcessWorkoutList from "../../helpers/ProcessWorkoutList";
-import { WorkoutListItem } from "./WorkoutListItem";
 
-export const WorkoutList = ({workoutList=[]}) => {
+import Collapsible from "react-collapsible";
+import {GetOrderedValues, ProcessWorkoutList} from "../../helpers/WorkoutListProcesser";
+import WorkoutGroup from "./WorkoutGroup";
+
+
+export const WorkoutList = ({workoutList=[]}) => 
+{
 
     let organizedList = ProcessWorkoutList(workoutList);
-
+    let yearOrder = GetOrderedValues(organizedList, true);
     return (
         <Container>
             { 
-                workoutList.length === 0 ? (
+                Object.keys(organizedList).length === 0 ? (
                     <div className="list-item list-item--message">
                         <span>No Workouts</span>
                     </div>
                 ) : (
                     <div>
-                        <ListGroup className="list-group-flush">
-                            {
-                                workoutList.map((workout, index) => (
-                                    <ListGroup.Item action key={index}>
-                                        <WorkoutListItem workout={workout}/>
-                                    </ListGroup.Item>
-                                ))
-                            }
-                        </ListGroup>
-
+                        
+                        {
+                            yearOrder.map((year, index)=> (
+                                <Collapsible trigger={year}>
+                                    <WorkoutGroup {...organizedList[year]} />
+                                </Collapsible>
+                            ))
+                        }
                     </div>
                 )
             }
