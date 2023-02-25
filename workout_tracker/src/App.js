@@ -1,24 +1,20 @@
 import React, {useContext} from 'react';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/App.css';
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
 import { Provider as AuthProvider, Context as AuthContext} from '../src/context/AuthContext'
-import { Provider as WorkoutProvider, Context as WorkoutContext} from '../src/context/WorkoutContext'
-import DashboardPage from './pages/DashboardPage';
+import { Provider as WorkoutProvider} from '../src/context/WorkoutContext'
+
+import NavigationBar from "./components/Navigation";
 import IndexPage from './pages/IndexPage';
+import AboutPage from './pages/AboutPage';
+import DashboardPage from './pages/DashboardPage';
 import { LoginPage } from './components/authentication/LoginPage';
 import { SignUpPage } from './components/authentication/SignUpPage';
 import { AddWorkoutPage } from './components/workout/AddWorkoutPage';
 import { ViewWorkoutsPage } from './components/workout/ViewWorkoutsPage';
 
-import NavigationBar from "./components/Navigation";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const context = useContext(AuthContext);
-
   return (
     <AuthProvider>
       <NavigationBar/>
@@ -29,6 +25,7 @@ function App() {
             <Route path="login" element={<LoginPage/>} />
             <Route path="signup" element={<SignUpPage/>} />
             <Route path="dashboard" element={<DashboardPage/>} />
+            <Route path="about" element={<AboutPage/>} />
             <Route path="createworkout" element={<AddWorkoutPage/>} />
             <Route path="viewworkouts" element={<ViewWorkoutsPage/>} />
           </Routes>
