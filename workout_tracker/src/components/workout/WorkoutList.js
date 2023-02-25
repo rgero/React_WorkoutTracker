@@ -1,9 +1,13 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import ListGroup from 'react-bootstrap/ListGroup';
+import ProcessWorkoutList from "../../helpers/ProcessWorkoutList";
 import { WorkoutListItem } from "./WorkoutListItem";
 
 export const WorkoutList = ({workoutList=[]}) => {
+
+    let organizedList = ProcessWorkoutList(workoutList);
+
     return (
         <Container>
             { 
