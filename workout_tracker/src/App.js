@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Provider as AuthProvider, Context as AuthContext} from '../src/context/AuthContext'
 import { Provider as WorkoutProvider} from '../src/context/WorkoutContext'

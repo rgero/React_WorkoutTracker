@@ -4,6 +4,8 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { WorkoutListItem } from "./WorkoutListItem";
 import { GetMonthName, GetOrderedValues } from '../../helpers/WorkoutListProcesser';
 
+import "../../styles/components/Collapsible.css"
+
 const WorkoutGroup = (workoutList, order=true) => {
 
     let months = GetOrderedValues(workoutList, order);
@@ -12,7 +14,7 @@ const WorkoutGroup = (workoutList, order=true) => {
         <div>         
             {
                 months.map((month, index)=> (
-                    <Collapsible trigger={GetMonthName(month)}>
+                    <Collapsible classParentString="collapseMonth" trigger={GetMonthName(month)}>
                         {
                             <ListGroup className="list-group-flush">
                             {

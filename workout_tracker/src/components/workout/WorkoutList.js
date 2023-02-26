@@ -5,6 +5,7 @@ import Collapsible from "react-collapsible";
 import {GetOrderedValues, ProcessWorkoutList} from "../../helpers/WorkoutListProcesser";
 import WorkoutGroup from "./WorkoutGroup";
 
+import "../../styles/components/Collapsible.css"
 
 export const WorkoutList = ({workoutList=[]}) => 
 {
@@ -23,7 +24,7 @@ export const WorkoutList = ({workoutList=[]}) =>
                         
                         {
                             yearOrder.map((year, index)=> (
-                                <Collapsible trigger={year}>
+                                <Collapsible classParentString="collapseYear" trigger={year}>
                                     <WorkoutGroup {...organizedList[year]} />
                                 </Collapsible>
                             ))
