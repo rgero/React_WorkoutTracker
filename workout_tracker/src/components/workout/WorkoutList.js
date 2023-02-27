@@ -1,11 +1,9 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 
-import Collapsible from "react-collapsible";
+import Accordion from 'react-bootstrap/Accordion';
 import {GetOrderedValues, ProcessWorkoutList} from "../../helpers/WorkoutListProcesser";
 import WorkoutGroup from "./WorkoutGroup";
-
-import "../../styles/components/Collapsible.css"
 
 export const WorkoutList = ({workoutList=[]}) => 
 {
@@ -24,9 +22,14 @@ export const WorkoutList = ({workoutList=[]}) =>
                         
                         {
                             yearOrder.map((year, index)=> (
-                                <Collapsible classParentString="collapseYear" trigger={year}>
-                                    <WorkoutGroup {...organizedList[year]} />
-                                </Collapsible>
+                                <Accordion defaultActiveKey="0">
+                                    <Accordion.Item>
+                                        <Accordion.Header>{year}</Accordion.Header>
+                                        <Accordion.Body>
+                                            <WorkoutGroup {...organizedList[year]} />
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                </Accordion>
                             ))
                         }
                     </div>

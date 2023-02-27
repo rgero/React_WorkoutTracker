@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
+import Accordion from 'react-bootstrap/Accordion';
 
 import DateFormatter from '../../helpers/DateFormatter';
 
@@ -9,13 +9,15 @@ export const WorkoutListItem = ({workout}) => {
 
     return (
         <div>
-            <Card bordered="true">
-                <Card.Body>
-                    <Card.Title>{DateFormatter(workoutDate)}</Card.Title>
-                    <Card.Text>{notes}</Card.Text>
-                    <Card.Text>Total Exercises: {exerciseList.length}</Card.Text>
-                </Card.Body>
-            </Card>
+            <Accordion defaultActiveKey="0">
+                <Accordion.Item>
+                    <Accordion.Header>{DateFormatter(workoutDate)}</Accordion.Header>
+                    <Accordion.Body>
+                        <div>{notes}</div>
+                        <div>Total Exercises: {exerciseList.length}</div>
+                    </Accordion.Body>
+                </Accordion.Item>
+            </Accordion>
         </div>
     )
 }
