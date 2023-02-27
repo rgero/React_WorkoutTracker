@@ -3,20 +3,20 @@ import Accordion from 'react-bootstrap/Accordion';
 import { WorkoutListItem } from "./WorkoutListItem";
 import { GetMonthName, GetOrderedValues } from '../../helpers/WorkoutListProcesser';
 
-const WorkoutGroup = (workoutList, order=true) => {
+const WorkoutGroup = (workoutList, descendingOrder=true) => {
 
-    let months = GetOrderedValues(workoutList, order);
+    let months = GetOrderedValues(workoutList, descendingOrder);
     return (
         <div>
             {
                 months.map((month, index)=> (
-                    <Accordion defaultActiveKey="0">   
+                    <Accordion defaultActiveKey={index} alway>   
                         <Accordion.Item>
                             <Accordion.Header>{GetMonthName(month)}</Accordion.Header>
                             <Accordion.Body>
                                 {
                                     workoutList[month].map((workout, index) => (
-                                            <WorkoutListItem workout={workout}/>
+                                            <WorkoutListItem workout={workout} index={index} />
                                         ))
                                 }
                             </Accordion.Body>

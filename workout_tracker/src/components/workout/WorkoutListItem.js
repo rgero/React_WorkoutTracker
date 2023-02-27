@@ -3,13 +3,13 @@ import Accordion from 'react-bootstrap/Accordion';
 
 import DateFormatter from '../../helpers/DateFormatter';
 
-export const WorkoutListItem = ({workout}) => {
+export const WorkoutListItem = ({workout, index}) => {
     let {workoutDate, notes, exerciseList} = workout;
     workoutDate = new Date(workoutDate);
-
+    
     return (
         <div>
-            <Accordion defaultActiveKey="0">
+            <Accordion defaultActiveKey={index}>
                 <Accordion.Item>
                     <Accordion.Header>{DateFormatter(workoutDate)}</Accordion.Header>
                     <Accordion.Body>

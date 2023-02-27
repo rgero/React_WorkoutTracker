@@ -5,11 +5,11 @@ import Accordion from 'react-bootstrap/Accordion';
 import {GetOrderedValues, ProcessWorkoutList} from "../../helpers/WorkoutListProcesser";
 import WorkoutGroup from "./WorkoutGroup";
 
-export const WorkoutList = ({workoutList=[]}) => 
+export const WorkoutList = ({workoutList=[], descendingOrder}) => 
 {
 
     let organizedList = ProcessWorkoutList(workoutList);
-    let yearOrder = GetOrderedValues(organizedList, true);
+    let yearOrder = GetOrderedValues(organizedList, descendingOrder);
     return (
         <Container>
             { 
@@ -22,7 +22,7 @@ export const WorkoutList = ({workoutList=[]}) =>
                         
                         {
                             yearOrder.map((year, index)=> (
-                                <Accordion defaultActiveKey="0">
+                                <Accordion defaultActiveKey={index}>
                                     <Accordion.Item>
                                         <Accordion.Header>{year}</Accordion.Header>
                                         <Accordion.Body>
