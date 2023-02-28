@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Provider as AuthProvider, Context as AuthContext} from '../src/context/AuthContext'
 import { Provider as WorkoutProvider} from '../src/context/WorkoutContext'
+import { Provider as ExerciseProvider} from '../src/context/ExerciseContext'
 
 import NavigationBar from "./components/Navigation";
 import IndexPage from './pages/IndexPage';
@@ -19,17 +20,19 @@ function App() {
     <AuthProvider>
       <NavigationBar/>
       <WorkoutProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route index element={<IndexPage/>} />
-            <Route path="login" element={<LoginPage/>} />
-            <Route path="signup" element={<SignUpPage/>} />
-            <Route path="dashboard" element={<DashboardPage/>} />
-            <Route path="about" element={<AboutPage/>} />
-            <Route path="createworkout" element={<AddWorkoutPage/>} />
-            <Route path="viewworkouts" element={<ViewWorkoutsPage/>} />
-          </Routes>
-        </BrowserRouter>
+        <ExerciseProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route index element={<IndexPage/>} />
+              <Route path="login" element={<LoginPage/>} />
+              <Route path="signup" element={<SignUpPage/>} />
+              <Route path="dashboard" element={<DashboardPage/>} />
+              <Route path="about" element={<AboutPage/>} />
+              <Route path="createworkout" element={<AddWorkoutPage/>} />
+              <Route path="viewworkouts" element={<ViewWorkoutsPage/>} />
+            </Routes>
+          </BrowserRouter>
+        </ExerciseProvider>
       </WorkoutProvider>
     </AuthProvider>
   );

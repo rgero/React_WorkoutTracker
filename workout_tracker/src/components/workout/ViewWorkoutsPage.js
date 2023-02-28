@@ -16,7 +16,7 @@ export const ViewWorkoutsPage = ()=>
     
     return (
         <Container>
-            <div>Workouts</div>
+            <h3>Your Workouts</h3>
             <WorkoutList workoutList={state} />
         </Container>
     )
