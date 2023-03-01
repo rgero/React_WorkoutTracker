@@ -18,14 +18,24 @@ const fetchWorkouts = dispatch => async () => {
     dispatch({type: 'fetch', payload: response.data})
 };
 
+const fetchWorkoutByID = dispatch => async (id) => {
+    const response = await trackerAPI.get(`/workouts/${id}`);
+    dispatch({type: "fetch", payload: response.data});
+}
+
 const createWorkout = dispatch => async (workout) => 
 {
     const response = await trackerAPI.post('/workouts', workout)
     dispatch({type: "create", payload: response.data});
 };
 
+const updateWorkout = dispatch => async (workout) =>
+{
+    
+}
+
 export const {Provider, Context} = createDataContext(
     workoutReducer,
-    {fetchWorkouts, createWorkout},
+    {fetchWorkouts, fetchWorkoutByID, createWorkout, updateWorkout},
     []
 );

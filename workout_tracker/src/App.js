@@ -11,9 +11,11 @@ import DashboardPage from './pages/DashboardPage';
 import { LoginPage } from './components/authentication/LoginPage';
 import { SignUpPage } from './components/authentication/SignUpPage';
 import { AddWorkoutPage } from './components/workout/AddWorkoutPage';
+import { EditWorkoutPage } from './components/workout/EditWorkoutPage';
 import { ViewWorkoutsPage } from './components/workout/ViewWorkoutsPage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
@@ -28,8 +30,9 @@ function App() {
               <Route path="signup" element={<SignUpPage/>} />
               <Route path="dashboard" element={<DashboardPage/>} />
               <Route path="about" element={<AboutPage/>} />
-              <Route path="createworkout" element={<AddWorkoutPage/>} />
-              <Route path="viewworkouts" element={<ViewWorkoutsPage/>} />
+              <Route path="create" element={<AddWorkoutPage/>} />
+              <Route path="edit/:id" element={<EditWorkoutPage/>} />
+              <Route path="view" element={<ViewWorkoutsPage/>} />
             </Routes>
           </BrowserRouter>
         </ExerciseProvider>

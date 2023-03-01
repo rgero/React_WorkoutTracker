@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -10,42 +10,13 @@ import '../../styles/components/WorkoutForm.css';
 
 import { ExerciseList } from '../exercise/ExerciseList';
 import { ExerciseForm } from '../exercise/ExerciseForm';
-import DateFormatter from '../../helpers/DateFormatter';
 
-export const WorkoutForm = ({workout = {}, onSubmit})=> 
+export const WorkoutForm = ({workout = {}, errorMessage, onSubmit})=> 
 {
-    const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? workout.workoutDate : DateFormatter(new Date()));
+    const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? workout.workoutDate : "");
     const [exerciseList, setExerciseList] = useState(workout.exerciseList ? workout.exerciseList : []);
     const [notes, setNotes] = useState(workout.notes ? workout.notes : "");
-    const [error, setError] = useState("");
-
-    useEffect(()=> {
-        var testSets = [
-            { id: 1, reps: 10, weight: 200},
-            { id: 2, reps: 10, weight: 180},
-            { id: 3, reps: 10, weight: 160},
-            { id: 4, reps: 10, weight: 140},
-            { id: 5, reps: 10, weight: 120},
-        ]
-
-        var testExercises = [
-            {
-                name: "Tricep Ext",
-                notes: "I got it",
-                muscleGroup: "Triceps",
-                setList: testSets
-            },
-            {
-                name: "Bicep shocking",
-                notes: "Electricity is fun",
-                muscleGroup: "Biceps",
-                setList: testSets
-            }
-        ]
-
-        setExerciseList(testExercises);
-        setNotes("Test Note");
-    }, [])
+    const [error, setError] = useState(errorMessage ? errorMessage : "");
 
     const addExercise = (exercise) => {
         setExerciseList([...exerciseList, exercise]);

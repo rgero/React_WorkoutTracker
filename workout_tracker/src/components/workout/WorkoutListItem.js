@@ -4,10 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import { useNavigate } from "react-router-dom";
 import DateFormatter from '../../helpers/DateFormatter';
 
 export const WorkoutListItem = ({workout, index}) => {
+    const navigate = useNavigate();
+
     let {workoutDate, notes, exerciseList} = workout;
     workoutDate = new Date(workoutDate);
 
@@ -17,6 +19,10 @@ export const WorkoutListItem = ({workout, index}) => {
     
     const deleteWorkout = () => {
         console.log(workout._id);
+    }
+
+    const editWorkout = () => {
+        navigate(`/edit/${workout._id}`);
     }
    
     return (
@@ -35,8 +41,9 @@ export const WorkoutListItem = ({workout, index}) => {
                                 <Col>{exerciseList.length}</Col>
                             </Row>
                             <Row>
-                                <Col sm={10}><Button variant="outline-primary" onClick={viewWorkout}>View</Button></Col>
-                                <Col sm={2}><Button variant="outline-danger" onClick={deleteWorkout}>Delete</Button></Col>
+                                <Col sm={4}><Button variant="outline-primary" onClick={viewWorkout}>View</Button></Col>
+                                <Col sm={4}><Button variant="outline-primary" onClick={editWorkout}>Edit</Button></Col>
+                                <Col sm={4}><Button variant="outline-danger" onClick={deleteWorkout}>Delete</Button></Col>
                             </Row>                           
                         </Container>
                     </Accordion.Body>
