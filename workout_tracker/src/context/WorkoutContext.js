@@ -6,6 +6,8 @@ const workoutReducer = (state, action) => {
     {
         case 'fetch':
             return action.payload;
+        case 'fetchByID':
+            return action.payload;
         case "create":
             return action.payload;
         default:
@@ -20,7 +22,7 @@ const fetchWorkouts = dispatch => async () => {
 
 const fetchWorkoutByID = dispatch => async (id) => {
     const response = await trackerAPI.get(`/workouts/${id}`);
-    dispatch({type: "fetch", payload: response.data});
+    dispatch({type: "fetchByID", payload: response.data});
 }
 
 const createWorkout = dispatch => async (workout) => 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -10,13 +10,14 @@ import '../../styles/components/WorkoutForm.css';
 
 import { ExerciseList } from '../exercise/ExerciseList';
 import { ExerciseForm } from '../exercise/ExerciseForm';
+import DateFormatter from '../../helpers/DateFormatter';
 
 export const WorkoutForm = ({workout = {}, errorMessage, onSubmit})=> 
 {
-    const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? workout.workoutDate : "");
+    const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? DateFormatter(new Date(workout.workoutDate)) : DateFormatter(new Date()));
     const [exerciseList, setExerciseList] = useState(workout.exerciseList ? workout.exerciseList : []);
     const [notes, setNotes] = useState(workout.notes ? workout.notes : "");
-    const [error, setError] = useState(errorMessage ? errorMessage : "");
+    const [error, setError] = useState("");
 
     const addExercise = (exercise) => {
         setExerciseList([...exerciseList, exercise]);
