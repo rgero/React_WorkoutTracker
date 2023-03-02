@@ -22,7 +22,7 @@ function NavigationBar() {
                         <>
                             <Nav className="me-auto">
                                 <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-                                <Nav.Link href="/createworkout">Add Workout</Nav.Link>
+                                <Nav.Link href="/create">Add Workout</Nav.Link>
                             </Nav>
                             <Nav>
                                 <Nav.Link onClick={signOut}>Sign Out</Nav.Link>
