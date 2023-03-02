@@ -54,7 +54,7 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
             </Form>
             <SetForm onSubmit={addSet}/>
             <SetList setList={setList} onDelete={deleteSet}/>
-            <Button form="addExerciseForm" variant="outline-secondary" type="submit">
+            <Button className="mt-4" form="addExerciseForm" variant="outline-secondary" type="submit">
                     Add Exercise
             </Button>
         </Container>

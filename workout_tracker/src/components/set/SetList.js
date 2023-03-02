@@ -1,18 +1,19 @@
 import React from 'react';
 import { SetListHeader } from './SetListHeader';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Container from 'react-bootstrap/Container';
 
 export const SetList = ({setList = [], onDelete})=> 
 {
     return (
-        <div className="setList">
+        <Container>
             {
                 setList.length === 0 ? (
                     <div className="list-item list-item--message">
                         <span>No Sets</span>
                     </div>
                 ) : (
-                    <div>
+                    <Container>
                         <ListGroup>
                             <ListGroup.Item><SetListHeader/></ListGroup.Item>
                             {
@@ -31,9 +32,9 @@ export const SetList = ({setList = [], onDelete})=>
                             }
                         </ListGroup>
 
-                    </div>
+                    </Container>
                 )
             }
-        </div>
+        </Container>
     )
 }
