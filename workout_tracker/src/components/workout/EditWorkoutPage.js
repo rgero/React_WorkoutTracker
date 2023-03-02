@@ -18,22 +18,20 @@ export const EditWorkoutPage = ( )=>
         }
         GetWorkoutByID(id);
     }, []);
-    
-    return (
-        <>
-            { isLoaded ? (
-                    <Container fluid="md">
-                        <h1>Edit a workout</h1>
-                        <WorkoutForm
-                            workout={state}
-                            errorMessage={state.errorMessage}
-                            onSubmit={(workout)=> updateWorkout(workout)}
-                        />
-                    </Container>
-                ) : (
-                    <div>Loading</div>
-                )
-            }
-        </>
-    )
+
+    if (state.workoutDate)
+    {
+        return (
+            <Container fluid="md">
+                <h1>Edit a workout</h1>
+                <WorkoutForm
+                    workout={state}
+                    errorMessage={state.errorMessage}
+                    onSubmit={(workout)=> updateWorkout(workout)}
+                />
+            </Container>
+            )
+    } else {
+        return (<div>Loading</div>)
+    }
 }
