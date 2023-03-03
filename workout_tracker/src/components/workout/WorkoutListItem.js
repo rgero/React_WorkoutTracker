@@ -9,12 +9,10 @@ import DateFormatter from '../../helpers/DateFormatter';
 
 export const WorkoutListItem = ({workout, index}) => {
     const navigate = useNavigate();
-
     let {workoutDate, notes, exerciseList} = workout;
-    workoutDate = new Date(workoutDate);
 
     const viewWorkout = () => {
-        console.log(workout._id);
+        navigate(`/view/${workout._id}`);
     }
     
     const deleteWorkout = () => {
