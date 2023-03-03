@@ -12,7 +12,7 @@ import DateFormatter from '../../helpers/DateFormatter';
 
 export const WorkoutForm = ({workout = {}, errorMessage, onSubmit})=> 
 {
-    const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? DateFormatter(new Date(workout.workoutDate)) : DateFormatter(new Date()));
+    const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? DateFormatter(workout.workoutDate) : DateFormatter(new Date()));
     const [exerciseList, setExerciseList] = useState(workout.exerciseList ? workout.exerciseList : []);
     const [notes, setNotes] = useState(workout.notes ? workout.notes : "");
     const [error, setError] = useState("");
