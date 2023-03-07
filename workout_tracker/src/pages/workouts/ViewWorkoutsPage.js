@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import Container from 'react-bootstrap/Container';
-import { WorkoutList } from './WorkoutList';
+import { WorkoutList } from '../../components/workout/WorkoutList';
 import {Context as WorkoutContext} from '../../context/WorkoutContext';
 
 export const ViewWorkoutsPage = ()=> 

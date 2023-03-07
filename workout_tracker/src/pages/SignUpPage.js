@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import { useNavigate } from 'react-router-dom';
 
-import {Context as AuthContext} from '../../context/AuthContext';
+import {Context as AuthContext} from '../context/AuthContext';
 
-import { SignUpForm } from './SignUpForm';
+import { SignUpForm } from '../components/authentication/SignUpForm';
 
 
 export const SignUpPage = ()=> 

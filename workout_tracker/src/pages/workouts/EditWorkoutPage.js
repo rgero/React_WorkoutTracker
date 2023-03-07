@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 
 import {Context as WorkoutContext} from '../../context/WorkoutContext';
-import { WorkoutForm } from './WorkoutForm';
+import { WorkoutForm } from '../../components/workout/WorkoutForm';
 
 export const EditWorkoutPage = ( )=> 
 {

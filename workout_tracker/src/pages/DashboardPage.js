@@ -1,6 +1,6 @@
 import { useEffect, useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
-import { ViewWorkoutsPage } from "../components/workout/ViewWorkoutsPage";
+import { ViewWorkoutsPage } from "../pages/workouts/ViewWorkoutsPage";
 import {Context as AuthContext} from '../context/AuthContext';
 
 const DashboardPage = () => { 

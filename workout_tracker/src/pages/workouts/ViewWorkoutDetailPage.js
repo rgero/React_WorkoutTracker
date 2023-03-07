@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 
 import DateFormatter from '../../helpers/DateFormatter';
 import {Context as WorkoutContext} from '../../context/WorkoutContext';
-import { ExerciseListItem } from '../exercise/ExerciseListItem';
+import { ExerciseListItem } from '../../components/exercise/ExerciseListItem';
 
 const ViewWorkoutDetailsPage = ()=> 
 {

@@ -2,7 +2,7 @@ import React, { useContext, } from 'react';
 import Container from 'react-bootstrap/Container';
 
 import {Context as WorkoutContext} from '../../context/WorkoutContext';
-import { WorkoutForm } from './WorkoutForm';
+import { WorkoutForm } from '../../components/workout/WorkoutForm';
 
 export const AddWorkoutPage = ()=> 
 {

@@ -8,11 +8,11 @@ import NavigationBar from "./components/Navigation";
 import IndexPage from './pages/IndexPage';
 import AboutPage from './pages/AboutPage';
 import DashboardPage from './pages/DashboardPage';
-import { LoginPage } from './components/authentication/LoginPage';
-import { SignUpPage } from './components/authentication/SignUpPage';
-import { AddWorkoutPage } from './components/workout/AddWorkoutPage';
-import { EditWorkoutPage } from './components/workout/EditWorkoutPage';
-import WorkoutDetailPage from './components/workout/ViewWorkoutDetailPage';
+import { LoginPage } from './pages/LoginPage';
+import { SignUpPage } from './pages/SignUpPage';
+import { AddWorkoutPage } from './pages/workouts/AddWorkoutPage';
+import { EditWorkoutPage } from './pages/workouts/EditWorkoutPage';
+import WorkoutDetailPage from './pages/workouts/ViewWorkoutDetailPage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
