@@ -1,4 +1,4 @@
-export const testWorkouts = [
+export const TestWorkouts = [
     {
         "workoutDate": "2023-03-08T00:00:00.000Z",
         "notes": "Testing Notes for Testing",
@@ -49,7 +49,7 @@ export const testWorkouts = [
         ],
     },
     {
-        "workoutDate": "2023-02-08T00:00:00.000Z",
+        "workoutDate": "2022-02-08T00:00:00.000Z",
         "notes": "February",
         "exerciseList": [
             {
