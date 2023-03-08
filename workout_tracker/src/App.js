@@ -4,7 +4,7 @@ import { Provider as AuthProvider, Context as AuthContext} from '../src/context/
 import { Provider as WorkoutProvider} from '../src/context/WorkoutContext'
 import { Provider as ExerciseProvider} from '../src/context/ExerciseContext'
 
-import NavigationBar from "./components/Navigation";
+import NavigationBar from "./components/Header";
 import IndexPage from './pages/IndexPage';
 import AboutPage from './pages/AboutPage';
 import DashboardPage from './pages/DashboardPage';
