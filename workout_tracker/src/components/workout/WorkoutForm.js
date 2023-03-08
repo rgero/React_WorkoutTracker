@@ -48,6 +48,10 @@ export const WorkoutForm = ({workout = {}, errorMessage, onSubmit})=>
         }
 
         onSubmit(workout);
+
+        setWorkoutDate(new Date());
+        setExerciseList([]);
+        setNotes("");
     }
 
     return (

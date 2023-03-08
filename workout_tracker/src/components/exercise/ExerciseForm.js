@@ -10,7 +10,7 @@ import { SetList } from '../set/SetList';
 export const ExerciseForm = ({exercise = {}, onSubmit})=> 
 {
     const [setList, setSetList] = useState(exercise.setList ? exercise.setList : []);
-    const [muscleGroup, setMuscleGroup] = useState(exercise.muscleGroup ? exercise.muscleGroup : []);
+    const [muscleGroup, setMuscleGroup] = useState(exercise.muscleGroup ? exercise.muscleGroup : "");
     const [name, setExerciseName] = useState(exercise.name ? exercise.name : "");
     const [notes, setNotes] = useState(exercise.notes ? exercise.notes : "");
 
@@ -34,6 +34,11 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
         };
 
         onSubmit(newExercise);
+
+        setSetList([]);
+        setMuscleGroup("")
+        setExerciseName("");
+        setNotes("");
     }
 
     return (
