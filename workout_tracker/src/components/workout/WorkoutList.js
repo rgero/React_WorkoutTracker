@@ -19,10 +19,9 @@ export const WorkoutList = ({workoutList=[], descendingOrder}) =>
                     </div>
                 ) : (
                     <div>
-                        
                         {
                             yearOrder.map((year, index)=> (
-                                <Accordion defaultActiveKey={index}>
+                                <Accordion key={`WorkoutYear_${index}`} defaultActiveKey={index}>
                                     <Accordion.Item>
                                         <Accordion.Header>{year}</Accordion.Header>
                                         <Accordion.Body>

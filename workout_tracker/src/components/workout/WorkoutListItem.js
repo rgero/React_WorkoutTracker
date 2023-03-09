@@ -24,29 +24,27 @@ export const WorkoutListItem = ({workout, index}) => {
     }
    
     return (
-        <div>
-            <Accordion defaultActiveKey={index}>
-                <Accordion.Item>
-                    <Accordion.Header>{DateFormatter(workoutDate)}</Accordion.Header>
-                    <Accordion.Body>
-                        <Container>
-                            <Row>
-                                <Col sm={4}>Notes</Col>
-                                <Col>{notes}</Col>
-                            </Row>
-                            <Row className="pb-4">
-                                <Col sm={4}>Total Exercises</Col>
-                                <Col>{exerciseList.length}</Col>
-                            </Row>
-                            <Row>
-                                <Col sm={4}><Button variant="outline-primary" onClick={viewWorkout}>View</Button></Col>
-                                <Col sm={4}><Button variant="outline-primary" onClick={editWorkout}>Edit</Button></Col>
-                                <Col sm={4}><Button variant="outline-danger" onClick={deleteWorkout}>Delete</Button></Col>
-                            </Row>                           
-                        </Container>
-                    </Accordion.Body>
-                </Accordion.Item>
-            </Accordion>
-        </div>
+        <Accordion defaultActiveKey={index}>
+            <Accordion.Item>
+                <Accordion.Header>{DateFormatter(workoutDate)}</Accordion.Header>
+                <Accordion.Body>
+                    <Container>
+                        <Row>
+                            <Col sm={4}>Notes</Col>
+                            <Col>{notes}</Col>
+                        </Row>
+                        <Row className="pb-4">
+                            <Col sm={4}>Total Exercises</Col>
+                            <Col>{exerciseList.length}</Col>
+                        </Row>
+                        <Row>
+                            <Col sm={4}><Button variant="outline-primary" onClick={viewWorkout}>View</Button></Col>
+                            <Col sm={4}><Button variant="outline-primary" onClick={editWorkout}>Edit</Button></Col>
+                            <Col sm={4}><Button variant="outline-danger" onClick={deleteWorkout}>Delete</Button></Col>
+                        </Row>                           
+                    </Container>
+                </Accordion.Body>
+            </Accordion.Item>
+        </Accordion>
     )
 }
