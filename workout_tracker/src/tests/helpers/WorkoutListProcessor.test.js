@@ -1,9 +1,6 @@
 import { GetMonthName, GetOrderedValues, ProcessWorkoutList } from "../../helpers/WorkoutListProcesser";
 import { TestWorkouts } from '../testData';
 
-
-
-
 test("Gets the correct month from date", ()=> {
     const testMonthInput = "02";
     expect( GetMonthName(testMonthInput) ).toMatch("February");
