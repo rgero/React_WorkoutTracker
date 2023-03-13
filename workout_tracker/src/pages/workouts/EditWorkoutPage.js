@@ -26,7 +26,6 @@ export const EditWorkoutPage = ( )=>
                 <h1>Edit a workout</h1>
                 <WorkoutForm
                     workout={state}
-                    errorMessage={state.errorMessage}
                     onSubmit={(workout)=> updateWorkout(workout)}
                 />
             </Container>
