@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`No user logged in 1`] = `
+exports[`No User Logged In Matches Snapshot 1`] = `
 <nav
   className="navbar navbar-expand-lg navbar-light bg-light"
 >
@@ -57,7 +57,7 @@ exports[`No user logged in 1`] = `
 </nav>
 `;
 
-exports[`User logged in 1`] = `
+exports[`User Logged In, with fake token Matches Snapshot 1`] = `
 <nav
   className="navbar navbar-expand-lg navbar-light bg-light"
 >
