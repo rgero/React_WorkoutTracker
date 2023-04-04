@@ -15,7 +15,7 @@ const customStyles = {
 };
 
 export const ErrorModal = ({closeFunction, errorMessage, shouldBeOpen = false, errorTitle = "Error!"}) => {
-    Modal.setAppElement("div");
+    Modal.setAppElement("body");
 
     const closeModal = () => {
         shouldBeOpen = false;
