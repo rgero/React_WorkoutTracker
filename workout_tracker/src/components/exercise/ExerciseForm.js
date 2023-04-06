@@ -26,6 +26,12 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
 
     const processExercise = (e) => {
         e.preventDefault();
+
+        if (name === "" || setList.length == 0)
+        {
+            return;
+        }
+
         const newExercise = {
             name,
             muscleGroup,
@@ -34,7 +40,6 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
         };
 
         onSubmit(newExercise);
-
         setSetList([]);
         setMuscleGroup("")
         setExerciseName("");
