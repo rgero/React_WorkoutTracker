@@ -10,31 +10,33 @@ export const ExerciseListItem = ({exercise = {}})=>
     return (
         <div>
             {
-                setList.length === 0 ? (
+                exerciseName === "" ? (
                     <div className="list-item list-item--message">
-                        <span>No Sets</span>
+                        <span>No Name</span>
                     </div>
                 ) : (
                     <div>
                         {exerciseName}
                         {
-                            <ListGroup>
-                                <ListGroup.Item><SetListHeader/></ListGroup.Item>
-                                {
-                                    setList.map((set, index) => (
-                                        <ListGroup.Item>
-                                            <div className="setListItem">
-                                                <div>
-                                                    {set.reps}
+                            setList.length > 0 ? (
+                                <ListGroup>
+                                    <ListGroup.Item><SetListHeader/></ListGroup.Item>
+                                    {
+                                        setList.map((set, index) => (
+                                            <ListGroup.Item>
+                                                <div className="setListItem">
+                                                    <div>
+                                                        {set.reps}
+                                                    </div>
+                                                    <div>
+                                                        {set.weight}
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    {set.weight}
-                                                </div>
-                                            </div>
-                                        </ListGroup.Item>
-                                    ))
-                                }
-                            </ListGroup>
+                                            </ListGroup.Item>
+                                        ))
+                                    }
+                                </ListGroup>
+                            ) : ( null )
                         }
                     </div>
                 )
