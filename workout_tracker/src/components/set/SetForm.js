@@ -22,9 +22,8 @@ export const SetForm = ({set = {}, onSubmit})=>
     const processNewSet = (e) => {
         e.preventDefault();
         
-        if (reps === "" || weight === "")
+        if (reps === "")
         {
-            setError("Reps and Weight need to be populated");
             return;
         }
 
