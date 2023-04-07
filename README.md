@@ -5,4 +5,8 @@ This is going to be a small application that can be used to track a person's wor
 
 I currently need to explore that React Bootstrap Forms for a little styling help. That will be the next thing that I do for this project.
 
-Currently the basic API works.
+Things to do:
+    - Finish getting this under test using the lessons learned through the React Testing Course.
+    - Create a Docker File for this
+    - Deploy to AWS?
+    
