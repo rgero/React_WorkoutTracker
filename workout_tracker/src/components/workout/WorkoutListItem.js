@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -7,7 +7,12 @@ import Col from 'react-bootstrap/Col';
 import { useNavigate } from "react-router-dom";
 import DateFormatter from '../../helpers/DateFormatter';
 
+import {Context as WorkoutContext} from '../../context/WorkoutContext';
+
 export const WorkoutListItem = ({workout, index}) => {
+
+    const {deleteWorkout} = useContext(WorkoutContext);
+
     const navigate = useNavigate();
     let {workoutDate, notes, exerciseList} = workout;
 
@@ -15,8 +20,8 @@ export const WorkoutListItem = ({workout, index}) => {
         navigate(`/view/${workout._id}`);
     }
     
-    const deleteWorkout = () => {
-        console.log(workout._id);
+    const processDelete = () => {
+        deleteWorkout(workout._id);
     }
 
     const editWorkout = () => {
@@ -40,7 +45,7 @@ export const WorkoutListItem = ({workout, index}) => {
                         <Row>
                             <Col sm={4}><Button variant="outline-primary" onClick={viewWorkout}>View</Button></Col>
                             <Col sm={4}><Button variant="outline-primary" onClick={editWorkout}>Edit</Button></Col>
-                            <Col sm={4}><Button variant="outline-danger" onClick={deleteWorkout}>Delete</Button></Col>
+                            <Col sm={4}><Button variant="outline-danger" onClick={processDelete}>Delete</Button></Col>
                         </Row>                           
                     </Container>
                 </Accordion.Body>
