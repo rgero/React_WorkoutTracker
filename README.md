@@ -10,3 +10,14 @@ Things to do:
     - Create a Docker File for this
     - Deploy to AWS?
     
+
+Issues
+    - Currently the Workout List doesn't delete workouts.
+    - Creating a new workout doesn't redirect to the Dashboard
+    - You can't change the display order on the workout list (it's currently ascending which is the worst)
+    - Edit doesn't work.
+    - There's no link back to Dashboard when you are viewing a workout
+    - The View Workout kind of sucks
+    - There is no Stats Page
+    - There's no way to export the data (nice to have)
+    - There's no way to import the data (nice to have)
