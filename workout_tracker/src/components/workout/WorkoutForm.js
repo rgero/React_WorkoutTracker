@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
+import { useNavigate } from "react-router-dom";
 
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+
 
 import { ExerciseList } from '../exercise/ExerciseList';
 import { ExerciseForm } from '../exercise/ExerciseForm';
@@ -13,6 +15,7 @@ import {ErrorModal} from '../ErrorModal';
 
 export const WorkoutForm = ({workout = {}, onSubmit})=> 
 {
+    const navigation = useNavigate();
     const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? DateFormatter(workout.workoutDate) : DateFormatter(new Date()));
     const [exerciseList, setExerciseList] = useState(workout.exerciseList ? workout.exerciseList : []);
     const [notes, setNotes] = useState(workout.notes ? workout.notes : "");
@@ -53,10 +56,7 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
         }
 
         onSubmit(workout);
-
-        setWorkoutDate(new Date());
-        setExerciseList([]);
-        setNotes("");
+        navigation('/dashboard')
     }
     
     return (
