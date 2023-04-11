@@ -22,10 +22,10 @@ export const ViewWorkoutsPage = ()=>
     }, []);
 
     return (
-        <Container>
-            <Row className="space-between">
+        <Container className="pt-4">
+            <Row className="pb-4 space-between">
                 <Col><h3>Your Workouts</h3></Col>
-                <Col><Button onClick={processWorkouts}>Refresh</Button></Col>
+                <Col><Button className="float-sm-end" variant="secondary" onClick={processWorkouts}>Refresh</Button></Col>
             </Row>
             
             { loaded ? (
@@ -33,7 +33,7 @@ export const ViewWorkoutsPage = ()=>
                     <WorkoutList workoutList={state} />
                 </>
             ) : (
-                <h3>Loading</h3>
+                <>Loading</>
             )}
         </Container>
     )
