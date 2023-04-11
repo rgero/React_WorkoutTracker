@@ -5,6 +5,7 @@ import {Context as WorkoutContext} from '../../context/WorkoutContext';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import { BiRefresh } from "react-icons/bi";
 
 export const ViewWorkoutsPage = ()=> 
 {
@@ -24,17 +25,18 @@ export const ViewWorkoutsPage = ()=>
     return (
         <Container className="pt-4">
             <Row className="pb-4 space-between">
-                <Col><h3>Your Workouts</h3></Col>
-                <Col><Button className="float-sm-end" variant="secondary" onClick={processWorkouts}>Refresh</Button></Col>
+                <Col><h2>Your Workouts</h2></Col>
+                <Col><Button className="float-end" variant="secondary" onClick={processWorkouts}><BiRefresh size={28}/></Button></Col>
             </Row>
-            
-            { loaded ? (
-                <>
-                    <WorkoutList workoutList={state} />
-                </>
-            ) : (
-                <>Loading</>
-            )}
+            <Row>
+                { loaded ? (
+                    <>
+                        <WorkoutList workoutList={state} />
+                    </>
+                ) : (
+                    <>Loading</>
+                )}
+            </Row>
         </Container>
     )
 }
