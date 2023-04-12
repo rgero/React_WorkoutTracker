@@ -6,8 +6,6 @@ const workoutReducer = (state, action) => {
     {
         case 'fetch':
             return action.payload;
-        case 'fetchByID':
-            return action.payload;
         case "create":
             return state.concat(action.payload);
         case "delete":
@@ -23,11 +21,6 @@ const fetchWorkouts = dispatch => async () => {
     const response = await trackerAPI.get('/workouts');
     dispatch({type: 'fetch', payload: response.data})
 };
-
-const fetchWorkoutByID = dispatch => async (id) => {
-    const response = await trackerAPI.get(`/workouts/${id}`);
-    dispatch({type: "fetchByID", payload: response.data});
-}
 
 const createWorkout = dispatch => async (workout) => 
 {
@@ -48,6 +41,6 @@ const deleteWorkout = dispatch => async (targetID) =>
 
 export const {Provider, Context} = createDataContext(
     workoutReducer,
-    {fetchWorkouts, fetchWorkoutByID, createWorkout, deleteWorkout, updateWorkout},
+    {fetchWorkouts, createWorkout, deleteWorkout, updateWorkout},
     []
 );
