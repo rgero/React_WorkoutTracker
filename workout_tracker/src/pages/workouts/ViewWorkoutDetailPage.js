@@ -8,15 +8,17 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 
 import DateFormatter from '../../helpers/DateFormatter';
-
 import {Context as WorkoutContext} from '../../context/WorkoutContext';
 import { ExerciseListItem } from '../../components/exercise/ExerciseListItem';
+
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 const ViewWorkoutDetailsPage = ()=> 
 {
     const navigate = useNavigate();
     const { id } = useParams();
-    
+
     const {state, fetchWorkouts, deleteWorkout} = useContext(WorkoutContext);
     const [currentWorkout, setCurrentWorkout] = useState({});
     const [isLoaded, setLoaded] = useState(false);
@@ -24,8 +26,23 @@ const ViewWorkoutDetailsPage = ()=>
 
 
     const processDelete = async () => {
-        await deleteWorkout(currentWorkout._id);
-        navigate('/dashboard')
+        confirmAlert({
+            title: 'Confirm to delete?',
+            message: 'Are you sure to do this.',
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: async () => {
+                    await deleteWorkout(currentWorkout._id);
+                    navigate('/dashboard')
+                }
+              },
+              {
+                label: 'No'
+              }
+            ]
+          });
+
     }
 
     const isValidWorkout = () => {

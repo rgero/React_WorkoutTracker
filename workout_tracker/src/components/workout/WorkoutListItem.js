@@ -9,6 +9,9 @@ import DateFormatter from '../../helpers/DateFormatter';
 
 import {Context as WorkoutContext} from '../../context/WorkoutContext';
 
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+
 export const WorkoutListItem = ({workout, index}) => {
 
     const {deleteWorkout} = useContext(WorkoutContext);
@@ -21,7 +24,21 @@ export const WorkoutListItem = ({workout, index}) => {
     }
     
     const processDelete = () => {
-        deleteWorkout(workout._id);
+        confirmAlert({
+            title: 'Are you sure you want to delete this?',
+            message: `Workout on ${DateFormatter(workout.workoutDate)} with ${workout.exerciseList.length} exercises`,
+            buttons: [
+              {
+                label: 'Yes',
+                onClick: async () => {
+                    await deleteWorkout(workout._id);
+                }
+              },
+              {
+                label: 'No'
+              }
+            ]
+          });
     }
 
     const editWorkout = () => {
