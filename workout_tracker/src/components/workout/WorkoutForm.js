@@ -15,7 +15,7 @@ import {ErrorModal} from '../ErrorModal';
 
 export const WorkoutForm = ({workout = {}, onSubmit})=> 
 {
-    const navigation = useNavigate();
+    const navigate = useNavigate();
     const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? DateFormatter(workout.workoutDate) : DateFormatter(new Date()));
     const [exerciseList, setExerciseList] = useState(workout.exerciseList ? workout.exerciseList : []);
     const [notes, setNotes] = useState(workout.notes ? workout.notes : "");
@@ -56,7 +56,7 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
         }
 
         onSubmit(workout);
-        navigation('/dashboard')
+        navigate('/dashboard')
     }
     
     return (
