@@ -10,12 +10,14 @@ import { BiRefresh } from "react-icons/bi";
 export const ViewWorkoutsPage = ()=> 
 {
     const {state, fetchWorkouts} = useContext(WorkoutContext);
-    const [loaded, setLoaded] = useState(false);
+    const [isLoaded, setLoaded] = useState(false);
 
     const processWorkouts = async () => {
-        setLoaded(false);
-        await fetchWorkouts();
-        setLoaded(true);
+        if (!isLoaded)
+        {
+            await fetchWorkouts();
+            setLoaded(true);
+        }
     }
 
     useEffect(()=> {
@@ -29,7 +31,7 @@ export const ViewWorkoutsPage = ()=>
                 <Col><Button className="float-end" variant="secondary" onClick={processWorkouts}><BiRefresh size={28}/></Button></Col>
             </Row>
             <Row>
-                { loaded ? (
+                { isLoaded ? (
                     <>
                         <WorkoutList workoutList={state} />
                     </>

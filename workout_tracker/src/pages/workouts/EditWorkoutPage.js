@@ -7,29 +7,57 @@ import { WorkoutForm } from '../../components/workout/WorkoutForm';
 
 export const EditWorkoutPage = ( )=> 
 {
-    const {state, fetchWorkoutByID, updateWorkout} = useContext(WorkoutContext);
+    const {state, fetchWorkouts, updateWorkout} = useContext(WorkoutContext);
     const [isLoaded, setLoaded] = useState(false);
+    const [currentWorkout, setCurrentWorkout] = useState({});
+    const [error, setError] = useState("");
     const { id } = useParams();
 
     useEffect(()=> {
         const GetWorkoutByID = async (id) => {
-            await fetchWorkoutByID(id);
-            setLoaded(true);
+            if (!isLoaded)
+            {
+                await fetchWorkouts();
+                setLoaded(true);
+            }
+            let loadedWorkout = state.filter( (targetWorkout) => {
+                return id === targetWorkout._id;
+            });
+
+            if (loadedWorkout.length == 0)
+            {
+                setError("An error has occurred");
+            } else {
+                setError("");
+                setCurrentWorkout(loadedWorkout[0]);
+            }
         }
         GetWorkoutByID(id);
-    }, []);
+    }, [fetchWorkouts, id, isLoaded, state]);
 
-    if (state.workoutDate)
-    {
-        return (
-            <Container fluid="md">
-                <h1>Edit a workout</h1>
-                <WorkoutForm
-                    workout={state}
-                    onSubmit={(workout)=> updateWorkout(workout)}
-                />
-            </Container>
+    const isValidWorkout = () => {
+        return !Object.keys(currentWorkout).length == 0;
+    }
+
+    if (isLoaded) {
+        if (isValidWorkout()) {
+            return (
+                <Container fluid="md">
+                    <h1>Edit a workout</h1>
+                    <WorkoutForm
+                        workout={currentWorkout}
+                        onSubmit={(workout)=> updateWorkout(workout)}
+                    />
+                </Container>
+                )
+        } else if (error)
+        {
+            return(
+                <Container>
+                    {error}
+                </Container>
             )
+        }
     } else {
         return (<div>Loading</div>)
     }
