@@ -8,6 +8,17 @@ const workoutReducer = (state, action) => {
             return action.payload;
         case "create":
             return state.concat(action.payload);
+        case "edit":
+            return state.map( (workout) => {
+                if (workout._id === action.id) {
+                    return {
+                        ...workout,
+                        ...action.update
+                    }
+                } else {
+                    return workout;
+                }
+            })
         case "delete":
             return state.filter( (testWorkout) => {
                 return action.id !== testWorkout._id;
