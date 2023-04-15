@@ -16,6 +16,7 @@ import {ErrorModal} from '../ErrorModal';
 export const WorkoutForm = ({workout = {}, onSubmit})=> 
 {
     const navigate = useNavigate();
+    const [targetID, setWorkoutID] = useState(workout._id ? workout._id : null)
     const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? DateFormatter(workout.workoutDate) : DateFormatter(new Date()));
     const [exerciseList, setExerciseList] = useState(workout.exerciseList ? workout.exerciseList : []);
     const [notes, setNotes] = useState(workout.notes ? workout.notes : "");
@@ -50,6 +51,7 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
             return;
         }
         let workout = {
+            _id: targetID,
             workoutDate,
             exerciseList,
             notes

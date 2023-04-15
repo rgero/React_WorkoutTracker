@@ -10,7 +10,7 @@ const workoutReducer = (state, action) => {
             return state.concat(action.payload);
         case "edit":
             return state.map( (workout) => {
-                if (workout._id === action.id) {
+                if (workout._id === action._id) {
                     return {
                         ...workout,
                         ...action.update
@@ -41,7 +41,8 @@ const createWorkout = dispatch => async (workout) =>
 
 const updateWorkout = dispatch => async (workout) =>
 {
-    
+    const response = await trackerAPI.put(`/workouts/${workout._id}`, workout);
+    dispatch({type: "edit", payload: response.data});
 }
 
 const deleteWorkout = dispatch => async (targetID) => 
