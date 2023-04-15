@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import { WorkoutListItem } from "./WorkoutListItem";
 import { GetMonthName, GetOrderedValues } from '../../helpers/WorkoutListProcesser';
 
-const WorkoutGroup = (workoutList, descendingOrder=true) => {
+const WorkoutGroup = ({workoutList, descendingOrder}) => {
     let months = GetOrderedValues(workoutList, descendingOrder);
     return (
         <div>

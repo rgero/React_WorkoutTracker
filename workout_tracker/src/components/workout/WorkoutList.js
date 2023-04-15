@@ -5,9 +5,8 @@ import Accordion from 'react-bootstrap/Accordion';
 import {GetOrderedValues, ProcessWorkoutList} from "../../helpers/WorkoutListProcesser";
 import WorkoutGroup from "./WorkoutGroup";
 
-export const WorkoutList = ({workoutList=[], descendingOrder}) => 
+export const WorkoutList = ({workoutList=[], descendingOrder=true}) => 
 {
-
     let organizedList = ProcessWorkoutList(workoutList);
     let yearOrder = GetOrderedValues(organizedList, descendingOrder);
     return (
@@ -25,7 +24,7 @@ export const WorkoutList = ({workoutList=[], descendingOrder}) =>
                                     <Accordion.Item>
                                         <Accordion.Header>{year}</Accordion.Header>
                                         <Accordion.Body>
-                                            <WorkoutGroup {...organizedList[year]} />
+                                            <WorkoutGroup workoutList={organizedList[year]} descendingOrder={descendingOrder}/>
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 </Accordion>
