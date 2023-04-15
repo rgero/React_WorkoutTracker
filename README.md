@@ -12,9 +12,7 @@ Things to do:
     
 
 Issues
-    - You can't change the display order on the workout list (it's currently ascending which is the worst)
-    - Edit doesn't work.
-    - There's no link back to Dashboard when you are viewing a workout
+    - You can't change the display order on the workout list
     - The View Workout kind of sucks
     - There is no Stats Page
     - There's no way to export the data (nice to have)
