@@ -28,13 +28,13 @@ export const GetOrderedValues = (targetDictionary, descending=true) => {
         return;
     }
 
-    let years = Object.keys(targetDictionary);
-    years.sort();  
+    let sortedKey = Object.keys(targetDictionary);
+    sortedKey.sort();  
     if (descending)
     {
-        years.reverse();
+        sortedKey.reverse();
     }
-    return years;
+    return sortedKey;
 }
 
 export const GetMonthName = (monthString) => {
