@@ -37,6 +37,19 @@ export const GetOrderedValues = (targetDictionary, descending=true) => {
     return sortedKey;
 }
 
+export const SortMonth = (monthArray, descending=true) =>
+{
+    return monthArray.sort( (a,b) => {
+        let aDate = new Date(a.workoutDate);
+        let bDate = new Date(b.workoutDate);
+        if (descending) {
+            return bDate-aDate;
+        } else {
+            return aDate-bDate;
+        }
+    })
+}
+
 export const GetMonthName = (monthString) => {
     // This is a silly way to do it, think of one better.
     let tempString = "2022-" + monthString + "-15";
