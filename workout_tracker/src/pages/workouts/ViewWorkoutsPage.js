@@ -33,7 +33,7 @@ export const ViewWorkoutsPage = ()=>
             <Row>
                 { isLoaded ? (
                     <>
-                        <WorkoutList workoutList={state} descendingOrder={false}/>
+                        <WorkoutList workoutList={state} descendingOrder={true}/>
                     </>
                 ) : (
                     <>Loading</>
