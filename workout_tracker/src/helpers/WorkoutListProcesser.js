@@ -22,15 +22,15 @@ export const ProcessWorkoutList = (workoutList) => {
     return organizedWorkouts;
 }
 
-export const GetOrderedValues = (targetDictionary, descending=true) => {
+export const GetOrderedValues = (targetDictionary, descending) => {
     if (!targetDictionary)
     {
         return;
     }
 
     let sortedKey = Object.keys(targetDictionary);
-    sortedKey.sort();  
-    if (descending)
+    sortedKey.sort();
+    if (descending === true)
     {
         sortedKey.reverse();
     }
@@ -39,7 +39,6 @@ export const GetOrderedValues = (targetDictionary, descending=true) => {
 
 export const SortMonth = (monthArray, descending=true) =>
 {
-    console.log(monthArray);
     let sortedArray = monthArray.sort( (a,b) => {
         let aDate = new Date(a.workoutDate);
         let bDate = new Date(b.workoutDate);
