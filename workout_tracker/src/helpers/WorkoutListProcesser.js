@@ -39,7 +39,8 @@ export const GetOrderedValues = (targetDictionary, descending=true) => {
 
 export const SortMonth = (monthArray, descending=true) =>
 {
-    return monthArray.sort( (a,b) => {
+    console.log(monthArray);
+    let sortedArray = monthArray.sort( (a,b) => {
         let aDate = new Date(a.workoutDate);
         let bDate = new Date(b.workoutDate);
         if (descending) {
@@ -48,6 +49,7 @@ export const SortMonth = (monthArray, descending=true) =>
             return aDate-bDate;
         }
     })
+    return sortedArray;
 }
 
 export const GetMonthName = (monthString) => {
