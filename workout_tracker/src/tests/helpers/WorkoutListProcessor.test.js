@@ -24,7 +24,7 @@ test("Makes sure we're creating the dictionary properly", ()=> {
 
 test("Makes sure we're ordering the years properly - Descending", ()=> {
     let resultDictionary = ProcessWorkoutList(TestWorkouts);
-    let results = GetOrderedValues(resultDictionary);
+    let results = GetOrderedValues(resultDictionary, true);
     let expectedResults = ["2023", "2022"];
 
     expect(results).toStrictEqual(expectedResults);
