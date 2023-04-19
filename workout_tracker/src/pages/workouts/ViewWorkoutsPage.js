@@ -22,6 +22,15 @@ export const ViewWorkoutsPage = ()=>
         }
     }
 
+    const processOrderChange = (e) => {
+        if (e.currentTarget.value === "true")
+        {
+            setDescending(true);
+        } else {
+            setDescending(false);
+        }
+    }
+
     useEffect(()=> {
         processWorkouts();
     }, []);
@@ -33,7 +42,7 @@ export const ViewWorkoutsPage = ()=>
                 <Col>
                     <Form.Select
                         value={isDescending}
-                        onChange={(e) => setDescending(e.currentTarget.value)}
+                        onChange={processOrderChange}
                     >
                         <option value={true}>Descending</option>
                         <option value={false}>Ascending</option>
