@@ -37,12 +37,12 @@ export const GetOrderedValues = (targetDictionary, descending) => {
     return sortedKey;
 }
 
-export const SortMonth = (monthArray, descending=true) =>
+export const SortMonth = (monthArray, descending) =>
 {
     let sortedArray = monthArray.sort( (a,b) => {
         let aDate = new Date(a.workoutDate);
         let bDate = new Date(b.workoutDate);
-        if (descending) {
+        if (descending == true) {
             return bDate-aDate;
         } else {
             return aDate-bDate;
