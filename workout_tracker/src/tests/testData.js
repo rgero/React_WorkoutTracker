@@ -97,4 +97,102 @@ export const TestWorkouts = [
             }
         ],
     },
+    {
+        "workoutDate": "2022-02-15T00:00:00.000Z",
+        "notes": "February",
+        "exerciseList": [
+            {
+                "name": "Incline Press",
+                "muscleGroup": "Chest",
+                "setList": [
+                    {
+                        "reps": 10,
+                        "weight": 275,
+                    },
+                    {
+                        "reps": 10,
+                        "weight": 300,
+                    },
+                    {
+                        "reps": 3,
+                        "weight": 315,
+                    }
+                ],
+                "notes": "Wrist is feeling a bit sore",
+
+            },
+            {
+                "name": "Lunges",
+                "muscleGroup": "Legs",
+                "setList": [
+                    {
+                        "reps": 40,
+                        "weight": 100,
+                    },
+                    {
+                        "reps": 40,
+                        "weight": 100,
+                    },
+                    {
+                        "reps": 40,
+                        "weight": 100,
+                    },
+                    {
+                        "reps": 40,
+                        "weight": 100,
+                    }
+                ],
+                "notes": "Dumbbells",
+            }
+        ],
+    },
+    {
+        "workoutDate": "2022-03-15T00:00:00.000Z",
+        "notes": "February",
+        "exerciseList": [
+            {
+                "name": "Incline Press",
+                "muscleGroup": "Chest",
+                "setList": [
+                    {
+                        "reps": 10,
+                        "weight": 275,
+                    },
+                    {
+                        "reps": 10,
+                        "weight": 300,
+                    },
+                    {
+                        "reps": 3,
+                        "weight": 315,
+                    }
+                ],
+                "notes": "Wrist is feeling a bit sore",
+
+            },
+            {
+                "name": "Lunges",
+                "muscleGroup": "Legs",
+                "setList": [
+                    {
+                        "reps": 40,
+                        "weight": 100,
+                    },
+                    {
+                        "reps": 40,
+                        "weight": 100,
+                    },
+                    {
+                        "reps": 40,
+                        "weight": 100,
+                    },
+                    {
+                        "reps": 40,
+                        "weight": 100,
+                    }
+                ],
+                "notes": "Dumbbells",
+            }
+        ],
+    },
 ]
