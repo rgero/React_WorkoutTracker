@@ -12,7 +12,6 @@ Things to do:
     
 
 Issues
-    - You can't change the display order on the workout list
     - The View Workout kind of sucks
     - There is no Stats Page
     - There's no way to export the data (nice to have)
