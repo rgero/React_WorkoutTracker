@@ -18,7 +18,7 @@ export const ExerciseList = ({exerciseList = [], onDelete})=>
                         <ListGroup>
                         {
                             exerciseList.map((exercise, index) => (
-                                <ListGroup.Item action onClick={(e) => onDelete(index)}>
+                                <ListGroup.Item action>
                                     <ExerciseListItem
                                         exercise={exercise}
                                     />
