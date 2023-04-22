@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 
 import Accordion from 'react-bootstrap/Accordion';
+import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -11,7 +12,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { ExerciseList } from '../exercise/ExerciseList';
 import { ExerciseForm } from '../exercise/ExerciseForm';
 import DateFormatter from '../../helpers/DateFormatter';
-import {ErrorModal} from '../ErrorModal';
+
 
 export const WorkoutForm = ({workout = {}, onSubmit})=> 
 {
@@ -32,20 +33,16 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
         setExerciseList( [...newExerciseList] );
     }
 
-    const closeModalFunction = () => {
-        setError("");
-    }
-
     const submitWorkout = (e) => {
         e.preventDefault();
         if (!workoutDate)
         {
-            setError("Need a workout date");
+            setError("You need a valid workout date");
             return;
         }
         if (exerciseList.length < 1)
         {
-            setError("You need at least one exercise");
+            setError("You need at least one exercise for workout submission.");
             return;
         }
 
@@ -59,10 +56,17 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
         onSubmit(workout);
         navigate('/dashboard')
     }
-    
+
     return (
             <Container fluid="md">
-                <ErrorModal closeFunction={closeModalFunction} errorMessage={error} shouldBeOpen={error ? true : false}/>
+                { error ? (
+                    <Alert key='danger' variant='danger'>
+                        <Alert.Heading>
+                            There's an error in your form
+                        </Alert.Heading>
+                        {error}
+                    </Alert>
+                ): ( null )}
                 <Accordion defaultActiveKey="0">
                     <Accordion.Item>
                         <Accordion.Header>
