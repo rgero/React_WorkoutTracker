@@ -41,15 +41,14 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
         if (!workoutDate)
         {
             setError("Need a workout date");
+            return;
         }
         if (exerciseList.length < 1)
         {
             setError("You need at least one exercise");
-        }
-        if (error)
-        {
             return;
         }
+
         let workout = {
             _id: targetID,
             workoutDate,
