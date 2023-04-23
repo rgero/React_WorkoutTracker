@@ -59,6 +59,7 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
 
     return (
             <Container fluid="md">
+                {/* Error Messaging */}
                 { error ? (
                     <Alert key='danger' variant='danger'>
                         <Alert.Heading>
@@ -67,6 +68,8 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
                         {error}
                     </Alert>
                 ): ( null )}
+
+                {/* Exercise Information */}
                 <Accordion defaultActiveKey="0">
                     <Accordion.Item>
                         <Accordion.Header>
@@ -86,6 +89,8 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
+
+                {/* Add Exercise */}
                 <Accordion defaultActiveKey="0">
                     <Accordion.Item>
                         <Accordion.Header>
@@ -96,6 +101,8 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
+
+                {/* Exercise List */}
                 { exerciseList.length > 0 ? (
                     <Accordion defaultActiveKey="1">
                         <Accordion.Item>
@@ -107,8 +114,8 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
-                ): (null)
-                }
+                ): (null)}
+                
                 <Button form="addWorkout" variant="outline-secondary" type="submit">
                         Submit Workout
                 </Button>

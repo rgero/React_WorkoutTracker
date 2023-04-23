@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 
-import ListGroup from 'react-bootstrap/ListGroup';
-import { SetListHeader } from '../set/SetListHeader';
+import { SetList } from '../set/SetList';
 
 import Container from 'react-bootstrap/Container';
 import Collapse from 'react-bootstrap/Collapse';
@@ -25,27 +24,7 @@ export const ExerciseListItem = ({exercise = {}})=>
                 ) : (
                     <Container onClick={(e)=> { showOptions(!optionsShown) }}>
                         {exerciseName}
-                        {
-                            setList.length > 0 ? (
-                                <ListGroup>
-                                    <ListGroup.Item><SetListHeader/></ListGroup.Item>
-                                    {
-                                        setList.map((set, index) => (
-                                            <ListGroup.Item>
-                                                <div className="setListItem">
-                                                    <div>
-                                                        {set.reps}
-                                                    </div>
-                                                    <div>
-                                                        {set.weight}
-                                                    </div>
-                                                </div>
-                                            </ListGroup.Item>
-                                        ))
-                                    }
-                                </ListGroup>
-                            ) : ( null )
-                        }
+                        <SetList setList={setList}/>
                         <Collapse in={optionsShown}>
                             <Row>
                                 <Col>

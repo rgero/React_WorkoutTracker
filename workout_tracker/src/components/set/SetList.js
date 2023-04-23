@@ -1,10 +1,20 @@
 import React from 'react';
-import { SetListHeader } from './SetListHeader';
+
 import ListGroup from 'react-bootstrap/ListGroup';
 import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
-export const SetList = ({setList = [], onDelete})=> 
+export const SetList = ({setList = [], onDelete=null})=> 
 {
+    const processDelete = (index) => {
+        if (!onDelete)
+        {
+            return;
+        }
+        onDelete(index);
+    }
+
     return (
         <Container>
             {
@@ -15,23 +25,33 @@ export const SetList = ({setList = [], onDelete})=>
                 ) : (
                     <Container>
                         <ListGroup>
-                            <ListGroup.Item><SetListHeader/></ListGroup.Item>
+                            <ListGroup.Item>
+                                <Row>
+                                    <Col>
+                                        Reps
+                                    </Col>
+                                    <Col>
+                                        Weight
+                                    </Col>
+                                </Row>
+                            </ListGroup.Item>
                             {
                                 setList.map((set, index) => (
-                                    <ListGroup.Item action onClick={(e) => onDelete(index)}>
-                                        <div className="setListItem">
-                                            <div>
+                                    <ListGroup.Item onClick={(e) => processDelete(index)}>
+                                        <Row>
+                                            <Col>
                                                 {set.reps}
-                                            </div>
-                                            <div>
-                                                {set.weight}
-                                            </div>
-                                        </div>
+                                            </Col>
+                                            { set.weight ? (
+                                                <Col>
+                                                    {set.weight}
+                                                </Col>
+                                            ) : ( null ) }
+                                        </Row>
                                     </ListGroup.Item>
                                 ))
                             }
                         </ListGroup>
-
                     </Container>
                 )
             }
