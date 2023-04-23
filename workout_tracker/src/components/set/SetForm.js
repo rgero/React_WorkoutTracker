@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 
 import '../../styles/components/inputs.css'
 
+import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
@@ -13,6 +15,8 @@ export const SetForm = ({set = {}, onSubmit})=>
     const [error, setError] = useState("")
 
     const processChange = (event, callback) => {
+
+        // This will restrict it so it's only numbers. Can't input negative numbers either.
         const amount = event.target.value;
         if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
             callback(amount);
@@ -24,6 +28,7 @@ export const SetForm = ({set = {}, onSubmit})=>
         
         if (reps === "")
         {
+            setError("Error: Missing Reps")
             return;
         }
 
@@ -35,17 +40,31 @@ export const SetForm = ({set = {}, onSubmit})=>
     }
 
     return (
-        <Form onSubmit={processNewSet}>
-            <InputGroup className="mb-3">
-                <InputGroup.Text>Reps</InputGroup.Text>
-                <Form.Control type="text" value={reps} onChange={e => processChange(e, setReps)}/>
-                <InputGroup.Text>Weight</InputGroup.Text>
-                <Form.Control type="text" value={weight} onChange={e => processChange(e, setWeight)}/>
-                <Button variant="outline-secondary" type="submit">
-                    Add Set
-                </Button>
-            </InputGroup>
+        <Container>
+            <Form onSubmit={processNewSet}>
+                <InputGroup className="mb-3">
 
-        </Form>
+                    {/* Reps Section */}
+                    <InputGroup.Text>Reps</InputGroup.Text>
+                    <Form.Control type="text" value={reps} onChange={e => processChange(e, setReps)}/>
+
+                    {/* Weight Section */}
+                    <InputGroup.Text>Weight</InputGroup.Text>
+                    <Form.Control type="text" value={weight} onChange={e => processChange(e, setWeight)}/>
+
+                    {/* Submit Button */}
+                    <Button variant="outline-secondary" type="submit">
+                        Add Set
+                    </Button>
+                </InputGroup>
+            </Form>
+            
+            {/* Error Processing? Don't know if this is completely necessary */}
+            { error ? (
+                <Alert key='danger' variant='danger'>
+                    {error}
+                </Alert>
+            ): ( null )}
+        </Container>
     )
 }
