@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+
+import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -14,6 +16,11 @@ export const SignUpForm = ({errorMessage, onSubmit})=>
 
     const trySignUp = async (event) => {
         event.preventDefault();
+        if ( email === "" || password === "" || passwordSecond === "")
+        {
+            setErrorMessage("Please fill out the full form.");
+            return;
+        }
         if (passwordSecond !== password)
         {
             setErrorMessage("Passwords do not match");
@@ -41,9 +48,12 @@ export const SignUpForm = ({errorMessage, onSubmit})=>
                 <Button variant="outline-secondary" type="submit">
                     Sign Up
                 </Button>
-                {errMsg ? (
-                    <h4>{errMsg}</h4>
-                ): null}
+                { errMsg ? (
+                        <Container className="pt-4">
+                            <Alert variant='danger'>{errMsg}</Alert>
+                        </Container>
+                    ) : null
+                }
             </Form>
         </Container>
     )

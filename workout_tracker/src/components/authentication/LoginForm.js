@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+
+import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -28,10 +30,13 @@ export const LoginForm = ({errorMessage, onSubmit})=>
                 <Button variant="outline-secondary" type="submit">
                     Sign In
                 </Button>
-                {errorMessage ? (
-                    <h4>{errorMessage}</h4>
-                ): null}
             </Form>
+            { errorMessage ? (
+                    <Container className="pt-4">
+                        <Alert variant='danger'>{errorMessage}</Alert>
+                    </Container>
+                ) : null
+            }
         </Container>
     )
 }
