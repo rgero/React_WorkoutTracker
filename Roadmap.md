@@ -4,7 +4,7 @@ Current Plan
     - Get the existing functionality under test
         - Let's start with the smallest components and grow out
             - Sets
-                - SetForm
+                - Set Form
                 - Set List
             - Exercises
                 - Exercise Form

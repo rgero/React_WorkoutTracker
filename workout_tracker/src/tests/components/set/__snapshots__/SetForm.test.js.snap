@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SetForm Rendering Tests No data 1`] = `
+<div
+  className="container"
+>
+  <form
+    className=""
+    onSubmit={[Function]}
+  >
+    <div
+      className="mb-3 input-group"
+    >
+      <span
+        className="input-group-text"
+      >
+        Reps
+      </span>
+      <input
+        className="form-control"
+        onChange={[Function]}
+        role="setReps"
+        type="text"
+        value=""
+      />
+      <span
+        className="input-group-text"
+      >
+        Weight
+      </span>
+      <input
+        className="form-control"
+        onChange={[Function]}
+        role="setWeight"
+        type="text"
+        value=""
+      />
+      <button
+        className="btn btn-outline-secondary"
+        disabled={false}
+        type="submit"
+      >
+        Add Set
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`SetForm Rendering Tests With Data 1`] = `
+<div
+  className="container"
+>
+  <form
+    className=""
+    onSubmit={[Function]}
+  >
+    <div
+      className="mb-3 input-group"
+    >
+      <span
+        className="input-group-text"
+      >
+        Reps
+      </span>
+      <input
+        className="form-control"
+        onChange={[Function]}
+        role="setReps"
+        type="text"
+        value={20}
+      />
+      <span
+        className="input-group-text"
+      >
+        Weight
+      </span>
+      <input
+        className="form-control"
+        onChange={[Function]}
+        role="setWeight"
+        type="text"
+        value={200}
+      />
+      <button
+        className="btn btn-outline-secondary"
+        disabled={false}
+        type="submit"
+      >
+        Add Set
+      </button>
+    </div>
+  </form>
+</div>
+`;

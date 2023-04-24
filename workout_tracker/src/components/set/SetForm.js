@@ -33,10 +33,10 @@ export const SetForm = ({set = {}, onSubmit})=>
         }
 
         let newSet = { reps, weight}
+        onSubmit(newSet);
         setReps("");
         setWeight("");
         setError("");
-        onSubmit(newSet);
     }
 
     return (
@@ -46,11 +46,11 @@ export const SetForm = ({set = {}, onSubmit})=>
 
                     {/* Reps Section */}
                     <InputGroup.Text>Reps</InputGroup.Text>
-                    <Form.Control type="text" value={reps} onChange={e => processChange(e, setReps)}/>
+                    <Form.Control type="text" role="setReps" value={reps} onChange={e => processChange(e, setReps)}/>
 
                     {/* Weight Section */}
                     <InputGroup.Text>Weight</InputGroup.Text>
-                    <Form.Control type="text" value={weight} onChange={e => processChange(e, setWeight)}/>
+                    <Form.Control type="text" role="setWeight" value={weight} onChange={e => processChange(e, setWeight)}/>
 
                     {/* Submit Button */}
                     <Button variant="outline-secondary" type="submit">
