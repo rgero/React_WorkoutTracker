@@ -110,7 +110,7 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
                                 Exercise List
                             </Accordion.Header>
                             <Accordion.Body>
-                                    <ExerciseList exerciseList={exerciseList} onDelete={deleteExercise}/>
+                                <ExerciseList exerciseList={exerciseList} onDelete={deleteExercise}/>
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>

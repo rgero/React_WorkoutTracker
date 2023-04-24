@@ -21,6 +21,7 @@ export const ExerciseList = ({exerciseList = [], onDelete})=>
                                 <ListGroup.Item action>
                                     <ExerciseListItem
                                         exercise={exercise}
+                                        onDelete={onDelete}
                                     />
                                 </ListGroup.Item>
                             ))
