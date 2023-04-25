@@ -7,12 +7,12 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 
-export const SignUpForm = ({errorMessage, onSubmit})=> 
+export const SignUpForm = ({onSubmit})=> 
 {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordSecond, setRetypePassword] = useState("");
-    const [errMsg, setErrorMessage] = useState(errorMessage ? errorMessage : "")
+    const [errMsg, setErrorMessage] = useState("")
 
     const trySignUp = async (event) => {
         event.preventDefault();
@@ -23,7 +23,7 @@ export const SignUpForm = ({errorMessage, onSubmit})=>
         }
         if (passwordSecond !== password)
         {
-            setErrorMessage("Passwords do not match");
+            setErrorMessage("Passwords do not match.");
             return;
         }
         setErrorMessage("");
@@ -54,7 +54,7 @@ export const SignUpForm = ({errorMessage, onSubmit})=>
                 <InputGroup className="mb-3">
                     <InputGroup.Text>Re-Enter Password</InputGroup.Text>
                     <Form.Control
-                        aria-label="passwordSecond"
+                        aria-label="reentry"
                         type="password"
                         value={passwordSecond}
                         onChange={e => setRetypePassword(e.target.value)}
@@ -66,7 +66,7 @@ export const SignUpForm = ({errorMessage, onSubmit})=>
                 { errMsg ? 
                     (
                         <Container className="pt-4">
-                            <Alert variant='danger'>{errMsg}</Alert>
+                            <Alert variant='danger'>Error: {errMsg}</Alert>
                         </Container>
                     ) : null
                 }
