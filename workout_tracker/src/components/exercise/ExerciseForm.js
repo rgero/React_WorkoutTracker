@@ -51,15 +51,31 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
             <Form id="addExerciseForm" onSubmit={processExercise}>
                 <InputGroup className="mb-3">
                     <InputGroup.Text>Name</InputGroup.Text>
-                    <Form.Control type="text" value={name} onChange={e => setExerciseName(e.target.value)}/>
+                    <Form.Control
+                        aria-label="name" 
+                        type="text" 
+                        value={name} 
+                        onChange={e => setExerciseName(e.target.value)}
+                    />
                 </InputGroup>
                 <InputGroup className="mb-3">
                     <InputGroup.Text>Muscle Group</InputGroup.Text>
-                    <Form.Control type="text" value={muscleGroup} onChange={e => setMuscleGroup(e.target.value)}/>
+                    <Form.Control
+                        aria-label="muscleGroup"
+                        type="text"
+                        value={muscleGroup}
+                        onChange={e => setMuscleGroup(e.target.value)}
+                    />
                 </InputGroup>
                 <InputGroup className="mb-3">
                     <InputGroup.Text>Notes</InputGroup.Text>
-                    <Form.Control as="textarea" value={notes} rows={3} onChange={e => setNotes(e.target.value)} />
+                    <Form.Control
+                        aria-label="exerciseNotes"
+                        as="textarea"
+                        value={notes}
+                        rows={3}
+                        onChange={e => setNotes(e.target.value)}
+                    />
                 </InputGroup>
             </Form>
             <SetForm onSubmit={addSet}/>

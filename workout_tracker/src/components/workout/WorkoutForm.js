@@ -79,11 +79,22 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
                             <Form id="addWorkout" onSubmit={submitWorkout}>
                                 <InputGroup className="mb-3">
                                     <InputGroup.Text>Date</InputGroup.Text>
-                                    <Form.Control type="date" value={workoutDate} onChange={e => setWorkoutDate(e.target.value)}/>
+                                    <Form.Control
+                                        aria-label="workoutDate" 
+                                        type="date" 
+                                        value={workoutDate}
+                                        onChange={e => setWorkoutDate(e.target.value)}
+                                    />
                                 </InputGroup>
                                 <InputGroup className="mb-3">
                                     <InputGroup.Text>Notes</InputGroup.Text>
-                                    <Form.Control as="textarea" value={notes} rows={3} onChange={e => setNotes(e.target.value)} />
+                                    <Form.Control
+                                        aria-label="workoutNotes"
+                                        as="textarea"
+                                        value={notes}
+                                        rows={3}
+                                        onChange={e => setNotes(e.target.value)}
+                                    />
                                 </InputGroup>
                             </Form>
                         </Accordion.Body>
