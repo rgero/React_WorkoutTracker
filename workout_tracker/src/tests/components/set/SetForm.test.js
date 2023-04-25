@@ -77,5 +77,26 @@ describe("SetForm Submissions", ()=> {
         expect(submit).toHaveBeenCalledWith( testSet )
     })
 
+    test("Invalid Submission - No Reps", () => {
+        let submit = jest.fn();
+        let testSet = TestSet;
 
+        render(<SetForm onSubmit={submit} />)
+
+        act(()=> {
+            const weightInput = screen.getByRole("textbox", {name: /weight/i});
+      
+            user.click(weightInput);
+            user.keyboard(testSet.weight);
+        
+            const button = screen.getByRole("button");
+
+            user.click(button);
+        })
+        
+        expect(submit).not.toHaveBeenCalled();
+
+        const errorField = screen.getByText("Error: Missing Reps");
+        expect(errorField).toBeInTheDocument();
+    })
 })
