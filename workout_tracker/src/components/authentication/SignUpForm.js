@@ -35,20 +35,36 @@ export const SignUpForm = ({errorMessage, onSubmit})=>
             <Form onSubmit={trySignUp}>
                 <InputGroup className="mb-3">
                     <InputGroup.Text>E-Mail</InputGroup.Text>
-                    <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)}/>
+                    <Form.Control
+                        aria-label="email"
+                        type="email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                    />
                 </InputGroup>
                 <InputGroup className="mb-3">
                     <InputGroup.Text>Password</InputGroup.Text>
-                    <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)}/>
+                    <Form.Control
+                        aria-label="password"
+                        type="password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                    />
                 </InputGroup>
                 <InputGroup className="mb-3">
                     <InputGroup.Text>Re-Enter Password</InputGroup.Text>
-                    <Form.Control type="password" value={passwordSecond} onChange={e => setRetypePassword(e.target.value)}/>
+                    <Form.Control
+                        aria-label="passwordSecond"
+                        type="password"
+                        value={passwordSecond}
+                        onChange={e => setRetypePassword(e.target.value)}
+                    />
                 </InputGroup>
                 <Button variant="outline-secondary" type="submit">
                     Sign Up
                 </Button>
-                { errMsg ? (
+                { errMsg ? 
+                    (
                         <Container className="pt-4">
                             <Alert variant='danger'>{errMsg}</Alert>
                         </Container>

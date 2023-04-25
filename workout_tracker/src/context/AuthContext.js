@@ -41,7 +41,7 @@ const signUp = dispatch => {
             dispatch({type: "storeToken", payload: response.data.token})
         } catch (err) {
             console.log(err.message);
-            dispatch({ type: 'addError', payload: "Something went wrong"})
+            dispatch({ type: 'addError', payload: "Sign-up failed. Please try again"})
         }
     };
 }
@@ -56,7 +56,7 @@ const signIn = (dispatch) => {
             dispatch({type: "storeToken", payload: response.data.token})
         } catch (err) {
             console.log(err.message);
-            dispatch({ type: 'addError', payload: "Something went wrong"})
+            dispatch({ type: 'addError', payload: "Login failed. Please try again"})
         }
     };
 }

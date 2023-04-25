@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm Rendering Tests No Data 1`] = `
+<div
+  className="container-md"
+>
+  <form
+    className=""
+    onSubmit={[Function]}
+  >
+    <div
+      className="mb-3 input-group"
+    >
+      <span
+        className="input-group-text"
+      >
+        E-Mail
+      </span>
+      <input
+        aria-label="email"
+        className="form-control"
+        onChange={[Function]}
+        type="email"
+        value=""
+      />
+    </div>
+    <div
+      className="mb-3 input-group"
+    >
+      <span
+        className="input-group-text"
+      >
+        Password
+      </span>
+      <input
+        aria-label="password"
+        className="form-control"
+        onChange={[Function]}
+        type="password"
+        value=""
+      />
+    </div>
+    <button
+      className="btn btn-outline-secondary"
+      disabled={false}
+      type="submit"
+    >
+      Sign In
+    </button>
+  </form>
+</div>
+`;
