@@ -44,12 +44,22 @@ export const SetForm = ({set = {}, onSubmit})=>
                 <InputGroup className="d-flex align-items-center mb-3">
 
                     {/* Reps Section */}
-                    <Form.Label className="fs-6 me-3" htmlFor="repInput">Reps</Form.Label>
-                    <Form.Control type="text" id="repInput" value={reps} onChange={e => processChange(e, setReps)}/>
+                    <InputGroup.Text>Reps</InputGroup.Text>
+                    <Form.Control 
+                        type="text" 
+                        aria-label="reps" 
+                        value={reps} 
+                        onChange={e => processChange(e, setReps)}
+                    />
 
                     {/* Weight Section */}
-                    <Form.Label className="fs-6 mx-3" htmlFor="weightInput">Weight</Form.Label>
-                    <Form.Control type="text" id="weightInput" value={weight} onChange={e => processChange(e, setWeight)}/>
+                    <InputGroup.Text>Weight</InputGroup.Text>
+                    <Form.Control 
+                        type="text" 
+                        aria-label="weight" 
+                        value={weight} 
+                        onChange={e => processChange(e, setWeight)}
+                    />
 
                     {/* Submit Button */}
                     <Button variant="outline-secondary" type="submit">

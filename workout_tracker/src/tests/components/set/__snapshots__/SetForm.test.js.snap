@@ -11,28 +11,26 @@ exports[`SetForm Rendering Tests No data 1`] = `
     <div
       className="d-flex align-items-center mb-3 input-group"
     >
-      <label
-        className="fs-6 me-3 form-label"
-        htmlFor="repInput"
+      <span
+        className="input-group-text"
       >
         Reps
-      </label>
+      </span>
       <input
+        aria-label="reps"
         className="form-control"
-        id="repInput"
         onChange={[Function]}
         type="text"
         value=""
       />
-      <label
-        className="fs-6 mx-3 form-label"
-        htmlFor="weightInput"
+      <span
+        className="input-group-text"
       >
         Weight
-      </label>
+      </span>
       <input
+        aria-label="weight"
         className="form-control"
-        id="weightInput"
         onChange={[Function]}
         type="text"
         value=""
@@ -60,28 +58,26 @@ exports[`SetForm Rendering Tests With Data 1`] = `
     <div
       className="d-flex align-items-center mb-3 input-group"
     >
-      <label
-        className="fs-6 me-3 form-label"
-        htmlFor="repInput"
+      <span
+        className="input-group-text"
       >
         Reps
-      </label>
+      </span>
       <input
+        aria-label="reps"
         className="form-control"
-        id="repInput"
         onChange={[Function]}
         type="text"
         value="20"
       />
-      <label
-        className="fs-6 mx-3 form-label"
-        htmlFor="weightInput"
+      <span
+        className="input-group-text"
       >
         Weight
-      </label>
+      </span>
       <input
+        aria-label="weight"
         className="form-control"
-        id="weightInput"
         onChange={[Function]}
         type="text"
         value="200"
