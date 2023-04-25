@@ -80,7 +80,7 @@ describe("SignUpForm value tests", ()=> {
             const secondPassword = screen.getByLabelText(/reentry/i);
 
             user.click(emailInput);
-            user.keyboard();
+            user.keyboard(mockUserData.email);
 
             user.click(secondPassword);
             user.keyboard(mockUserData.password);
@@ -102,7 +102,7 @@ describe("SignUpForm value tests", ()=> {
             const passwordInput = screen.getByLabelText(/password/i);
 
             user.click(emailInput);
-            user.keyboard();
+            user.keyboard(mockUserData.email);
         
             user.click(passwordInput);
             user.keyboard(mockUserData.password);
@@ -130,8 +130,9 @@ describe("SignUpForm value tests", ()=> {
             user.click(passwordInput);
             user.keyboard(mockUserData.password);
 
+            let secondaryPassword = "Not the same password";
             user.click(secondPassword);
-            user.keyboard("Not the same password");
+            user.keyboard(secondaryPassword);
         
             const button = screen.getByRole("button");
             
