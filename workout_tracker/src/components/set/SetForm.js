@@ -24,8 +24,7 @@ export const SetForm = ({set = {}, onSubmit})=>
     }
 
     const processNewSet = (e) => {
-        e.preventDefault();
-        
+        e.preventDefault();    
         if (reps === "")
         {
             setError("Error: Missing Reps")
@@ -42,15 +41,15 @@ export const SetForm = ({set = {}, onSubmit})=>
     return (
         <Container>
             <Form onSubmit={processNewSet}>
-                <InputGroup className="mb-3">
+                <InputGroup className="d-flex align-items-center mb-3">
 
                     {/* Reps Section */}
-                    <InputGroup.Text>Reps</InputGroup.Text>
-                    <Form.Control type="text" role="setReps" value={reps} onChange={e => processChange(e, setReps)}/>
+                    <Form.Label className="fs-6 me-3" htmlFor="repInput">Reps</Form.Label>
+                    <Form.Control type="text" id="repInput" value={reps} onChange={e => processChange(e, setReps)}/>
 
                     {/* Weight Section */}
-                    <InputGroup.Text>Weight</InputGroup.Text>
-                    <Form.Control type="text" role="setWeight" value={weight} onChange={e => processChange(e, setWeight)}/>
+                    <Form.Label className="fs-6 mx-3" htmlFor="weightInput">Weight</Form.Label>
+                    <Form.Control type="text" id="weightInput" value={weight} onChange={e => processChange(e, setWeight)}/>
 
                     {/* Submit Button */}
                     <Button variant="outline-secondary" type="submit">

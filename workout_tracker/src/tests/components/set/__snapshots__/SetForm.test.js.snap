@@ -9,29 +9,31 @@ exports[`SetForm Rendering Tests No data 1`] = `
     onSubmit={[Function]}
   >
     <div
-      className="mb-3 input-group"
+      className="d-flex align-items-center mb-3 input-group"
     >
-      <span
-        className="input-group-text"
+      <label
+        className="fs-6 me-3 form-label"
+        htmlFor="repInput"
       >
         Reps
-      </span>
+      </label>
       <input
         className="form-control"
+        id="repInput"
         onChange={[Function]}
-        role="setReps"
         type="text"
         value=""
       />
-      <span
-        className="input-group-text"
+      <label
+        className="fs-6 mx-3 form-label"
+        htmlFor="weightInput"
       >
         Weight
-      </span>
+      </label>
       <input
         className="form-control"
+        id="weightInput"
         onChange={[Function]}
-        role="setWeight"
         type="text"
         value=""
       />
@@ -56,31 +58,33 @@ exports[`SetForm Rendering Tests With Data 1`] = `
     onSubmit={[Function]}
   >
     <div
-      className="mb-3 input-group"
+      className="d-flex align-items-center mb-3 input-group"
     >
-      <span
-        className="input-group-text"
+      <label
+        className="fs-6 me-3 form-label"
+        htmlFor="repInput"
       >
         Reps
-      </span>
+      </label>
       <input
         className="form-control"
+        id="repInput"
         onChange={[Function]}
-        role="setReps"
         type="text"
-        value={20}
+        value="20"
       />
-      <span
-        className="input-group-text"
+      <label
+        className="fs-6 mx-3 form-label"
+        htmlFor="weightInput"
       >
         Weight
-      </span>
+      </label>
       <input
         className="form-control"
+        id="weightInput"
         onChange={[Function]}
-        role="setWeight"
         type="text"
-        value={200}
+        value="200"
       />
       <button
         className="btn btn-outline-secondary"

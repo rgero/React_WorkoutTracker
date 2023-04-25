@@ -198,6 +198,6 @@ export const TestWorkouts = [
 ]
 
 export const TestSet = {
-    reps: 20,
-    weight: 200
+    reps: "20",
+    weight: "200"
 }
