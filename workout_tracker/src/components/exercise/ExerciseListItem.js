@@ -4,10 +4,6 @@ import { SetList } from '../set/SetList';
 import {AlertBox} from '../../helpers/DialogBox';
 
 import Container from 'react-bootstrap/Container';
-import Collapse from 'react-bootstrap/Collapse';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
 
 export const ExerciseListItem = ({exercise, onDelete})=> 
 {
