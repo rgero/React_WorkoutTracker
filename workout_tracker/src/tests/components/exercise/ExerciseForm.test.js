@@ -148,5 +148,48 @@ describe("ExerciseForm Submissions", ()=> {
         expect(mockSubmit).toHaveBeenCalled();
         expect(mockSubmit).toHaveBeenCalledWith(expectedResult)
     })
+})
+
+describe("Form Invalid Submissions", ()=> {
+
+    let mockSubmit = jest.fn();
+    let dummyExerciseWithSet = {
+        setList: TestExercise.setList
+    }
+
+    test("Missing Name", ()=> {
+        render(<ExerciseForm exercise={dummyExerciseWithSet} onSubmit={mockSubmit} />)
+
+        act(()=> {
+            let exerciseSubmit = screen.getByRole("button", {name: /exercisesubmit/i});
+            user.click(exerciseSubmit);
+        })
+
+        expect(mockSubmit).not.toHaveBeenCalled();
+
+        const errorField = screen.getByText("Error: Missing exercise name");
+        expect(errorField).toBeInTheDocument();
+    })
+
+    test("Missing set list", ()=> {
+
+        render(<ExerciseForm onSubmit={mockSubmit} />)
+
+        act(()=> {
+            let nameInput = screen.getByRole("textbox", {name: /name/i});
+
+            user.click(nameInput);
+            user.keyboard(TestExercise.name);
+            
+            let exerciseSubmit = screen.getByRole("button", {name: /exercisesubmit/i});
+            user.click(exerciseSubmit);
+        })
+
+        expect(mockSubmit).not.toHaveBeenCalled();
+
+        const errorField = screen.getByText("Error: Missing set list");
+        expect(errorField).toBeInTheDocument();
+
+    })
 
 })

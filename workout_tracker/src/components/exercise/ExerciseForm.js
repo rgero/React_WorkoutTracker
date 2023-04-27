@@ -1,4 +1,5 @@
 import React from 'react';
+import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -13,6 +14,7 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
     const [muscleGroup, setMuscleGroup] = React.useState(exercise.muscleGroup ? exercise.muscleGroup : "");
     const [name, setExerciseName] = React.useState(exercise.name ? exercise.name : "");
     const [notes, setNotes] = React.useState(exercise.notes ? exercise.notes : "");
+    const [errMsg, setError] = React.useState("");
 
     const addSet = (set) => {
         setSetList([...setList, set]);
@@ -27,10 +29,15 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
     const processExercise = (e) => {
         e.preventDefault();
 
-        if (name === "" || setList.length == 0)
+        if (name === "")
         {
-            console.log("Name: ", name);
-            console.log("Set List: ", setList.length);
+            setError("Missing exercise name");
+            return;
+        }
+
+        if (setList.length === 0)
+        {
+            setError("Missing set list");
             return;
         }
 
@@ -46,6 +53,7 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
         setMuscleGroup("")
         setExerciseName("");
         setNotes("");
+        setError("");
     }
 
     return (
@@ -91,6 +99,15 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
             >
                     Add Exercise
             </Button>
+
+            {/* Error Processing? Don't know if this is completely necessary */}
+            { errMsg ? (
+                <Container className="pt-4">
+                    <Alert key='danger' variant='danger'>
+                        Error: {errMsg}
+                    </Alert>
+                </Container>
+            ): ( null )}
         </Container>
     )
 }
