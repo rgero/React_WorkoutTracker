@@ -201,3 +201,27 @@ export const TestSet = {
     reps: "20",
     weight: "200"
 }
+
+export const TestExercise = {
+    "name": "Lunges",
+    "muscleGroup": "Legs",
+    "setList": [
+        {
+            "reps": 40,
+            "weight": 100,
+        },
+        {
+            "reps": 40,
+            "weight": 100,
+        },
+        {
+            "reps": 40,
+            "weight": 100,
+        },
+        {
+            "reps": 40,
+            "weight": 100,
+        }
+    ],
+    "notes": "Dumbbells",
+}

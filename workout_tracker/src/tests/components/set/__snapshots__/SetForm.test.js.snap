@@ -36,6 +36,7 @@ exports[`SetForm Rendering Tests No data 1`] = `
         value=""
       />
       <button
+        aria-label="setSubmit"
         className="btn btn-outline-secondary"
         disabled={false}
         type="submit"
@@ -83,6 +84,7 @@ exports[`SetForm Rendering Tests With Data 1`] = `
         value="200"
       />
       <button
+        aria-label="setSubmit"
         className="btn btn-outline-secondary"
         disabled={false}
         type="submit"

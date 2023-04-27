@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -9,10 +9,10 @@ import { SetList } from '../set/SetList';
 
 export const ExerciseForm = ({exercise = {}, onSubmit})=> 
 {
-    const [setList, setSetList] = useState(exercise.setList ? exercise.setList : []);
-    const [muscleGroup, setMuscleGroup] = useState(exercise.muscleGroup ? exercise.muscleGroup : "");
-    const [name, setExerciseName] = useState(exercise.name ? exercise.name : "");
-    const [notes, setNotes] = useState(exercise.notes ? exercise.notes : "");
+    const [setList, setSetList] = React.useState(exercise.setList ? exercise.setList : []);
+    const [muscleGroup, setMuscleGroup] = React.useState(exercise.muscleGroup ? exercise.muscleGroup : "");
+    const [name, setExerciseName] = React.useState(exercise.name ? exercise.name : "");
+    const [notes, setNotes] = React.useState(exercise.notes ? exercise.notes : "");
 
     const addSet = (set) => {
         setSetList([...setList, set]);
@@ -29,6 +29,8 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
 
         if (name === "" || setList.length == 0)
         {
+            console.log("Name: ", name);
+            console.log("Set List: ", setList.length);
             return;
         }
 
@@ -80,7 +82,13 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
             </Form>
             <SetForm onSubmit={addSet}/>
             <SetList setList={setList} onDelete={deleteSet}/>
-            <Button className="mt-4" form="addExerciseForm" variant="outline-secondary" type="submit">
+            <Button
+                aria-label="exerciseSubmit" 
+                className="mt-4" 
+                form="addExerciseForm" 
+                variant="outline-secondary" 
+                type="submit"
+            >
                     Add Exercise
             </Button>
         </Container>

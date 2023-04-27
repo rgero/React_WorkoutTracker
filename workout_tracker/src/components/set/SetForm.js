@@ -62,7 +62,11 @@ export const SetForm = ({set = {}, onSubmit})=>
                     />
 
                     {/* Submit Button */}
-                    <Button variant="outline-secondary" type="submit">
+                    <Button
+                        aria-label="setSubmit" 
+                        variant="outline-secondary" 
+                        type="submit"
+                    >
                         Add Set
                     </Button>
                 </InputGroup>
