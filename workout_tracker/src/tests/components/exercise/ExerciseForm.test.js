@@ -26,3 +26,127 @@ describe("ExerciseForm Rendering Tests", () => {
         expect(element.toJSON()).toMatchSnapshot();
     })
 })
+
+describe("ExerciseForm Submissions", ()=> {
+
+    let nameInput, muscleInput, notesInput;
+    let exerciseSubmit;
+
+    let mockSubmit = jest.fn();
+
+    let dummyExerciseWithSet = {
+        "setList": [
+            {
+                "reps": 40,
+                "weight": 100,
+            }
+        ]
+    }
+
+    beforeEach(()=> {
+
+        render(<ExerciseForm exercise={dummyExerciseWithSet} onSubmit={mockSubmit} />)
+
+        act(()=> {
+            nameInput = screen.getByRole("textbox", {name: /name/i});
+            muscleInput = screen.getByRole("textbox", {name: /musclegroup/i});
+            notesInput = screen.getByRole("textbox", {name: /exerciseNotes/i});
+
+            exerciseSubmit = screen.getByRole("button", {name: /exercisesubmit/i});
+        })
+
+    })
+
+    test("Minimum Valid Submit", async ()=> {
+        act(()=> {
+            user.click(nameInput);
+            user.keyboard(TestExercise.name);
+        
+            user.click(exerciseSubmit);
+
+        })
+
+        let expectedResult = {
+            name: TestExercise.name,
+            notes: "",
+            muscleGroup: "",
+            setList: dummyExerciseWithSet.setList
+        }
+
+        expect(mockSubmit).toHaveBeenCalled();
+        expect(mockSubmit).toHaveBeenCalledWith(expectedResult)
+    })
+
+    test("Adding a note, valid submit", async ()=> {
+        act(()=> {
+            user.click(nameInput);
+            user.keyboard(TestExercise.name);
+
+            user.click(notesInput);
+            user.keyboard(TestExercise.notes);
+        
+            user.click(exerciseSubmit);
+
+        })
+
+        let expectedResult = {
+            name: TestExercise.name,
+            notes: TestExercise.notes,
+            muscleGroup: "",
+            setList: dummyExerciseWithSet.setList
+        }
+
+        expect(mockSubmit).toHaveBeenCalled();
+        expect(mockSubmit).toHaveBeenCalledWith(expectedResult)
+    })
+
+    test("Adding a muscle group, valid submit", async ()=> {
+        act(()=> {
+            user.click(nameInput);
+            user.keyboard(TestExercise.name);
+
+            user.click(muscleInput);
+            user.keyboard(TestExercise.muscleGroup);
+        
+            user.click(exerciseSubmit);
+
+        })
+
+        let expectedResult = {
+            name: TestExercise.name,
+            notes: "",
+            muscleGroup: TestExercise.muscleGroup,
+            setList: dummyExerciseWithSet.setList
+        }
+
+        expect(mockSubmit).toHaveBeenCalled();
+        expect(mockSubmit).toHaveBeenCalledWith(expectedResult)
+    })
+
+    test("Full Form, valid submit", async ()=> {
+        act(()=> {
+            user.click(nameInput);
+            user.keyboard(TestExercise.name);
+
+            user.click(notesInput);
+            user.keyboard(TestExercise.notes);
+
+            user.click(muscleInput);
+            user.keyboard(TestExercise.muscleGroup);
+        
+            user.click(exerciseSubmit);
+
+        })
+
+        let expectedResult = {
+            name: TestExercise.name,
+            notes: TestExercise.notes,
+            muscleGroup: TestExercise.muscleGroup,
+            setList: dummyExerciseWithSet.setList
+        }
+
+        expect(mockSubmit).toHaveBeenCalled();
+        expect(mockSubmit).toHaveBeenCalledWith(expectedResult)
+    })
+
+})
