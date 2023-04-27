@@ -34,19 +34,13 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
             setError("Missing exercise name");
             return;
         }
-
         if (setList.length === 0)
         {
             setError("Missing set list");
             return;
         }
 
-        const newExercise = {
-            name,
-            muscleGroup,
-            setList,
-            notes
-        };
+        const newExercise = { name, muscleGroup, setList, notes};
 
         onSubmit(newExercise);
         setSetList([]);

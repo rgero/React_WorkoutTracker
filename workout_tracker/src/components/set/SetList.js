@@ -27,26 +27,16 @@ export const SetList = ({setList = [], onDelete=null})=>
             <ListGroup>
               <ListGroup.Item>
                 <Row>
-                  <Col>
-                    Reps
-                  </Col>
-                  <Col>
-                    Weight
-                  </Col>
+                    <Col>Reps</Col>
+                    <Col>Weight</Col>
                 </Row>
               </ListGroup.Item>
               {
                 setList.map((set, index) => (
                   <ListGroup.Item key={`${set.reps}_${set.weight}_${index}`} onClick={(e) => processDelete(index)}>
                     <Row>
-                      <Col>
-                        {set.reps}
-                      </Col>
-                      { set.weight ? (
-                        <Col>
-                          {set.weight}
-                        </Col>
-                      ) : ( null ) }
+                      <Col>{set.reps}</Col>
+                      <Col>{set.weight}</Col>
                     </Row>
                   </ListGroup.Item>
                 ))
