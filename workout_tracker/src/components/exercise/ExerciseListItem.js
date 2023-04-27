@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import { SetList } from '../set/SetList';
 import {AlertBox} from '../../helpers/DialogBox';
@@ -7,7 +7,6 @@ import Container from 'react-bootstrap/Container';
 
 export const ExerciseListItem = ({exercise, onDelete})=> 
 {
-  const [optionsShown, showOptions] = useState(false);
   let exerciseName = exercise.name;
   let setList = exercise.setList;
 
