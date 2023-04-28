@@ -3,15 +3,18 @@ Roadmap - Brainstorming on Apr 24, 2023
 Current Plan
     - Get the existing functionality under test
         - Let's start with the smallest components and grow out
+            - Authentication
+                - LoginForm - Done
+                - SignupForm - Done
             - Sets
                 - Set Form - Done - (Apr 25)
-                - Set List
+                - Set List - Done - Two render tests
             - Exercises
                 - Exercise Form - (Apr 25)
                 - Exericse List
                     - Exercise List Item
             - Workouts
-                - Workout Form - (Apr 25)
+                - Workout Form
                 - Workout Group
                 - Workout List
                     - List Item
