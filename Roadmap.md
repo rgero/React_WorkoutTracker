@@ -4,14 +4,14 @@ Current Plan
     - Get the existing functionality under test
         - Let's start with the smallest components and grow out
             - Sets
-                - Set Form
+                - Set Form - Done - (Apr 25)
                 - Set List
             - Exercises
-                - Exercise Form
+                - Exercise Form - (Apr 25)
                 - Exericse List
                     - Exercise List Item
             - Workouts
-                - Workout Form
+                - Workout Form - (Apr 25)
                 - Workout Group
                 - Workout List
                     - List Item
