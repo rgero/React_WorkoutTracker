@@ -1,10 +1,4 @@
 import TestRenderer from 'react-test-renderer';
-
-import {render, screen} from '@testing-library/react';
-import '@testing-library/jest-dom';
-import user from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
-
 import {SetList} from '../../../components/set/SetList';
 
 describe("Render tests", ()=> {
