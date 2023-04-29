@@ -5,14 +5,11 @@ import {AlertBox} from '../../helpers/DialogBox';
 
 import Container from 'react-bootstrap/Container';
 
-export const ExerciseListItem = ({exercise, onDelete})=> 
+export const ExerciseListItem = ({exercise = {}, onDelete})=> 
 {
-  let exerciseName = exercise.name;
-  let setList = exercise.setList;
-
   const processDelete = () => {
     let title = 'Are you sure you want to delete this?';
-    let subtitle = `The exercise named ${exerciseName}`;
+    let subtitle = `The exercise named ${exercise.name}`;
     let buttons = [
       {
         label: 'Yes',
@@ -30,15 +27,15 @@ export const ExerciseListItem = ({exercise, onDelete})=>
   return (
     <>
       {
-        exerciseName === "" ? (
+        Object.keys(exercise).length === 0 ? (
           <Container className="list-item list-item--message">
             <span>No Name</span>
           </Container>
         ) : (
             <Container>
                 <Container onClick={processDelete}>
-                    {exerciseName}
-                    <SetList setList={setList} key={`${exerciseName}_Sets`}/>
+                    {exercise.name}
+                    <SetList setList={exercise.setList} key={`${exercise.name}_Sets`}/>
                 </Container>
             </Container>
         )
