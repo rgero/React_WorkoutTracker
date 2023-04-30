@@ -110,7 +110,7 @@ const ViewWorkoutDetailsPage = ()=>
                     </Container>
                     <Container className="justify-content-center" style={{display:'flex'}}>
                         <Row>
-                            <Col><Button>Edit</Button></Col>
+                            <Col><Button href={`/edit/${currentWorkout._id}`}>Edit</Button></Col>
                             <Col><Button href="/dashboard">Dashboard</Button></Col>
                             <Col><Button variant="danger" onClick={processDelete}>Delete</Button></Col>
                         </Row>
