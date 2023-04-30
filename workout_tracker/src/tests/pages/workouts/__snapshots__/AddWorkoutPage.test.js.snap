@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders AddWorkoutPage Page and checks against snapshot 1`] = `
+<Container
+  fluid="md"
+>
+  <h1>
+    Create a new workout
+  </h1>
+  <WorkoutForm
+    onSubmit={[Function]}
+  />
+</Container>
+`;

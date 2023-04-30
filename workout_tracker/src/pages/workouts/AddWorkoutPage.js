@@ -1,4 +1,4 @@
-import React, { useContext, } from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 
 import {Context as WorkoutContext} from '../../context/WorkoutContext';
@@ -6,7 +6,7 @@ import { WorkoutForm } from '../../components/workout/WorkoutForm';
 
 export const AddWorkoutPage = ()=> 
 {
-    const {state, createWorkout} = useContext(WorkoutContext);
+    const {state, createWorkout} = React.useContext(WorkoutContext);
     return (
         <Container fluid="md">
             <h1>Create a new workout</h1>
