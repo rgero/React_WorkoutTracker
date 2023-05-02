@@ -8,6 +8,8 @@ const workoutReducer = (state, action) => {
             return action.payload;
         case "create":
             return state.concat(action.payload);
+        case "clear":
+            return {};
         case "edit":
             return state.map( (workout) => {
                 if (workout._id === action._id) {
@@ -33,6 +35,10 @@ const fetchWorkouts = dispatch => async () => {
     dispatch({type: 'fetch', payload: response.data})
 };
 
+const clearWorkouts = dispatch => async () => {
+    dispatch({type: "clear"});
+}
+
 const createWorkout = dispatch => async (workout) => 
 {
     const response = await trackerAPI.post('/workouts', workout)
@@ -47,12 +53,12 @@ const updateWorkout = dispatch => async (workout) =>
 
 const deleteWorkout = dispatch => async (targetID) => 
 {
-    const response = await trackerAPI.delete(`/workouts/${targetID}`)
+    await trackerAPI.delete(`/workouts/${targetID}`)
     dispatch({type: "delete", id: targetID});
 }
 
 export const {Provider, Context} = createDataContext(
     workoutReducer,
-    {fetchWorkouts, createWorkout, deleteWorkout, updateWorkout},
+    {fetchWorkouts, clearWorkouts, createWorkout, deleteWorkout, updateWorkout},
     []
 );

@@ -10,7 +10,7 @@ import { BiRefresh } from "react-icons/bi";
 
 export const ViewWorkoutsPage = ()=> 
 {
-    const {state, fetchWorkouts} = useContext(WorkoutContext);
+    const {state, clearWorkouts, fetchWorkouts} = useContext(WorkoutContext);
     const [isLoaded, setLoaded] = useState(false);
     const [isDescending, setDescending] = useState(true);
 
@@ -20,6 +20,13 @@ export const ViewWorkoutsPage = ()=>
             await fetchWorkouts();
             setLoaded(true);
         }
+    }
+
+    const reloadWorkouts = async () => {
+        setLoaded(false);
+        await clearWorkouts();
+        await fetchWorkouts();
+        setLoaded(true)
     }
 
     const processOrderChange = (e) => {
@@ -48,7 +55,7 @@ export const ViewWorkoutsPage = ()=>
                         <option value={false}>Ascending</option>
                     </Form.Select>
                 </Col>
-                <Col><Button className="float-end" variant="secondary" onClick={processWorkouts}><BiRefresh size={28}/></Button></Col>
+                <Col><Button className="float-end" variant="secondary" onClick={reloadWorkouts}><BiRefresh size={28}/></Button></Col>
             </Row>
             <Row>
                 { isLoaded ? (
