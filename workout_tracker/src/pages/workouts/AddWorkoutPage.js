@@ -6,7 +6,7 @@ import { WorkoutForm } from '../../components/workout/WorkoutForm';
 
 export const AddWorkoutPage = ()=> 
 {
-    const {state, createWorkout} = React.useContext(WorkoutContext);
+    const {createWorkout} = React.useContext(WorkoutContext);
     return (
         <Container fluid="md">
             <h1>Create a new workout</h1>
