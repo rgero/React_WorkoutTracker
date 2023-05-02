@@ -14,14 +14,6 @@ export const ViewWorkoutsPage = ()=>
     const [isLoaded, setLoaded] = useState(false);
     const [isDescending, setDescending] = useState(true);
 
-    const processWorkouts = async () => {
-        if (!isLoaded)
-        {
-            await fetchWorkouts();
-            setLoaded(true);
-        }
-    }
-
     const reloadWorkouts = async () => {
         setLoaded(false);
         await clearWorkouts();
@@ -39,8 +31,15 @@ export const ViewWorkoutsPage = ()=>
     }
 
     useEffect(()=> {
+        const processWorkouts = async () => {
+            if (!isLoaded)
+            {
+                await fetchWorkouts();
+                setLoaded(true);
+            }
+        }
         processWorkouts();
-    }, []);
+    }, [fetchWorkouts, isLoaded]);
 
     return (
         <Container className="pt-4">
