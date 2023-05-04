@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders ViewWorkoutsPage Page and checks against snapshot 1`] = `
+<Container
+  className="pt-4"
+  fluid={false}
+>
+  <Row
+    className="pb-4 space-between"
+  >
+    <Col>
+      <h2>
+        Your Workouts
+      </h2>
+    </Col>
+    <Col>
+      <FormSelect
+        onChange={[Function]}
+        value={true}
+      >
+        <option
+          value={true}
+        >
+          Descending
+        </option>
+        <option
+          value={false}
+        >
+          Ascending
+        </option>
+      </FormSelect>
+    </Col>
+    <Col>
+      <Button
+        active={false}
+        className="float-end"
+        disabled={false}
+        onClick={[Function]}
+        variant="secondary"
+      >
+        <BiRefresh
+          size={28}
+        />
+      </Button>
+    </Col>
+  </Row>
+  <Row>
+    <React.Fragment>
+      Loading
+    </React.Fragment>
+  </Row>
+</Container>
+`;
