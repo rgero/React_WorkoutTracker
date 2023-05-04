@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import {useParams} from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 
@@ -7,23 +7,25 @@ import { WorkoutForm } from '../../components/workout/WorkoutForm';
 
 export const EditWorkoutPage = ( )=> 
 {
-    const {state, fetchWorkouts, updateWorkout} = useContext(WorkoutContext);
-    const [isLoaded, setLoaded] = useState(false);
-    const [currentWorkout, setCurrentWorkout] = useState({});
-    const [error, setError] = useState("");
+    const {state, fetchWorkouts, updateWorkout} = React.useContext(WorkoutContext);
+    const [isLoaded, setLoaded] = React.useState(false);
+    const [currentWorkout, setCurrentWorkout] = React.useState({});
+    const [error, setError] = React.useState("");
     const { id } = useParams();
 
-    useEffect(()=> {
+    React.useEffect(()=> {
         const GetWorkoutByID = async (id) => {
+            console.log(state);
             if (!isLoaded)
             {
                 await fetchWorkouts();
                 setLoaded(true);
             }
+
             let loadedWorkout = state.filter( (targetWorkout) => {
                 return id === targetWorkout._id;
             });
-
+    
             if (loadedWorkout.length == 0)
             {
                 setError("An error has occurred");
