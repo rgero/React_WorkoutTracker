@@ -34,3 +34,25 @@ test('Rendering a Workout', async ()=> {
     
     expect(element.toJSON()).toMatchSnapshot();
 })
+
+test('Rendering a Second Workout', async ()=> {
+
+    const testContextValues = {
+        state: TestWorkouts,
+        fetchWorkouts: jest.fn(),
+        updateWorkouts: jest.fn()
+    }
+
+    jest.spyOn(reactRouterDom, 'useParams').mockReturnValue({ id: '2222' });
+
+    let element;
+    await act(async () => {
+        element = new TestRenderer.create(
+            <WorkoutContext.Provider value={testContextValues}>
+                <EditWorkoutPage/>
+            </WorkoutContext.Provider>
+        );
+    })
+    
+    expect(element.toJSON()).toMatchSnapshot();
+})
