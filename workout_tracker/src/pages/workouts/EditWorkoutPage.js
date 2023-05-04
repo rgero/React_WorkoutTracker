@@ -15,7 +15,6 @@ export const EditWorkoutPage = ( )=>
 
     React.useEffect(()=> {
         const GetWorkoutByID = async (id) => {
-            console.log(state);
             if (!isLoaded)
             {
                 await fetchWorkouts();
@@ -25,7 +24,7 @@ export const EditWorkoutPage = ( )=>
             let loadedWorkout = state.filter( (targetWorkout) => {
                 return id === targetWorkout._id;
             });
-    
+                
             if (loadedWorkout.length == 0)
             {
                 setError("An error has occurred");
@@ -35,7 +34,7 @@ export const EditWorkoutPage = ( )=>
             }
         }
         GetWorkoutByID(id);
-    }, [fetchWorkouts, id, isLoaded, state]);
+    }, [state]);
 
     const isValidWorkout = () => {
         return !Object.keys(currentWorkout).length == 0;
