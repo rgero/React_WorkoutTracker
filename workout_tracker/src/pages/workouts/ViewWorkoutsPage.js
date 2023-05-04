@@ -1,18 +1,21 @@
-import React, {useContext, useEffect, useState} from 'react';
-import Container from 'react-bootstrap/Container';
+import React, {useEffect} from 'react';
+
 import { WorkoutList } from '../../components/workout/WorkoutList';
 import {Context as WorkoutContext} from '../../context/WorkoutContext';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Form from 'react-bootstrap/Form';
+
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+
 import { BiRefresh } from "react-icons/bi";
 
 export const ViewWorkoutsPage = ()=> 
 {
-    const {state, clearWorkouts, fetchWorkouts} = useContext(WorkoutContext);
-    const [isLoaded, setLoaded] = useState(false);
-    const [isDescending, setDescending] = useState(true);
+    const {state, clearWorkouts, fetchWorkouts} = React.useContext(WorkoutContext);
+    const [isLoaded, setLoaded] = React.useState(false);
+    const [isDescending, setDescending] = React.useState(true);
 
     const reloadWorkouts = async () => {
         setLoaded(false);
