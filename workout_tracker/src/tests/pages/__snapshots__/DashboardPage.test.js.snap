@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard Tests Token Presented - matches mocked View Workout Page 1`] = `
+<div>
+  ViewWorkoutsPage Rendered Here
+</div>
+`;
