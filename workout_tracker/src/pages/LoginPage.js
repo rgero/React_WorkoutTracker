@@ -30,7 +30,7 @@ export const LoginPage = ()=>
     {
         return (
             <Container fluid="md">
-                <h1>Login</h1>
+                <h1>Log in to the Workout Tracker</h1>
                 <LoginForm
                     errorMessage={state.errorMessage}
                     onSubmit={({email, password})=> signIn({email, password})}

@@ -5,7 +5,7 @@ exports[`Rendering the Login Page 1`] = `
   className="container-md"
 >
   <h1>
-    Login
+    Log in to the Workout Tracker
   </h1>
   <div
     className="container-md"
