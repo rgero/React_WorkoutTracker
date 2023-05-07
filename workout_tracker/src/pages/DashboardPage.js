@@ -1,12 +1,12 @@
-import { useEffect, useContext, useState } from "react";
+import React from "react";
 import { Navigate } from "react-router-dom";
 import { ViewWorkoutsPage } from "../pages/workouts/ViewWorkoutsPage";
 import {Context as AuthContext} from '../context/AuthContext';
 
-const DashboardPage = () => { 
-    const {state, tryLocalSignin} = useContext(AuthContext);
+export const DashboardPage = () => { 
+    const {state, tryLocalSignin} = React.useContext(AuthContext);
 
-    useEffect(()=> {
+    React.useEffect(()=> {
         tryLocalSignin();
     }, [])
 

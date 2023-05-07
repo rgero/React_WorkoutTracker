@@ -1,9 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renders Index Page and checks against snapshot 1`] = `
+exports[`Index Page Renders Index Page and checks against snapshot 1`] = `
 <div
   className="container"
 >
   Welcome to the Workout Tracker. The goal of this app is to help you track your workouts and help you generate some cool stats.
+</div>
+`;
+
+exports[`Index Page User Logged in - Renders Dsahboard 1`] = `
+<div>
+  This is the Mocked Dashboard Page
 </div>
 `;
