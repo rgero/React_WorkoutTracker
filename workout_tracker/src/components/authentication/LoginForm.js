@@ -3,8 +3,10 @@ import React, {useState} from 'react';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import Row from 'react-bootstrap/Row';
+
 
 export const LoginForm = ({onSubmit})=> 
 {
@@ -31,36 +33,41 @@ export const LoginForm = ({onSubmit})=>
 
     return(
         <Container fluid="md">
-            <Form onSubmit={trySignIn}>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text>E-Mail</InputGroup.Text>
-                    <Form.Control
-                        aria-label="email"
-                        type="email"
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
-                    />
-                </InputGroup>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text>Password</InputGroup.Text>
-                    <Form.Control
-                        aria-label="password"
-                        type="password"
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
-                    />
-                </InputGroup>
-                <Button variant="outline-secondary" type="submit">
-                    Sign In
-                </Button>
-                { errMsg ? 
-                    (
-                        <Container className="pt-4">
-                            <Alert variant='danger'>{errMsg}</Alert>
-                        </Container>
-                    ) : null
-                }
-            </Form>
+            <Row>
+                <Col xs lg="3">
+                    <Form onSubmit={trySignIn}>
+                        <Form.Group className="mb-3" controlId="formEmail">
+                            <Form.Label>E-mail</Form.Label>
+                            <Form.Control
+                                aria-label="email"
+                                type="email"
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
+                            />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="formPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                aria-label="password"
+                                type="password"
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
+                            />
+                        </Form.Group>
+                        <Button variant="outline-secondary" type="submit">
+                            Log In
+                        </Button>
+                        { errMsg ? 
+                            (
+                                <Container className="pt-4">
+                                    <Alert variant='danger'>{errMsg}</Alert>
+                                </Container>
+                            ) : null
+                        }
+                    </Form>
+                </Col>
+            </Row>
         </Container>
     )
 }

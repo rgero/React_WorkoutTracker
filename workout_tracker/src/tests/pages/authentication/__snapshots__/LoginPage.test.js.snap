@@ -4,56 +4,68 @@ exports[`Rendering the Login Page 1`] = `
 <div
   className="container-md"
 >
-  <h1>
+  <h2>
     Log in to the Workout Tracker
-  </h1>
+  </h2>
   <div
     className="container-md"
   >
-    <form
-      className=""
-      onSubmit={[Function]}
+    <div
+      className="row"
     >
       <div
-        className="mb-3 input-group"
+        className="col-lg-3 col"
       >
-        <span
-          className="input-group-text"
+        <form
+          className=""
+          onSubmit={[Function]}
         >
-          E-Mail
-        </span>
-        <input
-          aria-label="email"
-          className="form-control"
-          onChange={[Function]}
-          type="email"
-          value=""
-        />
+          <div
+            className="mb-3"
+          >
+            <label
+              className="form-label"
+              htmlFor="formEmail"
+            >
+              E-mail
+            </label>
+            <input
+              aria-label="email"
+              className="form-control"
+              id="formEmail"
+              onChange={[Function]}
+              type="email"
+              value=""
+            />
+          </div>
+          <div
+            className="mb-3"
+          >
+            <label
+              className="form-label"
+              htmlFor="formPassword"
+            >
+              Password
+            </label>
+            <input
+              aria-label="password"
+              className="form-control"
+              id="formPassword"
+              onChange={[Function]}
+              type="password"
+              value=""
+            />
+          </div>
+          <button
+            className="btn btn-outline-secondary"
+            disabled={false}
+            type="submit"
+          >
+            Log In
+          </button>
+        </form>
       </div>
-      <div
-        className="mb-3 input-group"
-      >
-        <span
-          className="input-group-text"
-        >
-          Password
-        </span>
-        <input
-          aria-label="password"
-          className="form-control"
-          onChange={[Function]}
-          type="password"
-          value=""
-        />
-      </div>
-      <button
-        className="btn btn-outline-secondary"
-        disabled={false}
-        type="submit"
-      >
-        Sign In
-      </button>
-    </form>
+    </div>
   </div>
 </div>
 `;
