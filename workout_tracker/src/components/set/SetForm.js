@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 
-import '../../styles/components/inputs.css'
-
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
