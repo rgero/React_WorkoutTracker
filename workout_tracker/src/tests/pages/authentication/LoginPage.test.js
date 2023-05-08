@@ -4,7 +4,7 @@ import reactRouterDom from 'react-router-dom';
 import { act } from 'react-dom/test-utils';
 
 import {Context as AuthContext} from '../../../context/AuthContext';
-import { LoginPage } from '../../../../src/pages/LoginPage';
+import { LoginPage } from '../../../pages/authentication/LoginPage';
 
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),

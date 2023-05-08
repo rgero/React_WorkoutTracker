@@ -4,7 +4,7 @@ import reactRouterDom, { BrowserRouter } from 'react-router-dom';
 import { act } from 'react-dom/test-utils';
 
 import {Context as AuthContext} from '../../../context/AuthContext';
-import { SignUpPage } from '../../../../src/pages/SignUpPage';
+import { SignUpPage } from '../../../pages/authentication/SignUpPage';
 
 const mockedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({

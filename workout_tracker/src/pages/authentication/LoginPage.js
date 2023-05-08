@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from 'react';
+import { Navigate } from "react-router-dom";
+
 import Alert from 'react-bootstrap/Alert';
 import Container from 'react-bootstrap/Container';
-import { Navigate } from "react-router-dom";
-import {Context as AuthContext} from '../context/AuthContext';
-import { LoginForm } from '../components/authentication/LoginForm';
 
-
+import {Context as AuthContext} from '../../context/AuthContext';
+import { LoginForm } from '../../components/authentication/LoginForm';
 
 export const LoginPage = ()=> 
 {
