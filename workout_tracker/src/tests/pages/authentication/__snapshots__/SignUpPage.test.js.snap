@@ -11,7 +11,7 @@ exports[`Sign Up Page Tests Rendering the blank page 1`] = `
     className="container-md"
   >
     <div
-      className="row"
+      className="justify-content-md-center row"
     >
       <div
         className="col-lg-3 col"

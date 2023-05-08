@@ -33,7 +33,7 @@ export const SignUpForm = ({onSubmit})=>
 
     return(
         <Container fluid="md">
-            <Row>
+            <Row className="justify-content-md-center">
                 <Col xs lg="3">
                     <Form onSubmit={trySignUp}>
                         <Form.Group className="mb-3" controlId="formEmail">

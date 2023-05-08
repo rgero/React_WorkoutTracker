@@ -5,7 +5,7 @@ exports[`LoginForm Rendering Tests No Data 1`] = `
   className="container-md"
 >
   <div
-    className="row"
+    className="justify-content-md-center row"
   >
     <div
       className="col-lg-3 col"
