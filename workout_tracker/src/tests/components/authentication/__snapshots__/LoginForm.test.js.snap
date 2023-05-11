@@ -8,8 +8,11 @@ exports[`LoginForm Rendering Tests No Data 1`] = `
     className="justify-content-md-center row"
   >
     <div
-      className="col-lg-3 col"
+      className="col"
     >
+      <h3>
+        Log in
+      </h3>
       <form
         className=""
         onSubmit={[Function]}

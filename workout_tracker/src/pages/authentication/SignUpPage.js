@@ -1,30 +1,32 @@
 import React, { useContext } from 'react';
-import Container from 'react-bootstrap/Container';
 import { useNavigate } from 'react-router-dom';
 
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+
 import {Context as AuthContext} from '../../context/AuthContext';
-
 import { SignUpForm } from '../../components/authentication/SignUpForm';
-
 
 export const SignUpPage = ()=> 
 {
     const navigate = useNavigate();
-    const {state, signUp, clearErrorMessage} = useContext(AuthContext);
+    const {state, signUp} = useContext(AuthContext);
 
     if (state.token)
     {
-        clearErrorMessage();
         navigate('/dashboard');
     } else 
     {
         return (
             <Container fluid="md">
-                <h2>Sign Up for the Workout Tracker</h2>
-                <SignUpForm
-                    errorMessage={state.errorMessage}
-                    onSubmit={({email, password})=> signUp({email, password})}
-                />
+                <Row>
+                    <Col>
+                        <SignUpForm onSubmit={({email, password})=> signUp({email, password})}
+                    />
+                    </Col>
+                </Row>
+
             </Container>
         )
     }

@@ -34,7 +34,8 @@ export const LoginForm = ({onSubmit})=>
     return(
         <Container fluid="md">
             <Row className="justify-content-md-center">
-                <Col xs lg="3">
+                <Col>
+                    <h3>Log in</h3>
                     <Form onSubmit={trySignIn}>
                         <Form.Group className="mb-3" controlId="formEmail">
                             <Form.Label>E-mail</Form.Label>

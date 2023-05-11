@@ -4,84 +4,92 @@ exports[`Sign Up Page Tests Rendering the blank page 1`] = `
 <div
   className="container-md"
 >
-  <h2>
-    Sign Up for the Workout Tracker
-  </h2>
   <div
-    className="container-md"
+    className="row"
   >
     <div
-      className="justify-content-md-center row"
+      className="col"
     >
       <div
-        className="col-lg-3 col"
+        className="container-md"
       >
-        <form
-          className=""
-          onSubmit={[Function]}
+        <div
+          className="justify-content-md-center row"
         >
           <div
-            className="mb-3"
+            className="col"
           >
-            <label
-              className="form-label"
-              htmlFor="formEmail"
+            <h3>
+              Sign Up
+            </h3>
+            <form
+              className=""
+              onSubmit={[Function]}
             >
-              E-mail
-            </label>
-            <input
-              aria-label="email"
-              className="form-control"
-              id="formEmail"
-              onChange={[Function]}
-              type="email"
-              value=""
-            />
+              <div
+                className="mb-3"
+              >
+                <label
+                  className="form-label"
+                  htmlFor="formEmail"
+                >
+                  E-mail
+                </label>
+                <input
+                  aria-label="email"
+                  className="form-control"
+                  id="formEmail"
+                  onChange={[Function]}
+                  type="email"
+                  value=""
+                />
+              </div>
+              <div
+                className="mb-3"
+              >
+                <label
+                  className="form-label"
+                  htmlFor="formPassword"
+                >
+                  Password
+                </label>
+                <input
+                  aria-label="password"
+                  className="form-control"
+                  id="formPassword"
+                  onChange={[Function]}
+                  type="password"
+                  value=""
+                />
+              </div>
+              <div
+                className="mb-3"
+              >
+                <label
+                  className="form-label"
+                  htmlFor="formPassword"
+                >
+                  Re-enter password
+                </label>
+                <input
+                  aria-label="reentry"
+                  className="form-control"
+                  id="formPassword"
+                  onChange={[Function]}
+                  type="password"
+                  value=""
+                />
+              </div>
+              <button
+                className="btn btn-outline-secondary"
+                disabled={false}
+                type="submit"
+              >
+                Sign Up
+              </button>
+            </form>
           </div>
-          <div
-            className="mb-3"
-          >
-            <label
-              className="form-label"
-              htmlFor="formPassword"
-            >
-              Password
-            </label>
-            <input
-              aria-label="password"
-              className="form-control"
-              id="formPassword"
-              onChange={[Function]}
-              type="password"
-              value=""
-            />
-          </div>
-          <div
-            className="mb-3"
-          >
-            <label
-              className="form-label"
-              htmlFor="formPassword"
-            >
-              Re-enter password
-            </label>
-            <input
-              aria-label="reentry"
-              className="form-control"
-              id="formPassword"
-              onChange={[Function]}
-              type="password"
-              value=""
-            />
-          </div>
-          <button
-            className="btn btn-outline-secondary"
-            disabled={false}
-            type="submit"
-          >
-            Sign Up
-          </button>
-        </form>
+        </div>
       </div>
     </div>
   </div>
