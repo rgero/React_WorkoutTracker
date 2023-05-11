@@ -13,7 +13,7 @@ function NavigationBar() {
     }, [])
 
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark" expand="lg" variant="dark">
             <Container>
                 <Navbar.Brand href="/">Workout Tracker</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

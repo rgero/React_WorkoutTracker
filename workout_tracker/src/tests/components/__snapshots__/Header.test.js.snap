@@ -2,7 +2,7 @@
 
 exports[`No User Logged In Matches Snapshot 1`] = `
 <nav
-  className="navbar navbar-expand-lg navbar-light bg-light"
+  className="navbar navbar-expand-lg navbar-dark bg-dark"
 >
   <div
     className="container"
@@ -59,7 +59,7 @@ exports[`No User Logged In Matches Snapshot 1`] = `
 
 exports[`User Logged In, with fake token Matches Snapshot 1`] = `
 <nav
-  className="navbar navbar-expand-lg navbar-light bg-light"
+  className="navbar navbar-expand-lg navbar-dark bg-dark"
 >
   <div
     className="container"
