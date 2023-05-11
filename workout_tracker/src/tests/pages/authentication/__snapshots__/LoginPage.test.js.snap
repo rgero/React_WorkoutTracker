@@ -2,13 +2,21 @@
 
 exports[`Rendering the Login Page 1`] = `
 <div
-  className="container-md"
+  className="pt-2 container-md"
 >
   <div
     className="row"
   >
     <div
-      className="col-lg-3 col"
+      className="col-8"
+    >
+      <img
+        src="/images/dumbbells.jpg"
+        width={800}
+      />
+    </div>
+    <div
+      className="col-lg-4 col"
     >
       <div
         className="container-md"

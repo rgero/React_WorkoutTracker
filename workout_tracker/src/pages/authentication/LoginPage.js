@@ -31,9 +31,12 @@ export const LoginPage = ()=>
     } else 
     {
         return (
-            <Container fluid="md">
+            <Container fluid="md" className="pt-2">
                 <Row>
-                    <Col xs lg="3">
+                    <Col xs={8}>
+                        <img src="/images/dumbbells.jpg" width={800} />
+                    </Col>
+                    <Col xs lg="4">
                         <LoginForm
                             onSubmit={({email, password})=> signIn({email, password})}
                         />

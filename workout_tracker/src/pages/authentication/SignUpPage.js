@@ -19,11 +19,13 @@ export const SignUpPage = ()=>
     } else 
     {
         return (
-            <Container fluid="md">
+            <Container className="pt-2" fluid="xl">
                 <Row>
-                    <Col>
-                        <SignUpForm onSubmit={({email, password})=> signUp({email, password})}
-                    />
+                    <Col xs={4}>
+                        <SignUpForm onSubmit={({email, password})=> signUp({email, password})}/>
+                    </Col>
+                    <Col xs={8}>
+                        <img src="/images/dumbbells.jpg" width={800} />
                     </Col>
                 </Row>
 
