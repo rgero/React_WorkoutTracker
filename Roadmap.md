@@ -4,24 +4,26 @@ Current Plan
     - Get the existing functionality under test
         - Let's start with the smallest components and grow out
             - Authentication
-                - LoginForm - Done
-                - SignupForm - Done
+                - :white_check_mark: LoginForm - Done
+                - :white_check_mark: SignupForm - Done
+                - :white_check_mark: Login Page - Done
+                - :white_check_mark: Sign Up Page - Done
             - Sets
-                - Set Form - Done - (Apr 25)
-                - Set List - Done - Two render tests
-            - Exercises
-                - Exercise Form - (Apr 25)
-                - Exericse List
-                    - Exercise List Item
+                - :white_check_mark: Set Form - Done - (Apr 25)
+                - :white_check_mark: Set List - Done - Two render tests
+            - Exercises - Marked Done on May 11
+                - :white_check_mark: Exercise Form - (Apr 25)
+                - :white_check_mark: Exericse List - Done
+                - :white_check_mark: Exercise List Item - Done
             - Workouts
                 - Workout Form
                 - Workout Group
                 - Workout List
                     - List Item
-                - Add Workout Page
-                - Edit Workout Page
-                - View Workout Detail Page
-                - View Workouts Page
+                - :white_check_mark: Add Workout Page - Done
+                - :white_check_mark: Edit Workout Page - Done
+                - :white_check_mark: View Workout Detail Page 
+                - :white_check_mark: View Workouts Page - Done
     - The View Workout Page revamp
         - I am going to need a way to sort the exercises by a criteria
             - Name

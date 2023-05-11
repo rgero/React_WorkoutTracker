@@ -227,3 +227,5 @@ export const TestExercise = {
     ],
     "notes": "Dumbbells",
 }
+
+export const TestExercises = [ TestExercise, TestExercise, TestExercise];
