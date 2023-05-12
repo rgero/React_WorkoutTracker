@@ -19,7 +19,7 @@ Current Plan
       * Workout Form
       * Workout Group
       * Workout List
-        * List Item
+        * List Item - Partially, I need to do the delete function.
       * :white_check_mark: Add Workout Page - Done
       * :white_check_mark: Edit Workout Page - Done
       * :white_check_mark: View Workout Detail Page 
