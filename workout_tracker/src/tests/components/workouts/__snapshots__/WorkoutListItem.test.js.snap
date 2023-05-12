@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Workout List Item - Render tests Has Data, matches snapshot 1`] = `
+<Accordion
+  defaultActiveKey={1}
+>
+  <AccordionItem>
+    <AccordionHeader>
+      2023-03-08
+    </AccordionHeader>
+    <AccordionBody>
+      <Container
+        fluid={false}
+      >
+        <Row>
+          <Col
+            sm={4}
+          >
+            Notes
+          </Col>
+          <Col>
+            Testing Notes for Testing
+          </Col>
+        </Row>
+        <Row
+          className="pb-4"
+        >
+          <Col
+            sm={4}
+          >
+            Total Exercises
+          </Col>
+          <Col>
+            2
+          </Col>
+        </Row>
+        <Row>
+          <Col
+            sm={4}
+          >
+            <Button
+              active={false}
+              aria-label="viewWorkout"
+              disabled={false}
+              onClick={[Function]}
+              variant="outline-primary"
+            >
+              View
+            </Button>
+          </Col>
+          <Col
+            sm={4}
+          >
+            <Button
+              active={false}
+              aria-label="editWorkout"
+              disabled={false}
+              onClick={[Function]}
+              variant="outline-primary"
+            >
+              Edit
+            </Button>
+          </Col>
+          <Col
+            sm={4}
+          >
+            <Button
+              active={false}
+              aria-label="deleteWorkout"
+              disabled={false}
+              onClick={[Function]}
+              variant="outline-danger"
+            >
+              Delete
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+    </AccordionBody>
+  </AccordionItem>
+</Accordion>
+`;
