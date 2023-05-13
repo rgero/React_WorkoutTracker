@@ -2,6 +2,7 @@ import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow'
 
 import { WorkoutForm } from '../../../components/workout/WorkoutForm';
+import { TestWorkouts } from '../../testData';
 
 jest.mock('../../../components/exercise/ExerciseForm', () => ({
     ExerciseForm: ()=> {
@@ -20,6 +21,13 @@ describe("Workout Form Rendering", ()=> {
     test("No Data, matches snapshot", ()=> {
         const pageRender = new ShallowRenderer().render(
             <WorkoutForm />
+        );
+        expect(pageRender).toMatchSnapshot();
+    })
+
+    test("Has Data, matches snapshot", ()=> {
+        const pageRender = new ShallowRenderer().render(
+            <WorkoutForm workout={TestWorkouts[0]}/>
         );
         expect(pageRender).toMatchSnapshot();
     })
