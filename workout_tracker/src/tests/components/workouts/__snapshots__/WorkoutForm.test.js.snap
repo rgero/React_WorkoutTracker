@@ -123,6 +123,7 @@ exports[`Workout Form Rendering Has Data, matches snapshot 1`] = `
   </Accordion>
   <Button
     active={false}
+    aria-label="workoutSubmit"
     disabled={false}
     form="addWorkout"
     type="submit"
@@ -159,7 +160,7 @@ exports[`Workout Form Rendering No Data, matches snapshot 1`] = `
               aria-label="workoutDate"
               onChange={[Function]}
               type="date"
-              value="2023-05-13"
+              value="2022-02-22"
             />
           </InputGroup>
           <InputGroup
@@ -196,6 +197,7 @@ exports[`Workout Form Rendering No Data, matches snapshot 1`] = `
   </Accordion>
   <Button
     active={false}
+    aria-label="workoutSubmit"
     disabled={false}
     form="addWorkout"
     type="submit"

@@ -510,6 +510,7 @@ exports[`Rendering a Second Workout 1`] = `
       </div>
     </div>
     <button
+      aria-label="workoutSubmit"
       className="btn btn-outline-secondary"
       disabled={false}
       form="addWorkout"
@@ -1031,6 +1032,7 @@ exports[`Rendering a Workout 1`] = `
       </div>
     </div>
     <button
+      aria-label="workoutSubmit"
       className="btn btn-outline-secondary"
       disabled={false}
       form="addWorkout"

@@ -127,7 +127,7 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
                     </Accordion>
                 ): (null)}
                 
-                <Button form="addWorkout" variant="outline-secondary" type="submit">
+                <Button form="addWorkout" aria-label="workoutSubmit" variant="outline-secondary" type="submit">
                         Submit Workout
                 </Button>
             </Container>
