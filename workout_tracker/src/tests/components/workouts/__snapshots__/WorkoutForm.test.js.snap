@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Workout Form Rendering No Data, matches snapshot 1`] = `
+<Container
+  fluid="md"
+>
+  <Accordion
+    defaultActiveKey="0"
+  >
+    <AccordionItem>
+      <AccordionHeader>
+        Exercise Information
+      </AccordionHeader>
+      <AccordionBody>
+        <Form
+          id="addWorkout"
+          onSubmit={[Function]}
+        >
+          <InputGroup
+            className="mb-3"
+          >
+            <InputGroupText>
+              Date
+            </InputGroupText>
+            <FormControl
+              aria-label="workoutDate"
+              onChange={[Function]}
+              type="date"
+              value="2023-05-13"
+            />
+          </InputGroup>
+          <InputGroup
+            className="mb-3"
+          >
+            <InputGroupText>
+              Notes
+            </InputGroupText>
+            <FormControl
+              aria-label="workoutNotes"
+              as="textarea"
+              onChange={[Function]}
+              rows={3}
+              value=""
+            />
+          </InputGroup>
+        </Form>
+      </AccordionBody>
+    </AccordionItem>
+  </Accordion>
+  <Accordion
+    defaultActiveKey="0"
+  >
+    <AccordionItem>
+      <AccordionHeader>
+        Add/Edit Exercises
+      </AccordionHeader>
+      <AccordionBody>
+        <ExerciseForm
+          onSubmit={[Function]}
+        />
+      </AccordionBody>
+    </AccordionItem>
+  </Accordion>
+  <Button
+    active={false}
+    disabled={false}
+    form="addWorkout"
+    type="submit"
+    variant="outline-secondary"
+  >
+    Submit Workout
+  </Button>
+</Container>
+`;
