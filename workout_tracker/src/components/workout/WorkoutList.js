@@ -24,7 +24,7 @@ export const WorkoutList = ({workoutList=[], descendingOrder}) =>
                                     <Accordion.Item>
                                         <Accordion.Header>{year}</Accordion.Header>
                                         <Accordion.Body>
-                                            <WorkoutGroup workoutList={organizedList[year]} descendingOrder={descendingOrder} year={year}/>
+                                            <WorkoutGroup workoutList={organizedList[year]} descendingOrder={descendingOrder}/>
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 </Accordion>

@@ -1,15 +1,17 @@
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
+
 import { WorkoutListItem } from "./WorkoutListItem";
 import { GetMonthName, GetOrderedValues, SortMonth } from '../../helpers/WorkoutListProcesser';
 
-const WorkoutGroup = ({workoutList, descendingOrder, year}) => {
+const WorkoutGroup = ({workoutList, descendingOrder}) => {
     let months = GetOrderedValues(workoutList, descendingOrder);
     return (
         <div>
             {
                 months.map((month, index)=> {
                     let sortedMonth = SortMonth(workoutList[month], descendingOrder);
+                    let year = new Date(workoutList[month][0].workoutDate).getFullYear();
                     return (
                         <Accordion defaultActiveKey={index} key={`WorkoutGroup_${year}_${month}_${index}`}>   
                             <Accordion.Item>

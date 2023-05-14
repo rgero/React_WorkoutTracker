@@ -16,7 +16,7 @@ Current Plan
       * :white_check_mark: Exericse List - Done
       * :white_check_mark: Exercise List Item - Done
     * Workouts
-      * Workout Form
+      * :white_check_mark: Workout Form
       * Workout Group
       * Workout List
         * List Item - Partially, I need to do the delete function.
