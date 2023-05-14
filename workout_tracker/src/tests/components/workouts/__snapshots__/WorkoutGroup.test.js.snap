@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render tests Data ascending, matches snapshot 1`] = `
+<div
+  className="accordion"
+>
+  <div
+    className="accordion-item"
+  >
+    <h2
+      className="accordion-header"
+    >
+      <button
+        aria-expanded={false}
+        className="accordion-button collapsed"
+        onClick={[Function]}
+        type="button"
+      >
+        February
+      </button>
+    </h2>
+    <div
+      aria-expanded={null}
+      className="accordion-collapse collapse"
+    >
+      <div
+        className="accordion-body"
+      >
+        <div>
+          2022-02-08T00:00:00.000Z
+        </div>
+        <div>
+          2022-03-15T00:00:00.000Z
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render tests Data descending, matches snapshot 1`] = `
+<div
+  className="accordion"
+>
+  <div
+    className="accordion-item"
+  >
+    <h2
+      className="accordion-header"
+    >
+      <button
+        aria-expanded={false}
+        className="accordion-button collapsed"
+        onClick={[Function]}
+        type="button"
+      >
+        February
+      </button>
+    </h2>
+    <div
+      aria-expanded={null}
+      className="accordion-collapse collapse"
+    >
+      <div
+        className="accordion-body"
+      >
+        <div>
+          2022-02-08T00:00:00.000Z
+        </div>
+        <div>
+          2022-03-15T00:00:00.000Z
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

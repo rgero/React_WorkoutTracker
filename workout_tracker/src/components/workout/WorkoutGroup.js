@@ -7,7 +7,7 @@ import { GetMonthName, GetOrderedValues, SortMonth } from '../../helpers/Workout
 const WorkoutGroup = ({workoutList, descendingOrder}) => {
     let months = GetOrderedValues(workoutList, descendingOrder);
     return (
-        <div>
+        <>
             {
                 months.map((month, index)=> {
                     let sortedMonth = SortMonth(workoutList[month], descendingOrder);
@@ -28,7 +28,7 @@ const WorkoutGroup = ({workoutList, descendingOrder}) => {
                     )
                 })
             }
-        </div>
+        </>
       );
 }
 
