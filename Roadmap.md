@@ -18,7 +18,7 @@ Current Plan
     * Workouts
       * :white_check_mark: Workout Form
       * :white_check_mark: Workout Group
-      * Workout List
+      * :white_check_mark: Workout List
         * List Item - Partially, I need to do the delete function.
       * :white_check_mark: Add Workout Page - Done
       * :white_check_mark: Edit Workout Page - Done
@@ -42,5 +42,4 @@ Current Plan
 Thoughts Behind this
 --------------------------
 I definitely want to get the items under test, and this shouldn't take more than a week given my schedule. This will make it so I can refactor stuff or change the design if I want to.
-        Start Date:
-        End Date:
+        End Date: 2023-05-16
