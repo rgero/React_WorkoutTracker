@@ -60,14 +60,26 @@ export const ViewWorkoutsPage = ()=>
                 <Col><Button className="float-end" variant="secondary" onClick={reloadWorkouts}><BiRefresh size={28}/></Button></Col>
             </Row>
             <Row>
-                { isLoaded ? (
-                    <>
-                        <WorkoutList workoutList={state} descendingOrder={isDescending}/>
-                    </>
-                ) : (
-                    <>Loading</>
-                )}
+                { Object.keys(state).length !== 0 ? (
+                        <>
+                            <WorkoutList workoutList={state} descendingOrder={isDescending}/>
+                        </>
+                    ) : (
+                        <>
+                            { !isLoaded ? (
+                                <>Loading...</>
+                            ) : (
+                                <>No Workouts Found</>
+                            )}
+                        </>
+                    )
+                }
             </Row>
+            {state.length > 0 ? (
+                <Row className="pt-3">
+                    <Col>Viewing {state.length} workouts</Col>  
+                </Row>
+            ) : null}
         </Container>
     )
 }
