@@ -5,7 +5,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import {GetOrderedValues, ProcessWorkoutList} from "../../helpers/WorkoutListProcesser";
 import WorkoutGroup from "./WorkoutGroup";
 
-export const WorkoutList = ({workoutList=[], descendingOrder}) => 
+export const WorkoutList = ({workoutList=[], descendingOrder=true}) => 
 {
     let organizedList = ProcessWorkoutList(workoutList);
     let yearOrder = GetOrderedValues(organizedList, descendingOrder);
