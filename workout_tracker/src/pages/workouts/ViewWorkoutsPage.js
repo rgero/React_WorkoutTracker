@@ -77,7 +77,7 @@ export const ViewWorkoutsPage = ()=>
             </Row>
             {state.length > 0 ? (
                 <Row className="pt-3">
-                    <Col>Viewing {state.length} workouts</Col>  
+                    <Col style={{display:'flex', justifyContent:'end'}}>Viewing {state.length} workouts</Col>  
                 </Row>
             ) : null}
         </Container>

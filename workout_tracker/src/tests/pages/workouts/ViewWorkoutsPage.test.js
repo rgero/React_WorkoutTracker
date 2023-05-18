@@ -33,7 +33,7 @@ test('No Data - Renders ViewWorkoutsPage Page and checks against snapshot', asyn
 
 test('Data Provided - Renders ViewWorkoutsPage Page and checks against snapshot', async ()=> {
     const testContextValues = {
-        state: {TestWorkouts},
+        state: {...TestWorkouts},
         clearWorkouts: jest.fn(),
         fetchWorkouts: jest.fn()
     };
