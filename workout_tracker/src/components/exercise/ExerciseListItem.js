@@ -37,7 +37,7 @@ export const ExerciseListItem = ({index, exercise = {}, onDelete})=>
             <Card.Body>
               <Card.Title>#{index} - {exercise.name}</Card.Title>
               <Card.Body>
-                <SetList setList={exercise.setList} key={`${exercise.name}_Sets`}/>
+                <SetList  setList={exercise.setList} key={`${exercise.name}_Sets`}/>
               </Card.Body>
             </Card.Body>
           </Card>

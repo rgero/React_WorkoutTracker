@@ -14,10 +14,10 @@ export const ExerciseList = ({exerciseList = [], onDelete})=>
                         <span>No Exercises</span>
                     </div>
                 ) : (
-                    <ListGroup variant="flush">
+                    <ListGroup style={{width:"60%", margin:"auto"}} variant="flush">
                     {
                         exerciseList.map((exercise, index) => (
-                            <ListGroup.Item action key={`${exercise.name}_${index}`}>
+                            <ListGroup.Item style={{border: "0px"}} action key={`${exercise.name}_${index}`}>
                                 <ExerciseListItem
                                     index={index+1}
                                     exercise={exercise}

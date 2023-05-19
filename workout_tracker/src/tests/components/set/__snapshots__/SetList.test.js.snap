@@ -2,90 +2,61 @@
 
 exports[`Render tests Has Data, matches snapshot 1`] = `
 <div
-  className="container"
+  className="pt-3 container"
+  style={
+    Object {
+      "margin": "auto",
+      "textAlign": "center",
+      "width": "60%",
+    }
+  }
 >
   <div
-    className="container"
+    style={
+      Object {
+        "textAlign": "left",
+      }
+    }
   >
-    <div
-      className="list-group"
-      onKeyDown={[Function]}
-    >
-      <div
-        className="list-group-item"
-        data-rr-ui-event-key={null}
-        onClick={[Function]}
-      >
-        <div
-          className="row"
-        >
-          <div
-            className="col"
-          >
-            Reps
-          </div>
-          <div
-            className="col"
-          >
-            Weight
-          </div>
-        </div>
-      </div>
-      <div
-        className="list-group-item"
-        data-rr-ui-event-key={null}
-        onClick={[Function]}
-      >
-        <div
-          className="row"
-        >
-          <div
-            className="col"
-          >
-            20
-          </div>
-          <div
-            className="col"
-          >
-            225
-          </div>
-        </div>
-      </div>
-      <div
-        className="list-group-item"
-        data-rr-ui-event-key={null}
-        onClick={[Function]}
-      >
-        <div
-          className="row"
-        >
-          <div
-            className="col"
-          >
-            100
-          </div>
-          <div
-            className="col"
-          >
-            315
-          </div>
-        </div>
-      </div>
-    </div>
+    Set List
   </div>
+  <table
+    className="table table-sm table-striped table-bordered table-hover"
+  >
+    <thead>
+      <tr>
+        <th>
+          Reps
+        </th>
+        <th>
+          Weight
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        onClick={[Function]}
+      >
+        <td>
+          20
+        </td>
+        <td>
+          225
+        </td>
+      </tr>
+      <tr
+        onClick={[Function]}
+      >
+        <td>
+          100
+        </td>
+        <td>
+          315
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;
 
-exports[`Render tests No Data, matches snapshot 1`] = `
-<div
-  className="container"
->
-  <div
-    className="list-item list-item--message"
-  >
-    <span>
-      No Sets
-    </span>
-  </div>
-</div>
-`;
+exports[`Render tests No Data, matches snapshot 1`] = `null`;

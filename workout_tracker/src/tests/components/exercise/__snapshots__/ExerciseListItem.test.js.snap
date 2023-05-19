@@ -19,117 +19,80 @@ exports[`Render tests Has Data, matches snapshot 1`] = `
       className="card-body"
     >
       <div
-        className="container"
+        className="pt-3 container"
+        style={
+          Object {
+            "margin": "auto",
+            "textAlign": "center",
+            "width": "60%",
+          }
+        }
       >
         <div
-          className="container"
+          style={
+            Object {
+              "textAlign": "left",
+            }
+          }
         >
-          <div
-            className="list-group"
-            onKeyDown={[Function]}
-          >
-            <div
-              className="list-group-item"
-              data-rr-ui-event-key={null}
-              onClick={[Function]}
-            >
-              <div
-                className="row"
-              >
-                <div
-                  className="col"
-                >
-                  Reps
-                </div>
-                <div
-                  className="col"
-                >
-                  Weight
-                </div>
-              </div>
-            </div>
-            <div
-              className="list-group-item"
-              data-rr-ui-event-key={null}
-              onClick={[Function]}
-            >
-              <div
-                className="row"
-              >
-                <div
-                  className="col"
-                >
-                  40
-                </div>
-                <div
-                  className="col"
-                >
-                  100
-                </div>
-              </div>
-            </div>
-            <div
-              className="list-group-item"
-              data-rr-ui-event-key={null}
-              onClick={[Function]}
-            >
-              <div
-                className="row"
-              >
-                <div
-                  className="col"
-                >
-                  40
-                </div>
-                <div
-                  className="col"
-                >
-                  100
-                </div>
-              </div>
-            </div>
-            <div
-              className="list-group-item"
-              data-rr-ui-event-key={null}
-              onClick={[Function]}
-            >
-              <div
-                className="row"
-              >
-                <div
-                  className="col"
-                >
-                  40
-                </div>
-                <div
-                  className="col"
-                >
-                  100
-                </div>
-              </div>
-            </div>
-            <div
-              className="list-group-item"
-              data-rr-ui-event-key={null}
-              onClick={[Function]}
-            >
-              <div
-                className="row"
-              >
-                <div
-                  className="col"
-                >
-                  40
-                </div>
-                <div
-                  className="col"
-                >
-                  100
-                </div>
-              </div>
-            </div>
-          </div>
+          Set List
         </div>
+        <table
+          className="table table-sm table-striped table-bordered table-hover"
+        >
+          <thead>
+            <tr>
+              <th>
+                Reps
+              </th>
+              <th>
+                Weight
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              onClick={[Function]}
+            >
+              <td>
+                40
+              </td>
+              <td>
+                100
+              </td>
+            </tr>
+            <tr
+              onClick={[Function]}
+            >
+              <td>
+                40
+              </td>
+              <td>
+                100
+              </td>
+            </tr>
+            <tr
+              onClick={[Function]}
+            >
+              <td>
+                40
+              </td>
+              <td>
+                100
+              </td>
+            </tr>
+            <tr
+              onClick={[Function]}
+            >
+              <td>
+                40
+              </td>
+              <td>
+                100
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
