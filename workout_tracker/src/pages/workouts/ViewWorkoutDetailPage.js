@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 
 import DateFormatter from '../../helpers/DateFormatter';
 import {Context as WorkoutContext} from '../../context/WorkoutContext';
-import { ExerciseListItem } from '../../components/exercise/ExerciseListItem';
+import { ExerciseList } from '../../components/exercise/ExerciseList';
 
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
@@ -94,16 +94,8 @@ const ViewWorkoutDetailsPage = ()=>
                                 Exercises
                             </Col>
                             <Col>
-                                <ListGroup>
-                                        {
-                                            currentWorkout.exerciseList.map((exercise, index) => (
-                                                <ListGroup.Item>
-                                                    <ExerciseListItem
-                                                        exercise={exercise}
-                                                    />
-                                                </ListGroup.Item>
-                                            ))
-                                        }
+                                <ListGroup variant="flush">
+                                    <ExerciseList exerciseList={currentWorkout.exerciseList}/>
                                 </ListGroup>
                             </Col>
                         </Row>

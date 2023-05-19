@@ -1,5 +1,5 @@
 import TestRenderer from 'react-test-renderer';
-import {ExerciseListItem} from '../../../components/exercise/ExerciseListItem';
+import {ExerciseListItem} from '../../../components/exercise/ExerciseListEditItem';
 
 import { TestExercise } from '../../testData';
 
