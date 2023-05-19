@@ -1,11 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import {useNavigate, useParams} from "react-router-dom";
 
-import ListGroup from 'react-bootstrap/ListGroup';
+import Alert from 'react-bootstrap/Alert';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 import DateFormatter from '../../helpers/DateFormatter';
 import {Context as WorkoutContext} from '../../context/WorkoutContext';
@@ -19,10 +21,10 @@ const ViewWorkoutDetailsPage = ()=>
     const navigate = useNavigate();
     const { id } = useParams();
 
-    const {state, fetchWorkouts, deleteWorkout} = useContext(WorkoutContext);
-    const [currentWorkout, setCurrentWorkout] = useState({});
-    const [isLoaded, setLoaded] = useState(false);
-    const [error, setError] = useState("");
+    const {state, fetchWorkouts, deleteWorkout} = React.useContext(WorkoutContext);
+    const [currentWorkout, setCurrentWorkout] = React.useState({});
+    const [isLoaded, setLoaded] = React.useState(false);
+    const [error, setError] = React.useState("");
 
 
     const processDelete = async () => {
@@ -49,7 +51,7 @@ const ViewWorkoutDetailsPage = ()=>
         return !Object.keys(currentWorkout).length == 0;
     }
 
-    useEffect(()=> {
+    React.useEffect(()=> {
         const GetWorkoutByID = async (id) => {
             if (!isLoaded)
             {
@@ -74,46 +76,63 @@ const ViewWorkoutDetailsPage = ()=>
     if (isLoaded) {
         if (isValidWorkout()) { 
             return (
-                <Container fluid="md">
-                    <h1>{DateFormatter(currentWorkout.workoutDate)}</h1>
-                    <Container>
-                        <Row>
-                            <Col sm={2}>
-                                Notes
-                            </Col>
-                            <Col>
-                                {currentWorkout.notes}
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col sm={2}>Count</Col>
-                            <Col>{currentWorkout.exerciseList.length}</Col>
-                        </Row>
-                        <Row>
-                            <Col sm={2}>
-                                Exercises
-                            </Col>
-                            <Col>
-                                <ListGroup variant="flush">
+                <Container className="pt-4" fluid="md">
+                    <Row className="align-items-center">
+                        <Col>
+                            <h1>Workout on {DateFormatter(currentWorkout.workoutDate)}</h1> 
+                        </Col>
+                        <Col>
+                            <Dropdown className="float-end">
+                                <Dropdown.Toggle id="dropdown-basic">
+                                    Options
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item href={`/edit/${currentWorkout._id}`}>Edit</Dropdown.Item>
+                                    <Dropdown.Item onClick={processDelete}>Delete</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </Col>
+                    </Row>
+                    <Row>
+                        {currentWorkout.notes !== "" ? (
+                            <Card>
+                                <Card.Body>
+                                    <Card.Title>Notes</Card.Title>
+                                    <Card.Body>
+                                        {currentWorkout.notes}
+                                    </Card.Body>
+                                </Card.Body>
+                            </Card>
+                        ) : ( null ) }
+                        <Card>
+                            <Card.Body>
+                                <Card.Title>Exercises - {currentWorkout.exerciseList.length}</Card.Title>
+                                <Card.Body>
                                     <ExerciseList exerciseList={currentWorkout.exerciseList}/>
-                                </ListGroup>
-                            </Col>
-                        </Row>
-                    </Container>
-                    <Container className="justify-content-center" style={{display:'flex'}}>
-                        <Row>
-                            <Col><Button href={`/edit/${currentWorkout._id}`}>Edit</Button></Col>
-                            <Col><Button href="/dashboard">Dashboard</Button></Col>
-                            <Col><Button variant="danger" onClick={processDelete}>Delete</Button></Col>
-                        </Row>
-                    </Container>
+                                </Card.Body>
+                                <Card.Body>
+                                    
+                                </Card.Body>
+                            </Card.Body>
+                        </Card>
+                        <Col className="pt-2"><Button className="float-end" href="/dashboard">Return to Dashboard</Button></Col>
+                    </Row>
                 </Container>
             )
         } else if (error)
         {
             return(
-                <Container>
-                    {error}
+                <Container className="pt-3 b-3">
+                    <Alert key="danger" variant="danger">
+                        <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+                        <p>{error}</p>
+                        <div className="d-flex justify-content-end">
+                            <Button onClick={() => navigate('/dashboard')} variant="outline-danger">
+                                Return to Dashboard
+                            </Button>
+                        </div>
+                    </Alert>
+                    
                 </Container>
             )
         }

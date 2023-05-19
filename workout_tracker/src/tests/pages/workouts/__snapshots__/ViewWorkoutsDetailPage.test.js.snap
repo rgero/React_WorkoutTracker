@@ -1,0 +1,347 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering a Workout 1`] = `
+<div
+  className="pt-4 container-md"
+>
+  <div
+    className="align-items-center row"
+  >
+    <div
+      className="col"
+    >
+      <h1>
+        Workout on 
+        2023-03-08
+      </h1>
+    </div>
+    <div
+      className="col"
+    >
+      <div
+        className="float-end dropdown"
+      >
+        <button
+          aria-expanded={false}
+          className="dropdown-toggle btn btn-primary"
+          disabled={false}
+          id="dropdown-basic"
+          onClick={[Function]}
+          type="button"
+        >
+          Options
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="card"
+    >
+      <div
+        className="card-body"
+      >
+        <div
+          className="card-title h5"
+        >
+          Notes
+        </div>
+        <div
+          className="card-body"
+        >
+          Testing Notes for Testing
+        </div>
+      </div>
+    </div>
+    <div
+      className="card"
+    >
+      <div
+        className="card-body"
+      >
+        <div
+          className="card-title h5"
+        >
+          Exercises - 
+          2
+        </div>
+        <div
+          className="card-body"
+        >
+          <div
+            className="container"
+          >
+            <div
+              className="list-group list-group-flush"
+              onKeyDown={[Function]}
+              style={
+                Object {
+                  "margin": "auto",
+                  "width": "60%",
+                }
+              }
+            >
+              <div
+                className="list-group-item"
+                data-rr-ui-event-key={null}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "border": "0px",
+                  }
+                }
+              >
+                <div
+                  className="card"
+                >
+                  <div
+                    className="card-body"
+                  >
+                    <div
+                      className="card-title h5"
+                    >
+                      #
+                      1
+                       - 
+                      Bench Press
+                    </div>
+                    <div
+                      className="card-body"
+                    >
+                      <div
+                        className="pt-3 container"
+                        style={
+                          Object {
+                            "margin": "auto",
+                            "textAlign": "center",
+                            "width": "60%",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "textAlign": "left",
+                            }
+                          }
+                        >
+                          Set List
+                        </div>
+                        <table
+                          className="table table-sm table-striped table-bordered table-hover"
+                        >
+                          <thead>
+                            <tr>
+                              <th>
+                                Reps
+                              </th>
+                              <th>
+                                Weight
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr
+                              onClick={[Function]}
+                            >
+                              <td>
+                                20
+                              </td>
+                              <td>
+                                275
+                              </td>
+                            </tr>
+                            <tr
+                              onClick={[Function]}
+                            >
+                              <td>
+                                20
+                              </td>
+                              <td>
+                                300
+                              </td>
+                            </tr>
+                            <tr
+                              onClick={[Function]}
+                            >
+                              <td>
+                                3
+                              </td>
+                              <td>
+                                315
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="list-group-item"
+                data-rr-ui-event-key={null}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "border": "0px",
+                  }
+                }
+              >
+                <div
+                  className="card"
+                >
+                  <div
+                    className="card-body"
+                  >
+                    <div
+                      className="card-title h5"
+                    >
+                      #
+                      2
+                       - 
+                      Shrugs
+                    </div>
+                    <div
+                      className="card-body"
+                    >
+                      <div
+                        className="pt-3 container"
+                        style={
+                          Object {
+                            "margin": "auto",
+                            "textAlign": "center",
+                            "width": "60%",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "textAlign": "left",
+                            }
+                          }
+                        >
+                          Set List
+                        </div>
+                        <table
+                          className="table table-sm table-striped table-bordered table-hover"
+                        >
+                          <thead>
+                            <tr>
+                              <th>
+                                Reps
+                              </th>
+                              <th>
+                                Weight
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr
+                              onClick={[Function]}
+                            >
+                              <td>
+                                40
+                              </td>
+                              <td>
+                                100
+                              </td>
+                            </tr>
+                            <tr
+                              onClick={[Function]}
+                            >
+                              <td>
+                                40
+                              </td>
+                              <td>
+                                100
+                              </td>
+                            </tr>
+                            <tr
+                              onClick={[Function]}
+                            >
+                              <td>
+                                40
+                              </td>
+                              <td>
+                                100
+                              </td>
+                            </tr>
+                            <tr
+                              onClick={[Function]}
+                            >
+                              <td>
+                                40
+                              </td>
+                              <td>
+                                100
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="card-body"
+        />
+      </div>
+    </div>
+    <div
+      className="pt-2 col"
+    >
+      <a
+        className="float-end btn btn-primary"
+        disabled={false}
+        href="/dashboard"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        Return to Dashboard
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Rendering a failure 1`] = `
+<div
+  className="pt-3 b-3 container"
+>
+  <div
+    className="fade alert alert-danger show"
+    role="alert"
+  >
+    <div
+      className="alert-heading h4"
+    >
+      Oh snap! You got an error!
+    </div>
+    <p>
+      An error has occurred
+    </p>
+    <div
+      className="d-flex justify-content-end"
+    >
+      <button
+        className="btn btn-outline-danger"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Return to Dashboard
+      </button>
+    </div>
+  </div>
+</div>
+`;
