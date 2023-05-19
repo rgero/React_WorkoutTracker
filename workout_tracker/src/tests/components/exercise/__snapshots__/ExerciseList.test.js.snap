@@ -5,25 +5,32 @@ exports[`Render tests Has Data, matches snapshot 1`] = `
   className="container"
 >
   <div
-    className="container"
+    className="list-group list-group-flush"
+    onKeyDown={[Function]}
   >
-    <div
-      className="list-group"
-      onKeyDown={[Function]}
+    <button
+      className="list-group-item list-group-item-action"
+      data-rr-ui-event-key={null}
+      onClick={[Function]}
     >
-      <button
-        className="list-group-item list-group-item-action"
-        data-rr-ui-event-key={null}
+      <div
+        className="card"
         onClick={[Function]}
       >
         <div
-          className="container"
+          className="card-body"
         >
           <div
-            className="container"
-            onClick={[Function]}
+            className="card-title h5"
           >
+            #
+            1
+             - 
             Lunges
+          </div>
+          <div
+            className="card-body"
+          >
             <div
               className="container"
             >
@@ -139,20 +146,31 @@ exports[`Render tests Has Data, matches snapshot 1`] = `
             </div>
           </div>
         </div>
-      </button>
-      <button
-        className="list-group-item list-group-item-action"
-        data-rr-ui-event-key={null}
+      </div>
+    </button>
+    <button
+      className="list-group-item list-group-item-action"
+      data-rr-ui-event-key={null}
+      onClick={[Function]}
+    >
+      <div
+        className="card"
         onClick={[Function]}
       >
         <div
-          className="container"
+          className="card-body"
         >
           <div
-            className="container"
-            onClick={[Function]}
+            className="card-title h5"
           >
+            #
+            2
+             - 
             Lunges
+          </div>
+          <div
+            className="card-body"
+          >
             <div
               className="container"
             >
@@ -268,20 +286,31 @@ exports[`Render tests Has Data, matches snapshot 1`] = `
             </div>
           </div>
         </div>
-      </button>
-      <button
-        className="list-group-item list-group-item-action"
-        data-rr-ui-event-key={null}
+      </div>
+    </button>
+    <button
+      className="list-group-item list-group-item-action"
+      data-rr-ui-event-key={null}
+      onClick={[Function]}
+    >
+      <div
+        className="card"
         onClick={[Function]}
       >
         <div
-          className="container"
+          className="card-body"
         >
           <div
-            className="container"
-            onClick={[Function]}
+            className="card-title h5"
           >
+            #
+            3
+             - 
             Lunges
+          </div>
+          <div
+            className="card-body"
+          >
             <div
               className="container"
             >
@@ -397,8 +426,8 @@ exports[`Render tests Has Data, matches snapshot 1`] = `
             </div>
           </div>
         </div>
-      </button>
-    </div>
+      </div>
+    </button>
   </div>
 </div>
 `;

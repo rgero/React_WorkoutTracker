@@ -4,8 +4,9 @@ import { SetList } from '../set/SetList';
 import {AlertBox} from '../../helpers/DialogBox';
 
 import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 
-export const ExerciseListItem = ({exercise = {}, onDelete})=> 
+export const ExerciseListItem = ({index, exercise = {}, onDelete})=> 
 {
   const processDelete = () => {
     let title = 'Are you sure you want to delete this?';
@@ -32,12 +33,14 @@ export const ExerciseListItem = ({exercise = {}, onDelete})=>
             <span>No Name</span>
           </Container>
         ) : (
-            <Container>
-                <Container onClick={processDelete}>
-                    {exercise.name}
-                    <SetList setList={exercise.setList} key={`${exercise.name}_Sets`}/>
-                </Container>
-            </Container>
+          <Card onClick={processDelete}>
+            <Card.Body>
+              <Card.Title>#{index} - {exercise.name}</Card.Title>
+              <Card.Body>
+                <SetList setList={exercise.setList} key={`${exercise.name}_Sets`}/>
+              </Card.Body>
+            </Card.Body>
+          </Card>
         )
       }
     </>

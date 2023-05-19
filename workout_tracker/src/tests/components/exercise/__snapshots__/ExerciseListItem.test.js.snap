@@ -2,120 +2,130 @@
 
 exports[`Render tests Has Data, matches snapshot 1`] = `
 <div
-  className="container"
+  className="card"
+  onClick={[Function]}
 >
   <div
-    className="container"
-    onClick={[Function]}
+    className="card-body"
   >
-    Lunges
     <div
-      className="container"
+      className="card-title h5"
+    >
+      #
+       - 
+      Lunges
+    </div>
+    <div
+      className="card-body"
     >
       <div
         className="container"
       >
         <div
-          className="list-group"
-          onKeyDown={[Function]}
+          className="container"
         >
           <div
-            className="list-group-item"
-            data-rr-ui-event-key={null}
-            onClick={[Function]}
+            className="list-group"
+            onKeyDown={[Function]}
           >
             <div
-              className="row"
+              className="list-group-item"
+              data-rr-ui-event-key={null}
+              onClick={[Function]}
             >
               <div
-                className="col"
+                className="row"
               >
-                Reps
-              </div>
-              <div
-                className="col"
-              >
-                Weight
+                <div
+                  className="col"
+                >
+                  Reps
+                </div>
+                <div
+                  className="col"
+                >
+                  Weight
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            className="list-group-item"
-            data-rr-ui-event-key={null}
-            onClick={[Function]}
-          >
             <div
-              className="row"
+              className="list-group-item"
+              data-rr-ui-event-key={null}
+              onClick={[Function]}
             >
               <div
-                className="col"
+                className="row"
               >
-                40
-              </div>
-              <div
-                className="col"
-              >
-                100
+                <div
+                  className="col"
+                >
+                  40
+                </div>
+                <div
+                  className="col"
+                >
+                  100
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            className="list-group-item"
-            data-rr-ui-event-key={null}
-            onClick={[Function]}
-          >
             <div
-              className="row"
+              className="list-group-item"
+              data-rr-ui-event-key={null}
+              onClick={[Function]}
             >
               <div
-                className="col"
+                className="row"
               >
-                40
-              </div>
-              <div
-                className="col"
-              >
-                100
+                <div
+                  className="col"
+                >
+                  40
+                </div>
+                <div
+                  className="col"
+                >
+                  100
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            className="list-group-item"
-            data-rr-ui-event-key={null}
-            onClick={[Function]}
-          >
             <div
-              className="row"
+              className="list-group-item"
+              data-rr-ui-event-key={null}
+              onClick={[Function]}
             >
               <div
-                className="col"
+                className="row"
               >
-                40
-              </div>
-              <div
-                className="col"
-              >
-                100
+                <div
+                  className="col"
+                >
+                  40
+                </div>
+                <div
+                  className="col"
+                >
+                  100
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            className="list-group-item"
-            data-rr-ui-event-key={null}
-            onClick={[Function]}
-          >
             <div
-              className="row"
+              className="list-group-item"
+              data-rr-ui-event-key={null}
+              onClick={[Function]}
             >
               <div
-                className="col"
+                className="row"
               >
-                40
-              </div>
-              <div
-                className="col"
-              >
-                100
+                <div
+                  className="col"
+                >
+                  40
+                </div>
+                <div
+                  className="col"
+                >
+                  100
+                </div>
               </div>
             </div>
           </div>

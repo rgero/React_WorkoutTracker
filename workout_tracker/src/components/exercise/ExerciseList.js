@@ -14,21 +14,19 @@ export const ExerciseList = ({exerciseList = [], onDelete})=>
                         <span>No Exercises</span>
                     </div>
                 ) : (
-                    <Container>
-                        <ListGroup>
-                        {
-                            exerciseList.map((exercise, index) => (
-                                <ListGroup.Item action key={`${exercise.name}_${index}`}>
-                                    <ExerciseListItem
-                                        exercise={exercise}
-                                        onDelete={onDelete}
-                                    />
-                                </ListGroup.Item>
-                            ))
-                        }
-                        </ListGroup>
-
-                    </Container>
+                    <ListGroup variant="flush">
+                    {
+                        exerciseList.map((exercise, index) => (
+                            <ListGroup.Item action key={`${exercise.name}_${index}`}>
+                                <ExerciseListItem
+                                    index={index+1}
+                                    exercise={exercise}
+                                    onDelete={onDelete}
+                                />
+                            </ListGroup.Item>
+                        ))
+                    }
+                    </ListGroup>
                 )
             }
         </Container>
