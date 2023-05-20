@@ -21,11 +21,11 @@ export const SignUpPage = ()=>
         return (
             <Container className="pt-2" fluid="xl">
                 <Row>
-                    <Col xs={4}>
-                        <SignUpForm onSubmit={({email, password})=> signUp({email, password})}/>
+                    <Col xs={10} md={4}>
+                        <SignUpForm onSubmit={({email, displayName, password})=> signUp({email, displayName, password})}/>
                     </Col>
-                    <Col xs={8}>
-                        <img src="/images/dumbbells.jpg" width={800} />
+                    <Col md={8} className="d-none d-lg-block">
+                        <img src="/images/dumbbells.jpg" width="100%" />
                     </Col>
                 </Row>
 

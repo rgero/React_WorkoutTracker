@@ -32,9 +32,9 @@ const clearErrorMessage = dispatch => () => {
 }
 
 const signUp = dispatch => {
-    return async ({ email, password }) => {
+    return async ({ email, displayName, password }) => {
         try {
-            const response = await trackerAPI.post('/signup', { email, password });
+            const response = await trackerAPI.post('/signup', { email, displayName, password });
             
             // Storing the Token
             await AsyncStorage.setItem('token', response.data.token);

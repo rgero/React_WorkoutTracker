@@ -40,6 +40,24 @@ exports[`SignUpForm Rendering Tests No Data 1`] = `
         >
           <label
             className="form-label"
+            htmlFor="displayName"
+          >
+            Display Name
+          </label>
+          <input
+            aria-label="displayName"
+            className="form-control"
+            id="displayName"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="mb-3"
+        >
+          <label
+            className="form-label"
             htmlFor="formPassword"
           >
             Password

@@ -8,7 +8,7 @@ exports[`Sign Up Page Tests Rendering the blank page 1`] = `
     className="row"
   >
     <div
-      className="col-4"
+      className="col-md-4 col-10"
     >
       <div
         className="container-md"
@@ -41,6 +41,24 @@ exports[`Sign Up Page Tests Rendering the blank page 1`] = `
                   id="formEmail"
                   onChange={[Function]}
                   type="email"
+                  value=""
+                />
+              </div>
+              <div
+                className="mb-3"
+              >
+                <label
+                  className="form-label"
+                  htmlFor="displayName"
+                >
+                  Display Name
+                </label>
+                <input
+                  aria-label="displayName"
+                  className="form-control"
+                  id="displayName"
+                  onChange={[Function]}
+                  type="text"
                   value=""
                 />
               </div>
@@ -93,11 +111,11 @@ exports[`Sign Up Page Tests Rendering the blank page 1`] = `
       </div>
     </div>
     <div
-      className="col-8"
+      className="d-none d-lg-block col-md-8"
     >
       <img
         src="/images/dumbbells.jpg"
-        width={800}
+        width="100%"
       />
     </div>
   </div>

@@ -33,10 +33,10 @@ export const LoginPage = ()=>
         return (
             <Container fluid="md" className="pt-2">
                 <Row>
-                    <Col xs={8}>
-                        <img src="/images/dumbbells.jpg" width={800} />
+                    <Col md={8} className="d-none d-lg-block">
+                        <img src="/images/dumbbells.jpg" width="100%" />
                     </Col>
-                    <Col xs lg="4">
+                    <Col xs={10} md={4}>
                         <LoginForm
                             onSubmit={({email, password})=> signIn({email, password})}
                         />

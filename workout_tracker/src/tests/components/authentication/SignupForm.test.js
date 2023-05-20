@@ -21,6 +21,7 @@ describe("SignUpForm value tests", ()=> {
 
     let mockUserData = {
         email: "gibgibgib@gib.com",
+        displayName: "Gib Gib",
         password: "NotARealPasswordObvs"
     }
 
@@ -31,11 +32,15 @@ describe("SignUpForm value tests", ()=> {
     test("Valid Submission", ()=> {
         act(()=> {
             const emailInput = screen.getByRole("textbox", {name: /email/i});
+            const displayNameInput = screen.getByRole("textbox", {name: /displayname/i});
             const passwordInput = screen.getByLabelText(/password/i);
             const secondPassword = screen.getByLabelText(/reentry/i);
 
             user.click(emailInput);
             user.keyboard(mockUserData.email);
+
+            user.click(displayNameInput);
+            user.keyboard(mockUserData.displayName);
         
             user.click(passwordInput);
             user.keyboard(mockUserData.password);
@@ -54,9 +59,13 @@ describe("SignUpForm value tests", ()=> {
 
     test("Missing email", ()=> {
         act(()=> {
+            const displayNameInput = screen.getByRole("textbox", {name: /displayname/i});
             const passwordInput = screen.getByLabelText(/password/i);
             const secondPassword = screen.getByLabelText(/reentry/i);
         
+            user.click(displayNameInput);
+            user.keyboard(mockUserData.displayName);
+
             user.click(passwordInput);
             user.keyboard(mockUserData.password);
 
@@ -77,10 +86,14 @@ describe("SignUpForm value tests", ()=> {
     test("Missing first password", ()=> {
         act(()=> {
             const emailInput = screen.getByRole("textbox", {name: /email/i});
+            const displayNameInput = screen.getByRole("textbox", {name: /displayname/i});
             const secondPassword = screen.getByLabelText(/reentry/i);
 
             user.click(emailInput);
             user.keyboard(mockUserData.email);
+
+            user.click(displayNameInput);
+            user.keyboard(mockUserData.displayName);
 
             user.click(secondPassword);
             user.keyboard(mockUserData.password);
@@ -99,12 +112,42 @@ describe("SignUpForm value tests", ()=> {
     test("Missing second password", ()=> {
         act(()=> {
             const emailInput = screen.getByRole("textbox", {name: /email/i});
+            const displayNameInput = screen.getByRole("textbox", {name: /displayname/i});
             const passwordInput = screen.getByLabelText(/password/i);
+
+            user.click(emailInput);
+            user.keyboard(mockUserData.email);
+
+            user.click(displayNameInput);
+            user.keyboard(mockUserData.displayName);
+        
+            user.click(passwordInput);
+            user.keyboard(mockUserData.password);
+        
+            const button = screen.getByRole("button");
+
+            user.click(button);
+        })
+
+        expect(mockSubmit).not.toHaveBeenCalled();
+
+        const errorField = screen.getByText("Error: Please fill out the full form.");
+        expect(errorField).toBeInTheDocument();
+    })
+
+    test("Missing display name", ()=> {
+        act(()=> {
+            const emailInput = screen.getByRole("textbox", {name: /email/i});
+            const passwordInput = screen.getByLabelText(/password/i);
+            const secondPassword = screen.getByLabelText(/reentry/i);
 
             user.click(emailInput);
             user.keyboard(mockUserData.email);
         
             user.click(passwordInput);
+            user.keyboard(mockUserData.password);
+
+            user.click(secondPassword);
             user.keyboard(mockUserData.password);
         
             const button = screen.getByRole("button");
@@ -121,11 +164,15 @@ describe("SignUpForm value tests", ()=> {
     test("Passwords won't match", ()=> {
         act(()=> {
             const emailInput = screen.getByRole("textbox", {name: /email/i});
+            const displayNameInput = screen.getByRole("textbox", {name: /displayname/i});
             const passwordInput = screen.getByLabelText(/password/i);
             const secondPassword = screen.getByLabelText(/reentry/i);
 
             user.click(emailInput);
             user.keyboard(mockUserData.email);
+
+            user.click(displayNameInput);
+            user.keyboard(mockUserData.displayName);
         
             user.click(passwordInput);
             user.keyboard(mockUserData.password);

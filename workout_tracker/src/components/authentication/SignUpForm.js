@@ -11,13 +11,14 @@ import Row from 'react-bootstrap/Row';
 export const SignUpForm = ({onSubmit})=> 
 {
     const [email, setEmail] = useState("");
+    const [displayName, setName] = useState("");
     const [password, setPassword] = useState("");
     const [passwordSecond, setRetypePassword] = useState("");
     const [errMsg, setErrorMessage] = useState("")
 
     const trySignUp = async (event) => {
         event.preventDefault();
-        if ( email === "" || password === "" || passwordSecond === "")
+        if ( email === "" || password === "" || passwordSecond === "" || displayName === "")
         {
             setErrorMessage("Please fill out the full form.");
             return;
@@ -28,7 +29,7 @@ export const SignUpForm = ({onSubmit})=>
             return;
         }
         setErrorMessage("");
-        await onSubmit({email, password});
+        await onSubmit({email, displayName, password});
     }
 
     return(
@@ -44,6 +45,15 @@ export const SignUpForm = ({onSubmit})=>
                                 type="email"
                                 value={email}
                                 onChange={e => setEmail(e.target.value)}
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="displayName">
+                            <Form.Label>Display Name</Form.Label>
+                            <Form.Control
+                                aria-label="displayName"
+                                type="text"
+                                value={displayName}
+                                onChange={e => setName(e.target.value)}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formPassword">
