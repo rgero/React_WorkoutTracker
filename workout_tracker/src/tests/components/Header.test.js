@@ -63,7 +63,7 @@ describe("User Logged In, with fake token", ()=> {
 
     test("Matches button count", ()=> {
         let buttons = element.root.findAllByType("a");
-        expect(buttons.length).toEqual(4);
+        expect(buttons.length).toEqual(5);
     })
 })
 
