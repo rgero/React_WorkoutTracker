@@ -1,6 +1,7 @@
 import TestRenderer from 'react-test-renderer';
 import Header from '../../components/Header'
 import {Context as AuthContext} from '../../context/AuthContext';
+import {Context as UserContext} from '../../context/UserContext';
 
 
 describe("No User Logged In", ()=> {
@@ -11,9 +12,14 @@ describe("No User Logged In", ()=> {
             tryLocalSignin: jest.fn(),
             signOut: jest.fn()
         }
+        const userTestValues = {
+            getUser: jest.fn()
+        }
         element = new TestRenderer.create(
             <AuthContext.Provider value={testValue}>
-                <Header />
+                <UserContext.Provider value={userTestValues}>
+                    <Header />
+                </UserContext.Provider>
             </AuthContext.Provider>
         );
     });
@@ -36,9 +42,15 @@ describe("User Logged In, with fake token", ()=> {
             tryLocalSignin: jest.fn(),
             signOut: jest.fn()
         }
+        const userTestValues = {
+            displayName: "Roy",
+            getUser: jest.fn()
+        }
         element = new TestRenderer.create(
             <AuthContext.Provider value={testValue}>
-                <Header />
+                <UserContext.Provider value={userTestValues}>
+                    <Header />
+                </UserContext.Provider>
             </AuthContext.Provider>
         );
     });
@@ -60,9 +72,15 @@ test('Branding button works', ()=> {
         tryLocalSignin: jest.fn(),
         signOut: jest.fn()
     }
+    const userTestValues = {
+        displayName: "Roy",
+        getUser: jest.fn()
+    }
     const element = new TestRenderer.create(
         <AuthContext.Provider value={testValue}>
-            <Header />
+            <UserContext.Provider value={userTestValues}>
+                <Header />
+            </UserContext.Provider>
         </AuthContext.Provider>
     );
 

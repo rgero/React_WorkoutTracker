@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Provider as AuthProvider, Context as AuthContext} from '../src/context/AuthContext'
 import { Provider as WorkoutProvider} from '../src/context/WorkoutContext'
+import { Provider as UserProvider} from '../src/context/UserContext'
 
 import NavigationBar from "./components/Header";
 import IndexPage from './pages/IndexPage';
@@ -17,7 +18,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <AuthProvider>
-      <NavigationBar/>
+      <UserProvider>
+        <NavigationBar/>
+      </UserProvider>
       <WorkoutProvider>
         <BrowserRouter>
           <Routes>
