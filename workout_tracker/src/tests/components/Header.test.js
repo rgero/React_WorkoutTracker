@@ -13,6 +13,7 @@ describe("No User Logged In", ()=> {
             signOut: jest.fn()
         }
         const userTestValues = {
+            state: {},
             getUser: jest.fn()
         }
         element = new TestRenderer.create(
@@ -43,7 +44,7 @@ describe("User Logged In, with fake token", ()=> {
             signOut: jest.fn()
         }
         const userTestValues = {
-            displayName: "Roy",
+            state: {displayName: "Roy"},
             getUser: jest.fn()
         }
         element = new TestRenderer.create(
@@ -73,7 +74,7 @@ test('Branding button works', ()=> {
         signOut: jest.fn()
     }
     const userTestValues = {
-        displayName: "Roy",
+        state: {displayName: "Roy"},
         getUser: jest.fn()
     }
     const element = new TestRenderer.create(

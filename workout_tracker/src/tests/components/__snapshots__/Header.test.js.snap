@@ -122,6 +122,17 @@ exports[`User Logged In, with fake token Matches Snapshot 1`] = `
           role="button"
           tabIndex={0}
         >
+          Roy
+        </a>
+        <a
+          className="nav-link"
+          data-rr-ui-event-key={null}
+          href="#"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="button"
+          tabIndex={0}
+        >
           Sign Out
         </a>
       </div>
