@@ -10,7 +10,7 @@ export const WorkoutList = ({workoutList=[], descendingOrder=true}) =>
     let organizedList = ProcessWorkoutList(workoutList);
     let yearOrder = GetOrderedValues(organizedList, descendingOrder);
     return (
-        <Container>
+        <Container style={{width:"90%"}}>
             { 
                 Object.keys(organizedList).length === 0 ? (
                     <div className="list-item list-item--message">

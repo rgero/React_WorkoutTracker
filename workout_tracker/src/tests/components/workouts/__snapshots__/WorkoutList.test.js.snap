@@ -3,6 +3,11 @@
 exports[`Render tests Has Data - Ascending Order, matches snapshot 1`] = `
 <div
   className="container"
+  style={
+    Object {
+      "width": "90%",
+    }
+  }
 >
   <div>
     <div
@@ -78,6 +83,11 @@ exports[`Render tests Has Data - Ascending Order, matches snapshot 1`] = `
 exports[`Render tests Has Data - Descending Order, matches snapshot 1`] = `
 <div
   className="container"
+  style={
+    Object {
+      "width": "90%",
+    }
+  }
 >
   <div>
     <div
@@ -153,6 +163,11 @@ exports[`Render tests Has Data - Descending Order, matches snapshot 1`] = `
 exports[`Render tests No Data, matches snapshot 1`] = `
 <div
   className="container"
+  style={
+    Object {
+      "width": "90%",
+    }
+  }
 >
   <div
     className="list-item list-item--message"
