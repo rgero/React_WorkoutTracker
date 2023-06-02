@@ -4,19 +4,17 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 import {Context as AuthContext} from '../context/AuthContext';
-import {Context as UserContext} from '../context/UserContext';
 
 function NavigationBar() {
     const {state, tryLocalSignin, signOut} = useContext(AuthContext);
-    const {state: user, getUser} = useContext(UserContext);
 
     useEffect(()=> {
         const processUser = async () => {
             tryLocalSignin();
-            await getUser();
         }
         processUser();
     }, [])
+
     return (
         <Navbar bg="dark" expand="lg" variant="dark">
             <Container>
@@ -31,9 +29,9 @@ function NavigationBar() {
                                 <Nav.Link href="/create">Add Workout</Nav.Link>
                             </Nav>
                             <Nav>
-                                { user ? (
+                                { state.displayName ? (
                                     <Nav.Link>
-                                        {user.displayName}
+                                        {state.displayName}
                                     </Nav.Link>
                                 ) : ( 
                                     null 
