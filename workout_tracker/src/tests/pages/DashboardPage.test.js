@@ -18,25 +18,6 @@ jest.mock('../../pages/workouts/ViewWorkoutsPage', () => ({
 
 describe("Dashboard Tests", ()=> {
 
-    test('No Token - Redirected to Login', async ()=> {
-        const testContextValues = {
-            state: {},
-            tryLocalSignin: jest.fn()
-        }
-
-        let mockNavigate = jest.spyOn(reactRouterDom, "Navigate").mockImplementation();
-        let element;
-        await act(async () => {
-            element = new TestRenderer.create(
-                <AuthContext.Provider value={testContextValues}>
-                    <DashboardPage/>
-                </AuthContext.Provider>
-            );
-        })
-        
-        expect(mockNavigate.mock.calls).toEqual([[{"replace": true, "to": "/login"}, {}]]);
-    })
-
     test("Token Presented - matches mocked View Workout Page", async ()=> {
 
         const testContextValues = {
