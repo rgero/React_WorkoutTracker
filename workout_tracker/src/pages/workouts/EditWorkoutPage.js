@@ -63,3 +63,5 @@ export const EditWorkoutPage = ( )=>
         return (<div>Loading</div>)
     }
 }
+
+export default EditWorkoutPage;

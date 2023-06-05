@@ -5,16 +5,16 @@ import { Provider as WorkoutProvider} from '../src/context/WorkoutContext'
 import ProtectedRoute from './components/PrivateRoute';
 
 import NavigationBar from "./components/Header";
-import IndexPage from './pages/IndexPage';
+
+import AddWorkoutPage from './pages/workouts/AddWorkoutPage';
 import DashboardPage from './pages/DashboardPage';
-import { LoginPage } from './pages/authentication/LoginPage';
-import { SignUpPage } from './pages/authentication/SignUpPage';
-import { AddWorkoutPage } from './pages/workouts/AddWorkoutPage';
-import { EditWorkoutPage } from './pages/workouts/EditWorkoutPage';
+import EditWorkoutPage from './pages/workouts/EditWorkoutPage';
+import IndexPage from './pages/IndexPage';
+import LoginPage from './pages/authentication/LoginPage';
+import SignUpPage from './pages/authentication/SignUpPage';
 import WorkoutDetailPage from './pages/workouts/ViewWorkoutDetailPage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 function App() {
   return (

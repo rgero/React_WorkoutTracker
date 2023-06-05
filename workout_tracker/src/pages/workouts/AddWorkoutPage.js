@@ -16,3 +16,5 @@ export const AddWorkoutPage = ()=>
         </Container>
     )
 }
+
+export default AddWorkoutPage;
