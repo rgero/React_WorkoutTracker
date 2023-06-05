@@ -30,7 +30,7 @@ function NavigationBar() {
                             </Nav>
                             <Nav>
                                 { state.displayName ? (
-                                    <Nav.Link>
+                                    <Nav.Link href="/user">
                                         {state.displayName}
                                     </Nav.Link>
                                 ) : ( 

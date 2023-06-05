@@ -13,8 +13,10 @@ import IndexPage from './pages/IndexPage';
 import LoginPage from './pages/authentication/LoginPage';
 import SignUpPage from './pages/authentication/SignUpPage';
 import WorkoutDetailPage from './pages/workouts/ViewWorkoutDetailPage';
+import UserPage from './pages/authentication/UserPage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
               <Route path="create" element={<AddWorkoutPage/>} />
               <Route path="edit/:id" element={<EditWorkoutPage/>} />
               <Route path="view/:id" element={<WorkoutDetailPage/>} />
+              <Route path="user" element={<UserPage/>} />
             </Route>
 
           </Routes>

@@ -93,6 +93,8 @@ const signOut = dispatch => async () => {
     }
 }
 
+// I need a change profile data function.
+
 export const {Provider, Context } = createDataContext(authReducer, 
                                                       {clearErrorMessage, signUp, signIn, signOut, tryLocalSignin}, 
                                                       {
