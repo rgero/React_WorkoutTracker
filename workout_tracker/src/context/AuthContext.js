@@ -96,8 +96,6 @@ const signOut = dispatch => async () => {
 const changeUserData = dispatch => {
     return async ({email, password, changeData}) => {
         try {
-            console.log(changeData);
-
             const response = await trackerAPI.post('/change', { email, password, changes: changeData });
 
             // Storing the User Data
@@ -107,9 +105,6 @@ const changeUserData = dispatch => {
                 email: response.data.email
             };
             await AsyncStorage.setItem('userData', JSON.stringify(data));
-
-            console.log(data);
-
             dispatch({type: "storeUser", payload: {token: data.token, displayName: data.displayName, email: data.email}})
         } catch (err) {
             console.log(err.message);

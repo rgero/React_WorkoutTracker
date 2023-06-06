@@ -43,8 +43,6 @@ export const ChangeUserFormData = ({currentUser, onSubmit})=>
         }
         changes.displayName = displayName;
         changes.email = email;
-        
-        console.log(changes);
 
         await onSubmit(currentUser.email, currentPassword, changes);
     }
