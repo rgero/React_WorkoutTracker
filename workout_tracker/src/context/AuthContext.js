@@ -93,10 +93,33 @@ const signOut = dispatch => async () => {
     }
 }
 
-// I need a change profile data function.
+const changeUserData = dispatch => {
+    return async ({email, password, changeData}) => {
+        try {
+            console.log(changeData);
+
+            const response = await trackerAPI.post('/change', { email, password, changes: changeData });
+
+            // Storing the User Data
+            let data = {
+                token: response.data.token,
+                displayName: response.data.displayName,
+                email: response.data.email
+            };
+            await AsyncStorage.setItem('userData', JSON.stringify(data));
+
+            console.log(data);
+
+            dispatch({type: "storeUser", payload: {token: data.token, displayName: data.displayName, email: data.email}})
+        } catch (err) {
+            console.log(err.message);
+            dispatch({ type: 'addError', payload: "Login failed. Please try again"})
+        }
+    };
+}
 
 export const {Provider, Context } = createDataContext(authReducer, 
-                                                      {clearErrorMessage, signUp, signIn, signOut, tryLocalSignin}, 
+                                                      {changeUserData, clearErrorMessage, signUp, signIn, signOut, tryLocalSignin}, 
                                                       {
                                                         token: null,
                                                         errorMessage: ""
