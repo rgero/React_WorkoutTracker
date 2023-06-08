@@ -48,10 +48,10 @@ export const ChangeUserFormData = ({currentUser, onSubmit})=>
     }
 
     return(
-        <Container fluid="md">
+        <Container fluid="md" className='pt-4'>
             <Row className="justify-content-md-center">
-                <Col>
-                    <h3>User Profile</h3>
+                <Col md="4">
+                    <h4><strong>Change Values</strong></h4>
                     <Form onSubmit={trySignUp}>
                         <Form.Group className="mb-3" controlId="formEmail">
                             <Form.Label>E-mail</Form.Label>
