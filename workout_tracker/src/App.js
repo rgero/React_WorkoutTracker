@@ -1,10 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+
 import { Provider as AuthProvider} from '../src/context/AuthContext'
 import { Provider as WorkoutProvider} from '../src/context/WorkoutContext'
 import ProtectedRoute from './components/PrivateRoute';
 
 import NavigationBar from "./components/Header";
+
 
 import AddWorkoutPage from './pages/workouts/AddWorkoutPage';
 import DashboardPage from './pages/DashboardPage';
@@ -23,22 +26,24 @@ function App() {
     <AuthProvider>
       <NavigationBar/>
       <WorkoutProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route index element={<IndexPage/>} />
-            <Route path="login" element={<LoginPage/>} />
-            <Route path="signup" element={<SignUpPage/>} />
+        <Container className="pt-3" fluid="md">
+          <BrowserRouter>
+            <Routes>
+              <Route index element={<IndexPage/>} />
+              <Route path="login" element={<LoginPage/>} />
+              <Route path="signup" element={<SignUpPage/>} />
 
-            <Route element={<ProtectedRoute/>}>
-              <Route path="dashboard" element={<DashboardPage/>} />
-              <Route path="create" element={<AddWorkoutPage/>} />
-              <Route path="edit/:id" element={<EditWorkoutPage/>} />
-              <Route path="view/:id" element={<WorkoutDetailPage/>} />
-              <Route path="user" element={<UserPage/>} />
-            </Route>
+              <Route element={<ProtectedRoute/>}>
+                <Route path="dashboard" element={<DashboardPage/>} />
+                <Route path="create" element={<AddWorkoutPage/>} />
+                <Route path="edit/:id" element={<EditWorkoutPage/>} />
+                <Route path="view/:id" element={<WorkoutDetailPage/>} />
+                <Route path="user" element={<UserPage/>} />
+              </Route>
 
-          </Routes>
-        </BrowserRouter>
+            </Routes>
+          </BrowserRouter>
+        </Container>
       </WorkoutProvider>
     </AuthProvider>
   );

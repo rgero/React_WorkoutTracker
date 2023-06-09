@@ -43,7 +43,7 @@ export const EditWorkoutPage = ( )=>
     if (isLoaded) {
         if (isValidWorkout()) {
             return (
-                <Container fluid="md">
+                <Container>
                     <h1>Edit a workout</h1>
                     <WorkoutForm
                         workout={currentWorkout}

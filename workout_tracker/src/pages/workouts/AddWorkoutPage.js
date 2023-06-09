@@ -8,7 +8,7 @@ export const AddWorkoutPage = ()=>
 {
     const {createWorkout} = React.useContext(WorkoutContext);
     return (
-        <Container fluid="md">
+        <Container>
             <h1>Create a new workout</h1>
             <WorkoutForm
                 onSubmit={(workout)=> createWorkout(workout)}

@@ -45,7 +45,7 @@ export const ViewWorkoutsPage = ()=>
     }, [fetchWorkouts, isLoaded]);
 
     return (
-        <Container className="pt-4">
+        <Container>
             <Row className="pb-4 space-between">
                 <Col><h2>Your Workouts</h2></Col>
                 <Col>

@@ -122,7 +122,7 @@ const ViewWorkoutDetailsPage = ()=>
         } else if (error)
         {
             return(
-                <Container className="pt-3 b-3">
+                <Container>
                     <Alert key="danger" variant="danger">
                         <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
                         <p>{error}</p>

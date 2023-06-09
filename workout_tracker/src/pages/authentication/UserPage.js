@@ -16,7 +16,7 @@ export const UserPage = () => {
     }, [])
 
     return (
-        <Container fluid="md" className="pt-3">
+        <Container>
             <Row className="justify-content-md-center">
                 <Col md="4">
                     <h3><strong>Current Info</strong></h3>
@@ -36,8 +36,13 @@ export const UserPage = () => {
                 <ChangeUserFormData currentUser={state} onSubmit={(email, password, changeData) => changeUserData({email, password, changeData})}/>
             </Row>
             { state.errorMessage ? (
-                    <Container className="pt-4">
-                        <Alert variant='danger'>Error: {state.errorMessage}</Alert>
+                    <Container className="pt-4" fluid="md" >
+                        <Row className="justify-content-md-center">
+                            <Col md="4">
+                                <Alert variant='danger'>Error: {state.errorMessage}</Alert>
+                            </Col>
+                        </Row>
+                        
                     </Container>
                 ) : null
             }

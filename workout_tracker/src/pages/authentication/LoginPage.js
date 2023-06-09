@@ -31,7 +31,7 @@ export const LoginPage = ()=>
     } else 
     {
         return (
-            <Container fluid="md" className="pt-2">
+            <Container>
                 <Row>
                     <Col md={8} className="d-none d-lg-block">
                         <img src="/images/dumbbells.jpg" width="100%" />

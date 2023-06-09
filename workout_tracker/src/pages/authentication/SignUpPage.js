@@ -19,7 +19,7 @@ export const SignUpPage = ()=>
     } else 
     {
         return (
-            <Container className="pt-2" fluid="xl">
+            <Container>
                 <Row>
                     <Col xs={10} md={4}>
                         <SignUpForm onSubmit={({email, displayName, password})=> signUp({email, displayName, password})}/>
