@@ -2,7 +2,7 @@
 
 exports[`Data Provided - Renders ViewWorkoutsPage Page and checks against snapshot 1`] = `
 <div
-  className="pt-4 container"
+  className="container"
 >
   <div
     className="pb-4 space-between row"
@@ -76,7 +76,7 @@ exports[`Data Provided - Renders ViewWorkoutsPage Page and checks against snapsh
 
 exports[`No Data - Renders ViewWorkoutsPage Page and checks against snapshot 1`] = `
 <div
-  className="pt-4 container"
+  className="container"
 >
   <div
     className="pb-4 space-between row"

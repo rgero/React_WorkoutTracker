@@ -2,7 +2,7 @@
 
 exports[`Rendering the Login Page 1`] = `
 <div
-  className="pt-2 container-md"
+  className="container"
 >
   <div
     className="row"

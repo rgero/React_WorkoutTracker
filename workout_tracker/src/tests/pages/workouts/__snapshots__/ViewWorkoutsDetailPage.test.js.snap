@@ -316,7 +316,7 @@ exports[`Rendering a Workout 1`] = `
 
 exports[`Rendering a failure 1`] = `
 <div
-  className="pt-3 b-3 container"
+  className="container"
 >
   <div
     className="fade alert alert-danger show"
