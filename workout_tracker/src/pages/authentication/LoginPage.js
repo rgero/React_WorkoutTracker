@@ -34,7 +34,7 @@ export const LoginPage = ()=>
             <Container>
                 <Row>
                     <Col md={8} className="d-none d-lg-block">
-                        <img src="/images/dumbbells.jpg" width="100%" />
+                        <img src="/images/dumbbells.jpg" width="100%" alt="Weights" />
                     </Col>
                     <Col xs={10} md={4}>
                         <LoginForm

@@ -25,7 +25,7 @@ export const SignUpPage = ()=>
                         <SignUpForm onSubmit={({email, displayName, password})=> signUp({email, displayName, password})}/>
                     </Col>
                     <Col md={8} className="d-none d-lg-block">
-                        <img src="/images/dumbbells.jpg" width="100%" />
+                        <img src="/images/dumbbells.jpg" width="100%" alt="Weights"/>
                     </Col>
                 </Row>
 

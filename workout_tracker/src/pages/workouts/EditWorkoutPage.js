@@ -25,7 +25,7 @@ export const EditWorkoutPage = ( )=>
                 return id === targetWorkout._id;
             });
                 
-            if (loadedWorkout.length == 0)
+            if (loadedWorkout.length === 0)
             {
                 setError("An error has occurred");
             } else {
@@ -37,7 +37,7 @@ export const EditWorkoutPage = ( )=>
     }, [state]);
 
     const isValidWorkout = () => {
-        return !Object.keys(currentWorkout).length == 0;
+        return !Object.keys(currentWorkout).length === 0;
     }
 
     if (isLoaded) {
