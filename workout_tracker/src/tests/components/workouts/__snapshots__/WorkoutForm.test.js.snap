@@ -4,133 +4,139 @@ exports[`Workout Form Rendering Has Data, matches snapshot 1`] = `
 <Container
   fluid="md"
 >
-  <Accordion
-    defaultActiveKey="0"
+  <Row
+    className="justify-content-md-center"
   >
-    <AccordionItem>
-      <AccordionHeader>
-        Exercise Information
-      </AccordionHeader>
-      <AccordionBody>
-        <Form
-          id="addWorkout"
-          onSubmit={[Function]}
-        >
-          <InputGroup
-            className="mb-3"
+    <Col
+      md="8"
+    >
+      <Card
+        body={false}
+      >
+        <CardHeader>
+          <h4>
+            Exercise Information
+          </h4>
+        </CardHeader>
+        <CardBody>
+          <Form
+            id="addWorkout"
+            onSubmit={[Function]}
           >
-            <InputGroupText>
-              Date
-            </InputGroupText>
-            <FormControl
-              aria-label="workoutDate"
-              onChange={[Function]}
-              type="date"
-              value="2023-03-08"
+            <FloatingLabel
+              className="mb-3"
+              controlId="floatingWorkoutDate"
+              label="Workout Date"
+            >
+              <FormControl
+                aria-label="workoutDate"
+                onChange={[Function]}
+                type="date"
+                value="2023-03-08"
+              />
+            </FloatingLabel>
+            <FloatingLabel
+              className="mb-3"
+              controlId="floatingNotes"
+              label="Notes"
+            >
+              <FormControl
+                aria-label="workoutNotes"
+                as="textarea"
+                onChange={[Function]}
+                rows={3}
+                value="Testing Notes for Testing"
+              />
+            </FloatingLabel>
+          </Form>
+        </CardBody>
+      </Card>
+      <Card
+        body={false}
+      >
+        <CardHeader>
+          <h4>
+            Add/Edit Exercises
+          </h4>
+        </CardHeader>
+        <CardBody>
+          <ExerciseForm
+            onSubmit={[Function]}
+          />
+        </CardBody>
+      </Card>
+      <Accordion
+        defaultActiveKey="1"
+      >
+        <AccordionItem>
+          <AccordionHeader>
+            Exercise List
+          </AccordionHeader>
+          <AccordionBody>
+            <ExerciseList
+              exerciseList={
+                Array [
+                  Object {
+                    "muscleGroup": "Chest",
+                    "name": "Bench Press",
+                    "notes": "Wrist is feeling a bit sore",
+                    "setList": Array [
+                      Object {
+                        "reps": 20,
+                        "weight": 275,
+                      },
+                      Object {
+                        "reps": 20,
+                        "weight": 300,
+                      },
+                      Object {
+                        "reps": 3,
+                        "weight": 315,
+                      },
+                    ],
+                  },
+                  Object {
+                    "muscleGroup": "Shoulders",
+                    "name": "Shrugs",
+                    "notes": "Dumbbells",
+                    "setList": Array [
+                      Object {
+                        "reps": 40,
+                        "weight": 100,
+                      },
+                      Object {
+                        "reps": 40,
+                        "weight": 100,
+                      },
+                      Object {
+                        "reps": 40,
+                        "weight": 100,
+                      },
+                      Object {
+                        "reps": 40,
+                        "weight": 100,
+                      },
+                    ],
+                  },
+                ]
+              }
+              onDelete={[Function]}
             />
-          </InputGroup>
-          <InputGroup
-            className="mb-3"
-          >
-            <InputGroupText>
-              Notes
-            </InputGroupText>
-            <FormControl
-              aria-label="workoutNotes"
-              as="textarea"
-              onChange={[Function]}
-              rows={3}
-              value="Testing Notes for Testing"
-            />
-          </InputGroup>
-        </Form>
-      </AccordionBody>
-    </AccordionItem>
-  </Accordion>
-  <Accordion
-    defaultActiveKey="0"
-  >
-    <AccordionItem>
-      <AccordionHeader>
-        Add/Edit Exercises
-      </AccordionHeader>
-      <AccordionBody>
-        <ExerciseForm
-          onSubmit={[Function]}
-        />
-      </AccordionBody>
-    </AccordionItem>
-  </Accordion>
-  <Accordion
-    defaultActiveKey="1"
-  >
-    <AccordionItem>
-      <AccordionHeader>
-        Exercise List
-      </AccordionHeader>
-      <AccordionBody>
-        <ExerciseList
-          exerciseList={
-            Array [
-              Object {
-                "muscleGroup": "Chest",
-                "name": "Bench Press",
-                "notes": "Wrist is feeling a bit sore",
-                "setList": Array [
-                  Object {
-                    "reps": 20,
-                    "weight": 275,
-                  },
-                  Object {
-                    "reps": 20,
-                    "weight": 300,
-                  },
-                  Object {
-                    "reps": 3,
-                    "weight": 315,
-                  },
-                ],
-              },
-              Object {
-                "muscleGroup": "Shoulders",
-                "name": "Shrugs",
-                "notes": "Dumbbells",
-                "setList": Array [
-                  Object {
-                    "reps": 40,
-                    "weight": 100,
-                  },
-                  Object {
-                    "reps": 40,
-                    "weight": 100,
-                  },
-                  Object {
-                    "reps": 40,
-                    "weight": 100,
-                  },
-                  Object {
-                    "reps": 40,
-                    "weight": 100,
-                  },
-                ],
-              },
-            ]
-          }
-          onDelete={[Function]}
-        />
-      </AccordionBody>
-    </AccordionItem>
-  </Accordion>
-  <Button
-    active={false}
-    aria-label="workoutSubmit"
-    disabled={false}
-    form="addWorkout"
-    type="submit"
-    variant="outline-secondary"
-  >
-    Submit Workout
-  </Button>
+          </AccordionBody>
+        </AccordionItem>
+      </Accordion>
+      <Button
+        active={false}
+        aria-label="workoutSubmit"
+        disabled={false}
+        form="addWorkout"
+        type="submit"
+        variant="outline-secondary"
+      >
+        Submit Workout
+      </Button>
+    </Col>
+  </Row>
 </Container>
 `;
 
@@ -138,72 +144,78 @@ exports[`Workout Form Rendering No Data, matches snapshot 1`] = `
 <Container
   fluid="md"
 >
-  <Accordion
-    defaultActiveKey="0"
+  <Row
+    className="justify-content-md-center"
   >
-    <AccordionItem>
-      <AccordionHeader>
-        Exercise Information
-      </AccordionHeader>
-      <AccordionBody>
-        <Form
-          id="addWorkout"
-          onSubmit={[Function]}
-        >
-          <InputGroup
-            className="mb-3"
+    <Col
+      md="8"
+    >
+      <Card
+        body={false}
+      >
+        <CardHeader>
+          <h4>
+            Exercise Information
+          </h4>
+        </CardHeader>
+        <CardBody>
+          <Form
+            id="addWorkout"
+            onSubmit={[Function]}
           >
-            <InputGroupText>
-              Date
-            </InputGroupText>
-            <FormControl
-              aria-label="workoutDate"
-              onChange={[Function]}
-              type="date"
-              value="2022-02-22"
-            />
-          </InputGroup>
-          <InputGroup
-            className="mb-3"
-          >
-            <InputGroupText>
-              Notes
-            </InputGroupText>
-            <FormControl
-              aria-label="workoutNotes"
-              as="textarea"
-              onChange={[Function]}
-              rows={3}
-              value=""
-            />
-          </InputGroup>
-        </Form>
-      </AccordionBody>
-    </AccordionItem>
-  </Accordion>
-  <Accordion
-    defaultActiveKey="0"
-  >
-    <AccordionItem>
-      <AccordionHeader>
-        Add/Edit Exercises
-      </AccordionHeader>
-      <AccordionBody>
-        <ExerciseForm
-          onSubmit={[Function]}
-        />
-      </AccordionBody>
-    </AccordionItem>
-  </Accordion>
-  <Button
-    active={false}
-    aria-label="workoutSubmit"
-    disabled={false}
-    form="addWorkout"
-    type="submit"
-    variant="outline-secondary"
-  >
-    Submit Workout
-  </Button>
+            <FloatingLabel
+              className="mb-3"
+              controlId="floatingWorkoutDate"
+              label="Workout Date"
+            >
+              <FormControl
+                aria-label="workoutDate"
+                onChange={[Function]}
+                type="date"
+                value="2022-02-22"
+              />
+            </FloatingLabel>
+            <FloatingLabel
+              className="mb-3"
+              controlId="floatingNotes"
+              label="Notes"
+            >
+              <FormControl
+                aria-label="workoutNotes"
+                as="textarea"
+                onChange={[Function]}
+                rows={3}
+                value=""
+              />
+            </FloatingLabel>
+          </Form>
+        </CardBody>
+      </Card>
+      <Card
+        body={false}
+      >
+        <CardHeader>
+          <h4>
+            Add/Edit Exercises
+          </h4>
+        </CardHeader>
+        <CardBody>
+          <ExerciseForm
+            onSubmit={[Function]}
+          />
+        </CardBody>
+      </Card>
+      <Button
+        active={false}
+        aria-label="workoutSubmit"
+        disabled={false}
+        form="addWorkout"
+        type="submit"
+        variant="outline-secondary"
+      >
+        Submit Workout
+      </Button>
+    </Col>
+  </Row>
 </Container>
 `;

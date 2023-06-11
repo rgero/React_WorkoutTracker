@@ -11,6 +11,7 @@ exports[`Rendering the Login Page 1`] = `
       className="d-none d-lg-block col-md-8"
     >
       <img
+        alt="Weights"
         src="/images/dumbbells.jpg"
         width="100%"
       />
