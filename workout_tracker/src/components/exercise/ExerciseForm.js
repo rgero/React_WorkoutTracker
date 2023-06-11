@@ -3,7 +3,8 @@ import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import Row from 'react-bootstrap/Row';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 import { SetForm } from '../set/SetForm';
 import { SetList } from '../set/SetList';
@@ -52,49 +53,51 @@ export const ExerciseForm = ({exercise = {}, onSubmit})=>
 
     return (
         <Container fluid="md">
-            <Form id="addExerciseForm" onSubmit={processExercise}>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text>Name</InputGroup.Text>
-                    <Form.Control
-                        aria-label="name" 
-                        type="text" 
-                        value={name} 
-                        onChange={e => setExerciseName(e.target.value)}
-                    />
-                </InputGroup>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text>Muscle Group</InputGroup.Text>
-                    <Form.Control
-                        aria-label="muscleGroup"
-                        type="text"
-                        value={muscleGroup}
-                        onChange={e => setMuscleGroup(e.target.value)}
-                    />
-                </InputGroup>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text>Notes</InputGroup.Text>
-                    <Form.Control
-                        aria-label="exerciseNotes"
-                        as="textarea"
-                        value={notes}
-                        rows={3}
-                        onChange={e => setNotes(e.target.value)}
-                    />
-                </InputGroup>
-            </Form>
-            <SetForm onSubmit={addSet}/>
-            <SetList setList={setList} onDelete={deleteSet}/>
-            <Button
-                aria-label="exerciseSubmit" 
-                className="mt-4" 
-                form="addExerciseForm" 
-                variant="outline-secondary" 
-                type="submit"
-            >
-                    Add Exercise
-            </Button>
+            <Row>
+                <Form id="addExerciseForm" onSubmit={processExercise}>
+                    <FloatingLabel controlId="floatingExerciseName" label="Name" className="mb-3">
+                        <Form.Control
+                            aria-label="name" 
+                            type="text" 
+                            value={name} 
+                            onChange={e => setExerciseName(e.target.value)}
+                        />
+                    </FloatingLabel>
+                    <FloatingLabel controlId="floatingMuscleGroup" label="Muscle Group" className="mb-3">
+                        <Form.Control
+                            aria-label="muscleGroup"
+                            type="text"
+                            value={muscleGroup}
+                            onChange={e => setMuscleGroup(e.target.value)}
+                        />
+                    </FloatingLabel>
+                    <FloatingLabel controlId="floatingExerciseNotes" label="Notes" className="mb-3">
+                        <Form.Control
+                            aria-label="exerciseNotes"
+                            as="textarea"
+                            value={notes}
+                            rows={3}
+                            onChange={e => setNotes(e.target.value)}
+                        />
+                    </FloatingLabel>
+                </Form>
+            </Row>
+            <Row>
+                <SetForm onSubmit={addSet}/>
+                <SetList setList={setList} onDelete={deleteSet}/>
+            </Row>
+            <Row>
+                <Button
+                    aria-label="exerciseSubmit" 
+                    className="mt-4" 
+                    form="addExerciseForm" 
+                    variant="outline-secondary" 
+                    type="submit"
+                >
+                        Add Exercise
+                </Button>
+            </Row>
 
-            {/* Error Processing? Don't know if this is completely necessary */}
             { errMsg ? (
                 <Container className="pt-4">
                     <Alert key='danger' variant='danger'>

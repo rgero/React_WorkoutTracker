@@ -2,9 +2,11 @@ import React, {useState} from 'react';
 
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 export const SetForm = ({set = {}, onSubmit})=> 
 {
@@ -37,37 +39,38 @@ export const SetForm = ({set = {}, onSubmit})=>
     }
 
     return (
-        <Container>
+        <Container fluid="md">
             <Form onSubmit={processNewSet}>
-                <InputGroup className="d-flex align-items-center mb-3">
+                <Row md="4" className="justify-content-md-center align-items-md-center">
+                    <Col md>
+                        <FloatingLabel controlId="floatingWorkoutDate" label="Reps" className="mb-3">
+                            <Form.Control 
+                                type="text" 
+                                aria-label="reps" 
+                                value={reps} 
+                                onChange={e => processChange(e, setReps)}
+                            />
+                        </FloatingLabel>
+                    </Col>
+                    <Col md>
+                        <FloatingLabel controlId="floatingNotes" label="Weight" className="mb-3">
+                            <Form.Control 
+                                type="text" 
+                                aria-label="weight" 
+                                value={weight} 
+                                onChange={e => processChange(e, setWeight)}
+                            />
+                        </FloatingLabel>
+                    </Col>
 
-                    {/* Reps Section */}
-                    <InputGroup.Text>Reps</InputGroup.Text>
-                    <Form.Control 
-                        type="text" 
-                        aria-label="reps" 
-                        value={reps} 
-                        onChange={e => processChange(e, setReps)}
-                    />
-
-                    {/* Weight Section */}
-                    <InputGroup.Text>Weight</InputGroup.Text>
-                    <Form.Control 
-                        type="text" 
-                        aria-label="weight" 
-                        value={weight} 
-                        onChange={e => processChange(e, setWeight)}
-                    />
-
-                    {/* Submit Button */}
-                    <Button
-                        aria-label="setSubmit" 
-                        variant="outline-secondary" 
-                        type="submit"
-                    >
-                        Add Set
-                    </Button>
-                </InputGroup>
+                </Row>
+                <Button className="float-end"
+                    aria-label="setSubmit" 
+                    variant="outline-secondary" 
+                    type="submit"
+                >
+                    Add Set
+                </Button>
             </Form>
             
             {/* Error Processing? Don't know if this is completely necessary */}
