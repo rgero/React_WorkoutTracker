@@ -37,7 +37,7 @@ export const EditWorkoutPage = ( )=>
     }, [state]);
 
     const isValidWorkout = () => {
-        return !Object.keys(currentWorkout).length === 0;
+        return !Object.keys(currentWorkout).length == 0;
     }
 
     if (isLoaded) {

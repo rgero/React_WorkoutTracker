@@ -1,5 +1,6 @@
 import React from 'react';
-import ShallowRenderer from 'react-test-renderer/shallow'
+import ShallowRenderer from 'react-test-renderer/shallow';
+import moment from 'moment';
 
 import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
@@ -8,8 +9,6 @@ import { act } from 'react-dom/test-utils';
 
 import { WorkoutForm } from '../../../components/workout/WorkoutForm';
 import { TestExercises, TestWorkouts } from '../../testData';
-
-import DateFormatter from '../../../helpers/DateFormatter';
 
 jest.mock('../../../components/exercise/ExerciseForm', () => ({
     ExerciseForm: ()=> {
@@ -118,7 +117,7 @@ describe("Workout Form", ()=> {
 
         let expectedResult = {
             "_id": null,
-            workoutDate: DateFormatter(new Date()),
+            workoutDate: new moment().format('YYYY-MM-DD'),
             notes: "",
             exerciseList: TestExercises
         }

@@ -1,5 +1,6 @@
 import React from 'react';
 import {useNavigate, useParams} from "react-router-dom";
+import moment from 'moment';
 
 import Alert from 'react-bootstrap/Alert';
 import Container from 'react-bootstrap/Container';
@@ -9,7 +10,6 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-import DateFormatter from '../../helpers/DateFormatter';
 import {Context as WorkoutContext} from '../../context/WorkoutContext';
 import { ExerciseList } from '../../components/exercise/ExerciseList';
 
@@ -48,7 +48,7 @@ const ViewWorkoutDetailsPage = ()=>
     }
 
     const isValidWorkout = () => {
-        return !Object.keys(currentWorkout).length === 0;
+        return !Object.keys(currentWorkout).length == 0;
     }
 
     React.useEffect(()=> {
@@ -73,13 +73,15 @@ const ViewWorkoutDetailsPage = ()=>
         GetWorkoutByID(id);
     }, [fetchWorkouts, id, isLoaded, state]);
 
+    console.log(isValidWorkout());
+
     if (isLoaded) {
         if (isValidWorkout()) { 
             return (
                 <Container className="pt-4" fluid="md">
                     <Row className="align-items-center">
                         <Col>
-                            <h1>Workout on {DateFormatter(currentWorkout.workoutDate)}</h1> 
+                            <h1>Workout on {moment(currentWorkout.workoutDate).format('YYYY-MM-DD')}</h1> 
                         </Col>
                         <Col>
                             <Dropdown className="float-end">

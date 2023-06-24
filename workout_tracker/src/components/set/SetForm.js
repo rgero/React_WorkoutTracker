@@ -76,7 +76,20 @@ export const SetForm = ({set = {}, onSubmit})=>
             {/* Error Processing? Don't know if this is completely necessary */}
             { error ? (
                 <Alert key='danger' variant='danger'>
-                    {error}
+                    <Row>
+                        <Col md>
+                            {error}
+                        </Col>
+                        <Col sm>
+                        <Button size="sm"
+                            className="float-end"
+                            onClick={()=> setError("")}
+                            variant='danger'
+                        >
+                            Close
+                        </Button>
+                        </Col>
+                    </Row>
                 </Alert>
             ): ( null )}
         </Container>

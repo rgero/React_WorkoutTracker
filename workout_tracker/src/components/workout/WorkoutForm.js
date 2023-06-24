@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
+import moment from 'moment';
 
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
@@ -13,15 +14,12 @@ import Row from 'react-bootstrap/Row';
 
 import { ExerciseList } from '../exercise/ExerciseList';
 import { ExerciseForm } from '../exercise/ExerciseForm';
-import DateFormatter from '../../helpers/DateFormatter';
-
-
 
 export const WorkoutForm = ({workout = {}, onSubmit})=> 
 {
     const navigate = useNavigate();
     const [targetID, setWorkoutID] = useState(workout._id ? workout._id : null)
-    const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? DateFormatter(workout.workoutDate) : DateFormatter(new Date()));
+    const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? new moment(workout.workoutDate) : new moment().format('YYYY-MM-DD'));
     const [exerciseList, setExerciseList] = useState(workout.exerciseList ? workout.exerciseList : []);
     const [notes, setNotes] = useState(workout.notes ? workout.notes : "");
     const [error, setError] = useState("");

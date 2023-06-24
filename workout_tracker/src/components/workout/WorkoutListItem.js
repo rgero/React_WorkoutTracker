@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
+import moment from 'moment';
 
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
@@ -8,7 +9,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 
-import DateFormatter from '../../helpers/DateFormatter';
 import {AlertBox} from '../../helpers/DialogBox';
 
 import {Context as WorkoutContext} from '../../context/WorkoutContext';
@@ -24,7 +24,7 @@ export const WorkoutListItem = ({workout, index}) => {
     
     const processDelete = () => {
         let title = 'Are you sure you want to delete this?';
-        let subtitle = `Workout on ${DateFormatter(workout.workoutDate)} with ${workout.exerciseList.length} exercises`;
+        let subtitle = `Workout on ${moment(workout.workoutDate).format('YYYY-MM-DD')} with ${workout.exerciseList.length} exercises`;
         let buttons = [
             {
               label: 'Yes',
@@ -46,7 +46,7 @@ export const WorkoutListItem = ({workout, index}) => {
     return (
         <Accordion defaultActiveKey={index}>
             <Accordion.Item>
-                <Accordion.Header>{DateFormatter(workoutDate)}</Accordion.Header>
+                <Accordion.Header>{moment(workoutDate).format('YYYY-MM-DD')}</Accordion.Header>
                 <Accordion.Body>
                     <Container>
                         <Row>
