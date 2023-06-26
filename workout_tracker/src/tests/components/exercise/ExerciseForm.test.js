@@ -2,7 +2,7 @@ import TestRenderer from 'react-test-renderer';
 
 import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
-import user from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event'
 import { act } from 'react-dom/test-utils';
 
 import {ExerciseForm} from '../../../components/exercise/ExerciseForm';
@@ -31,6 +31,8 @@ describe("ExerciseForm Submissions", ()=> {
 
     let nameInput, muscleInput, notesInput;
     let exerciseSubmit;
+    
+    let user;
 
     let mockSubmit = jest.fn();
 
@@ -44,7 +46,7 @@ describe("ExerciseForm Submissions", ()=> {
     }
 
     beforeEach(()=> {
-
+        user = userEvent.setup();
         render(<ExerciseForm exercise={dummyExerciseWithSet} onSubmit={mockSubmit} />)
 
         act(()=> {
@@ -58,13 +60,9 @@ describe("ExerciseForm Submissions", ()=> {
     })
 
     test("Minimum Valid Submit", async ()=> {
-        act(()=> {
-            user.click(nameInput);
-            user.keyboard(TestExercise.name);
-        
-            user.click(exerciseSubmit);
-
-        })
+        await user.click(nameInput);
+        await user.keyboard(TestExercise.name);
+        await user.click(exerciseSubmit);
 
         let expectedResult = {
             name: TestExercise.name,
@@ -78,16 +76,12 @@ describe("ExerciseForm Submissions", ()=> {
     })
 
     test("Adding a note, valid submit", async ()=> {
-        act(()=> {
-            user.click(nameInput);
-            user.keyboard(TestExercise.name);
 
-            user.click(notesInput);
-            user.keyboard(TestExercise.notes);
-        
-            user.click(exerciseSubmit);
-
-        })
+        await user.click(nameInput);
+        await user.keyboard(TestExercise.name);
+        await user.click(notesInput);
+        await user.keyboard(TestExercise.notes);
+        await user.click(exerciseSubmit);
 
         let expectedResult = {
             name: TestExercise.name,
@@ -96,21 +90,17 @@ describe("ExerciseForm Submissions", ()=> {
             setList: dummyExerciseWithSet.setList
         }
 
-        expect(mockSubmit).toHaveBeenCalled();
         expect(mockSubmit).toHaveBeenCalledWith(expectedResult)
     })
 
     test("Adding a muscle group, valid submit", async ()=> {
-        act(()=> {
-            user.click(nameInput);
-            user.keyboard(TestExercise.name);
+        await user.click(nameInput);
+        await user.keyboard(TestExercise.name);
 
-            user.click(muscleInput);
-            user.keyboard(TestExercise.muscleGroup);
+        await user.click(muscleInput);
+        await user.keyboard(TestExercise.muscleGroup);
         
-            user.click(exerciseSubmit);
-
-        })
+        await user.click(exerciseSubmit);
 
         let expectedResult = {
             name: TestExercise.name,
@@ -119,24 +109,20 @@ describe("ExerciseForm Submissions", ()=> {
             setList: dummyExerciseWithSet.setList
         }
 
-        expect(mockSubmit).toHaveBeenCalled();
         expect(mockSubmit).toHaveBeenCalledWith(expectedResult)
     })
 
     test("Full Form, valid submit", async ()=> {
-        act(()=> {
-            user.click(nameInput);
-            user.keyboard(TestExercise.name);
+        await user.click(nameInput);
+        await user.keyboard(TestExercise.name);
 
-            user.click(notesInput);
-            user.keyboard(TestExercise.notes);
+        await user.click(notesInput);
+        await user.keyboard(TestExercise.notes);
 
-            user.click(muscleInput);
-            user.keyboard(TestExercise.muscleGroup);
+        await user.click(muscleInput);
+        await user.keyboard(TestExercise.muscleGroup);
         
-            user.click(exerciseSubmit);
-
-        })
+        await user.click(exerciseSubmit);
 
         let expectedResult = {
             name: TestExercise.name,
@@ -157,13 +143,14 @@ describe("Form Invalid Submissions", ()=> {
         setList: TestExercise.setList
     }
 
-    test("Missing Name", ()=> {
+    let user = userEvent.setup();
+    
+
+    test("Missing Name", async ()=> {
         render(<ExerciseForm exercise={dummyExerciseWithSet} onSubmit={mockSubmit} />)
 
-        act(()=> {
-            let exerciseSubmit = screen.getByRole("button", {name: /exercisesubmit/i});
-            user.click(exerciseSubmit);
-        })
+        let exerciseSubmit = screen.getByRole("button", {name: /exercisesubmit/i});
+        await user.click(exerciseSubmit);
 
         expect(mockSubmit).not.toHaveBeenCalled();
 
@@ -171,19 +158,16 @@ describe("Form Invalid Submissions", ()=> {
         expect(errorField).toBeInTheDocument();
     })
 
-    test("Missing set list", ()=> {
+    test("Missing set list", async ()=> {
 
         render(<ExerciseForm onSubmit={mockSubmit} />)
 
-        act(()=> {
-            let nameInput = screen.getByRole("textbox", {name: /name/i});
-
-            user.click(nameInput);
-            user.keyboard(TestExercise.name);
+        let nameInput = screen.getByRole("textbox", {name: /name/i});
+        await user.click(nameInput);
+        await user.keyboard(TestExercise.name);
             
-            let exerciseSubmit = screen.getByRole("button", {name: /exercisesubmit/i});
-            user.click(exerciseSubmit);
-        })
+        let exerciseSubmit = screen.getByRole("button", {name: /exercisesubmit/i});
+        await user.click(exerciseSubmit);
 
         expect(mockSubmit).not.toHaveBeenCalled();
 

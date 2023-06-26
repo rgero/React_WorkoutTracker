@@ -18,7 +18,7 @@ import { ExerciseForm } from '../exercise/ExerciseForm';
 export const WorkoutForm = ({workout = {}, onSubmit})=> 
 {
     const navigate = useNavigate();
-    const [targetID, setWorkoutID] = useState(workout._id ? workout._id : null)
+    const [targetID] = useState(workout._id ? workout._id : null)
     const [workoutDate, setWorkoutDate] = useState(workout.workoutDate ? new moment(workout.workoutDate) : new moment().format('YYYY-MM-DD'));
     const [exerciseList, setExerciseList] = useState(workout.exerciseList ? workout.exerciseList : []);
     const [notes, setNotes] = useState(workout.notes ? workout.notes : "");
@@ -82,7 +82,7 @@ export const WorkoutForm = ({workout = {}, onSubmit})=>
                                     <FloatingLabel controlId="floatingWorkoutDate" label="Workout Date" className="mb-3">
                                         <Form.Control
                                             aria-label="workoutDate" 
-                                            type="date" 
+                                            type="date"
                                             value={workoutDate}
                                             onChange={e => setWorkoutDate(e.target.value)}
                                         />

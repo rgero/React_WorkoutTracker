@@ -43,7 +43,7 @@ export const SetForm = ({set = {}, onSubmit})=>
             <Form onSubmit={processNewSet}>
                 <Row md="4" className="justify-content-md-center align-items-md-center">
                     <Col md>
-                        <FloatingLabel controlId="floatingWorkoutDate" label="Reps" className="mb-3">
+                        <FloatingLabel controlId="floatingReps" label="Reps" className="mb-3">
                             <Form.Control 
                                 type="text" 
                                 aria-label="reps" 
@@ -53,7 +53,7 @@ export const SetForm = ({set = {}, onSubmit})=>
                         </FloatingLabel>
                     </Col>
                     <Col md>
-                        <FloatingLabel controlId="floatingNotes" label="Weight" className="mb-3">
+                        <FloatingLabel controlId="floatingWeight" label="Weight" className="mb-3">
                             <Form.Control 
                                 type="text" 
                                 aria-label="weight" 

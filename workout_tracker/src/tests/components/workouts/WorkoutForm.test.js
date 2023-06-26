@@ -4,8 +4,7 @@ import moment from 'moment';
 
 import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
-import user from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
+import userEvent from '@testing-library/user-event'
 
 import { WorkoutForm } from '../../../components/workout/WorkoutForm';
 import { TestExercises, TestWorkouts } from '../../testData';
@@ -47,8 +46,8 @@ describe("Workout Form Rendering", ()=> {
 // Test fails for no exercises
 describe("Workout Form", ()=> {
 
-    let workoutDate, workoutNotes;
-    let workoutSubmit;
+    let workoutDate, workoutNotes, workoutSubmit;
+    let user;
 
     let mockSubmit = jest.fn();
 
@@ -57,28 +56,22 @@ describe("Workout Form", ()=> {
     }
 
     beforeEach(()=> {
-
+        user = userEvent.setup();
         render(<WorkoutForm workout={testWorkout} onSubmit={mockSubmit} />)
 
-        act(()=> {
-            workoutDate = screen.getByLabelText(/workoutdate/i);
-            workoutNotes = screen.getByRole("textbox", {name: /workoutnotes/i});
-
-            workoutSubmit = screen.getByRole("button", {name: /workoutsubmit/i});
-        })
+        workoutDate = screen.getByLabelText(/workoutdate/i);
+        workoutNotes = screen.getByRole("textbox", {name: /workoutnotes/i});
+        workoutSubmit = screen.getByRole("button", {name: /workoutsubmit/i});
 
     })
 
-    test("Full form submission", ()=> {
-        act(()=> {
-            user.click(workoutDate);
-            user.keyboard("2022-02-22");
+    test("Full form submission", async ()=> {
+        await user.click(workoutDate);
+        await userEvent.type(workoutDate, '02/22/2022');
 
-            user.click(workoutNotes);
-            user.keyboard("Today was a productive day");
-
-            user.click(workoutSubmit);
-        })
+        await user.click(workoutNotes);
+        await user.keyboard("Today was a productive day");
+        await user.click(workoutSubmit);
 
         let expectedResult = {
             "_id": null,
@@ -87,17 +80,16 @@ describe("Workout Form", ()=> {
             exerciseList: TestExercises
         }
 
-        expect(mockSubmit).toHaveBeenCalled();
+        screen.debug();
+        
         expect(mockSubmit).toHaveBeenCalledWith(expectedResult);
     })
 
-    test("Min form submission", ()=> {
-        act(()=> {
-            user.click(workoutDate);
-            user.keyboard("2022-02-01");
+    test("Min form submission", async ()=> {
+        await user.click(workoutDate);
+        await user.keyboard("02222022");
 
-            user.click(workoutSubmit);
-        })
+        await user.click(workoutSubmit);
 
         let expectedResult = {
             "_id": null,
@@ -106,14 +98,14 @@ describe("Workout Form", ()=> {
             exerciseList: TestExercises
         }
 
+        screen.debug();
+
         expect(mockSubmit).toHaveBeenCalled();
         expect(mockSubmit).toHaveBeenCalledWith(expectedResult);
     })
 
-    test("Date automatically filled", ()=> {
-        act(()=> {
-            user.click(workoutSubmit);
-        })
+    test("Date automatically filled", async ()=> {
+        await user.click(workoutSubmit);
 
         let expectedResult = {
             "_id": null,

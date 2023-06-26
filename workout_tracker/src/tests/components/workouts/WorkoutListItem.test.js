@@ -3,8 +3,7 @@ import ShallowRenderer from 'react-test-renderer/shallow'
 
 import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
-import user from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
+import userEvent from '@testing-library/user-event'
 
 import {Context as WorkoutContext} from '../../../context/WorkoutContext';
 import {WorkoutListItem} from '../../../components/workout/WorkoutListItem';
@@ -42,10 +41,12 @@ describe("Workout List Item - Render tests", ()=> {
 })
 
 describe("WorkoutListItem - Button Tests", ()=> {
+    let user;
     beforeEach(()=> {
         let testContextValues = {
             deleteWorkout: jest.fn()
         }
+        user = userEvent.setup();
         render(
             <WorkoutContext.Provider value={testContextValues}>
                 <WorkoutListItem workout={TestWorkouts[0]} index={1} />
@@ -53,23 +54,15 @@ describe("WorkoutListItem - Button Tests", ()=> {
         )
     })
     
-    test("View Workout", ()=> {
-        let viewButton;
-        act(()=> {
-            viewButton = screen.getByRole("button", {name: /view/i});
-            user.click(viewButton);
-        })
-
+    test("View Workout", async ()=> {
+        let viewButton = screen.getByRole("button", {name: /view/i});
+        await user.click(viewButton);
         expect(mockedNavigate).toHaveBeenCalledWith('/view/1234')
     })
 
-    test("Edit Workout", ()=> {
-        let editButton;
-        act(()=> {
-            editButton = screen.getByRole("button", {name: /edit/i});
-            user.click(editButton);
-        })
-
+    test("Edit Workout", async ()=> {
+        let editButton = screen.getByRole("button", {name: /edit/i});
+        await user.click(editButton);
         expect(mockedNavigate).toHaveBeenCalledWith('/edit/1234')
     })
 })

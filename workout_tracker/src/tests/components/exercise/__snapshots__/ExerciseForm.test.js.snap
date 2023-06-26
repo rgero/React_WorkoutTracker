@@ -87,13 +87,13 @@ exports[`ExerciseForm Rendering Tests No data 1`] = `
               <input
                 aria-label="reps"
                 className="form-control"
-                id="floatingWorkoutDate"
+                id="floatingReps"
                 onChange={[Function]}
                 type="text"
                 value=""
               />
               <label
-                htmlFor="floatingWorkoutDate"
+                htmlFor="floatingReps"
               >
                 Reps
               </label>
@@ -108,13 +108,13 @@ exports[`ExerciseForm Rendering Tests No data 1`] = `
               <input
                 aria-label="weight"
                 className="form-control"
-                id="floatingNotes"
+                id="floatingWeight"
                 onChange={[Function]}
                 type="text"
                 value=""
               />
               <label
-                htmlFor="floatingNotes"
+                htmlFor="floatingWeight"
               >
                 Weight
               </label>
@@ -235,13 +235,13 @@ exports[`ExerciseForm Rendering Tests With Data 1`] = `
               <input
                 aria-label="reps"
                 className="form-control"
-                id="floatingWorkoutDate"
+                id="floatingReps"
                 onChange={[Function]}
                 type="text"
                 value=""
               />
               <label
-                htmlFor="floatingWorkoutDate"
+                htmlFor="floatingReps"
               >
                 Reps
               </label>
@@ -256,13 +256,13 @@ exports[`ExerciseForm Rendering Tests With Data 1`] = `
               <input
                 aria-label="weight"
                 className="form-control"
-                id="floatingNotes"
+                id="floatingWeight"
                 onChange={[Function]}
                 type="text"
                 value=""
               />
               <label
-                htmlFor="floatingNotes"
+                htmlFor="floatingWeight"
               >
                 Weight
               </label>

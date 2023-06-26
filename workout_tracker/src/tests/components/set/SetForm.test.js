@@ -2,8 +2,7 @@ import TestRenderer from 'react-test-renderer';
 
 import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
-import user from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
+import userEvent from '@testing-library/user-event'
 
 import {SetForm} from '../../../components/set/SetForm';
 import { TestSet } from '../../testData';
@@ -28,72 +27,63 @@ describe("SetForm Rendering Tests", () => {
 })
 
 describe("SetForm Submissions", ()=> {
-    test("Valid Submission - Both values", ()=> {
-        let submit = jest.fn();
-        let testSet = TestSet;
+    let user;
+    let submit;
+    beforeEach(()=> {
+        user = userEvent.setup();
+        submit = jest.fn();
 
         render(<SetForm onSubmit={submit} />)
+    })
 
-        act(()=> {
-            const repInput = screen.getByRole("textbox", {name: /reps/i});
-            const weightInput = screen.getByRole("textbox", {name: /weight/i});
+    test("Valid Submission - Both values", async ()=> {
+        let testSet = TestSet;
+        const repInput = screen.getByRole("textbox", {name: /reps/i});
+        const weightInput = screen.getByRole("textbox", {name: /weight/i});
 
-            user.click(repInput);
-            user.keyboard(testSet.reps);
+        await user.click(repInput);
+        await user.keyboard(testSet.reps);
+    
+        await user.click(weightInput);
+        await user.keyboard(testSet.weight);
+    
+        const button = screen.getByRole("button");
+        await user.click(button);
         
-            user.click(weightInput);
-            user.keyboard(testSet.weight);
-        
-            const button = screen.getByRole("button");
 
-            user.click(button);
-        })
-        
         expect(submit).toHaveBeenCalled();
         expect(submit).toHaveBeenCalledWith( testSet )
     })
 
-    test("Valid Submission - Just Reps", ()=> {
-        let submit = jest.fn();
+    test("Valid Submission - Just Reps", async ()=> {
         let testSet = {
             reps: "20",
             weight: ""
         }
 
-        render(<SetForm onSubmit={submit} />)
+        const repInput = screen.getByRole("textbox", {name: /reps/i});
 
-        act(()=> {
-            const repInput = screen.getByRole("textbox", {name: /reps/i});
-
-            user.click(repInput);
-            user.keyboard(testSet.reps);
-        
-            const button = screen.getByRole("button");
-
-            user.click(button);
-        })
+        await user.click(repInput);
+        await user.keyboard(testSet.reps);
+    
+        const button = screen.getByRole("button");
+        await user.click(button);
         
         expect(submit).toHaveBeenCalled();
         expect(submit).toHaveBeenCalledWith( testSet )
     })
 
-    test("Invalid Submission - No Reps", () => {
-        let submit = jest.fn();
+    test("Invalid Submission - No Reps", async () => {
         let testSet = TestSet;
 
-        render(<SetForm onSubmit={submit} />)
-
-        act(()=> {
-            const weightInput = screen.getByRole("textbox", {name: /weight/i});
+        const weightInput = screen.getByRole("textbox", {name: /weight/i});
       
-            user.click(weightInput);
-            user.keyboard(testSet.weight);
-        
-            const button = screen.getByRole("button");
+        await user.click(weightInput);
+        await user.keyboard(testSet.weight);
 
-            user.click(button);
-        })
-        
+        const button = screen.getByRole("button");
+        await user.click(button);
+
         expect(submit).not.toHaveBeenCalled();
 
         const errorField = screen.getByText("Error: Missing Reps");
