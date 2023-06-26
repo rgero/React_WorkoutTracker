@@ -6,12 +6,10 @@ exports[`Workout List Item - Render tests Has Data, matches snapshot 1`] = `
 >
   <AccordionItem>
     <AccordionHeader>
-      2023-03-08
+      2023-03-07
     </AccordionHeader>
     <AccordionBody>
-      <Container
-        fluid={false}
-      >
+      <Container>
         <Row>
           <Col
             sm={4}
@@ -39,9 +37,7 @@ exports[`Workout List Item - Render tests Has Data, matches snapshot 1`] = `
             sm={4}
           >
             <Button
-              active={false}
               aria-label="viewWorkout"
-              disabled={false}
               onClick={[Function]}
               variant="outline-primary"
             >
@@ -52,9 +48,7 @@ exports[`Workout List Item - Render tests Has Data, matches snapshot 1`] = `
             sm={4}
           >
             <Button
-              active={false}
               aria-label="editWorkout"
-              disabled={false}
               onClick={[Function]}
               variant="outline-primary"
             >
@@ -65,9 +59,7 @@ exports[`Workout List Item - Render tests Has Data, matches snapshot 1`] = `
             sm={4}
           >
             <Button
-              active={false}
               aria-label="deleteWorkout"
-              disabled={false}
               onClick={[Function]}
               variant="outline-danger"
             >
