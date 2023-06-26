@@ -66,11 +66,9 @@ describe("Workout Form", ()=> {
     })
 
     test("Full form submission", async ()=> {
-        await user.click(workoutDate);
-        await userEvent.type(workoutDate, '02/22/2022');
-
-        await user.click(workoutNotes);
-        await user.keyboard("Today was a productive day");
+        await userEvent.clear(workoutDate)
+        await userEvent.type(workoutDate, '2022-02-22')
+        await userEvent.type(workoutNotes, "Today was a productive day");
         await user.click(workoutSubmit);
 
         let expectedResult = {
@@ -79,26 +77,22 @@ describe("Workout Form", ()=> {
             notes: "Today was a productive day",
             exerciseList: TestExercises
         }
-
-        screen.debug();
-        
+        expect(mockSubmit).toHaveBeenCalled();
         expect(mockSubmit).toHaveBeenCalledWith(expectedResult);
     })
 
     test("Min form submission", async ()=> {
-        await user.click(workoutDate);
-        await user.keyboard("02222022");
+        await userEvent.clear(workoutDate)
+        await userEvent.type(workoutDate, '2022-02-22')
 
         await user.click(workoutSubmit);
 
         let expectedResult = {
             "_id": null,
-            workoutDate: "2022-02-01",
+            workoutDate: "2022-02-22",
             notes: "",
             exerciseList: TestExercises
         }
-
-        screen.debug();
 
         expect(mockSubmit).toHaveBeenCalled();
         expect(mockSubmit).toHaveBeenCalledWith(expectedResult);
